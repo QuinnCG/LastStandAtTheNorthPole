@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 468a46d0ae32c3544b7d98094e6448a9, type: 3}
+  m_Name: AddressableAssetSettings
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetSettings
+  m_DefaultGroup: d76e62df77df7d54fa7aa503667b3993
+  m_currentHash:
+    serializedVersion: 2
+    Hash: 6481512d2fc887a9d26e4810434bbada
+  m_OptimizeCatalogSize: 0
+  m_BuildRemoteCatalog: 0
+  m_CatalogRequestsTimeout: 0
+  m_DisableCatalogUpdateOnStart: 0
+  m_InternalIdNamingMode: 0
+  m_InternalBundleIdMode: 1
+  m_AssetLoadMode: 0
+  m_BundledAssetProviderType:
+    m_AssemblyName: 
+    m_ClassName: 
+  m_AssetBundleProviderType:
+    m_AssemblyName: 
+    m_ClassName: 
+  m_IgnoreUnsupportedFilesInBuild: 0
+  m_UniqueBundleIds: 0
+  m_EnableJsonCatalog: 0
+  m_NonRecursiveBuilding: 1
+  m_AllowNestedBundleFolders: 0
+  m_CCDEnabled: 0
+  m_maxConcurrentWebRequests: 3
+  m_UseUWRForLocalBundles: 0
+  m_BundleTimeout: 0
+  m_BundleRetryCount: 0
+  m_BundleRedirectLimit: -1
+  m_SharedBundleSettings: 0
+  m_SharedBundleSettingsCustomGroupIndex: 0
+  m_ContiguousBundles: 1
+  m_StripUnityVersionFromBundleBuild: 0
+  m_DisableVisibleSubAssetRepresentations: 0
+  m_BuiltInBundleNaming: 0
+  mBuiltInBundleCustomNaming: 
+  m_MonoScriptBundleNaming: 0
+  m_CheckForContentUpdateRestrictionsOption: 0
+  m_MonoScriptBundleCustomNaming: 
+  m_RemoteCatalogBuildPath:
+    m_Id: 
+  m_RemoteCatalogLoadPath:
+    m_Id: 
+  m_ContentStateBuildPathProfileVariableName: 
+  m_CustomContentStateBuildPath: 
+  m_ContentStateBuildPath: 
+  m_BuildAddressablesWithPlayerBuild: 0
+  m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
+  m_GroupAssets:
+  - {fileID: 11400000, guid: 54903a9cff95cff4e9e6453c608389f7, type: 2}
+  m_BuildSettings:
+    m_LogResourceManagerExceptions: 1
+    m_BundleBuildPath: Temp/com.unity.addressables/AssetBundles
+  m_ProfileSettings:
+    m_Profiles:
+    - m_InheritedParent: 
+      m_Id: 49d302968a5d7c040af73ef4542c1542
+      m_ProfileName: Default
+      m_Values:
+      - m_Id: 262ef82e9aa892e4587bfc31375334fd
+        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
+      - m_Id: 6090245774dcf174a97f3d50f793a217
+        m_Value: 'ServerData/[BuildTarget]'
+      - m_Id: 7439da60e38dc774e8019e0d4e39e1ae
+        m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
+      - m_Id: d7c21eb7492d7de448119423f6fa6041
+        m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
+      - m_Id: daea0dcbe24a06948b463b1d0bd48d4c
+        m_Value: <undefined>
+    m_ProfileEntryNames:
+    - m_Id: 262ef82e9aa892e4587bfc31375334fd
+      m_Name: Local.BuildPath
+      m_InlineUsage: 0
+    - m_Id: 6090245774dcf174a97f3d50f793a217
+      m_Name: Remote.BuildPath
+      m_InlineUsage: 0
+    - m_Id: 7439da60e38dc774e8019e0d4e39e1ae
+      m_Name: BuildTarget
+      m_InlineUsage: 0
+    - m_Id: d7c21eb7492d7de448119423f6fa6041
+      m_Name: Local.LoadPath
+      m_InlineUsage: 0
+    - m_Id: daea0dcbe24a06948b463b1d0bd48d4c
+      m_Name: Remote.LoadPath
+      m_InlineUsage: 0
+    m_ProfileVersion: 1
+  m_LabelTable:
+    m_LabelNames:
+    - default
+  m_SchemaTemplates: []
+  m_GroupTemplateObjects:
+  - {fileID: 11400000, guid: 19e2f6ba45dd6c249a7c8945d6573a5c, type: 2}
+  m_InitializationObjects: []
+  m_CertificateHandlerType:
+    m_AssemblyName: 
+    m_ClassName: 
+  m_ActivePlayerDataBuilderIndex: 2
+  m_DataBuilders:
+  - {fileID: 11400000, guid: 55302c089ec46e9438022786af0fcb2a, type: 2}
+  - {fileID: 11400000, guid: 25a087447b5383f4b989ce3efb6d94ed, type: 2}
+  - {fileID: 11400000, guid: 39e3d44438af8534ba6c6a83ec4471b1, type: 2}
+  m_ActiveProfileId: 49d302968a5d7c040af73ef4542c1542
