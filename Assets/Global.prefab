@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8700017483432364617}
   - component: {fileID: 6552471285410009357}
   - component: {fileID: 1835936361605268892}
+  - component: {fileID: 6853294290113917285}
   m_Layer: 0
   m_Name: Global
   m_TagString: Untagged
@@ -170,6 +171,21 @@ MonoBehaviour:
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
   m_ScrollDeltaPerTick: 6
+--- !u!114 &6853294290113917285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2568351968977617489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af4d0aef760df344b8567861e322d6ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Quinn.MissileSystem.MissileManager
+  MissilePrefab: {fileID: 147569204342122244, guid: a8f2c53d4bb44954294f05df65caf6dc, type: 3}
+  PoolPrecache: 50
+  JobBatchSize: 2
 --- !u!1 &3456824886341250406
 GameObject:
   m_ObjectHideFlags: 0

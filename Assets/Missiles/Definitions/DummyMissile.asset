@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72743b5e6fa2f20499654dd39777e36c, type: 3}
+  m_Name: DummyMissile
+  m_EditorClassIdentifier: Assembly-CSharp::Quinn.MissileSystem.MissileData
+  Sprite: {fileID: 5715504175398191096, guid: e5d479d54ef61d54ca524e8b36f765f3, type: 3}
+  CollisionRadius: 0.5
+  TrailSpawnRate: 1
+  TrailVFX: {fileID: 6031123069931590770, guid: a2b6802b8fad000459df955603fe5ca5, type: 3}
+  TrailLifePostDetach: 3
+  DeathVFX: {fileID: 6031123069931590770, guid: 373def8c0cb2dc441a6c527a09374aef, type: 3}
+  IsFriendlyTeam: 0
+  Behavior:
+    Speed: 3
+    DoesOscillation: 0
+    OscillationAmplitude: 1
+    OscillationFrequency: 1
+    DoesHoming: 1
+    MaxHomingDistance: 10
+    HomingNearTurnRate: 5
+    HomingFarmTurnRate: 180
+    AdditionalTurnRate: 0
