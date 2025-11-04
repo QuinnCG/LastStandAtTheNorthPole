@@ -1,8 +1,10 @@
 using Quinn.MovementSystem;
+using System;
 using UnityEngine;
 
 namespace Quinn
 {
+	[RequireComponent(typeof(Animator))]
 	[RequireComponent(typeof(CharacterMovement))]
 	public class Player : MonoBehaviour
 	{
@@ -11,13 +13,17 @@ namespace Quinn
 
 		public bool IsDashing { get; private set; }
 
+		private Animator _animator;
 		private CharacterMovement _movement;
+
 		private float _dashEndTime;
 		private float _nextDashAllowedTime;
 
 		private void Awake()
 		{
+			_animator = GetComponent<Animator>();
 			_movement = GetComponent<CharacterMovement>();
+
 			SetUpBindings();
 		}
 
@@ -25,6 +31,7 @@ namespace Quinn
 		{
 			UpdateMove();
 			UpdateDash();
+			UpdateAnimation();
 		}
 
 		private void UpdateMove()
@@ -34,6 +41,18 @@ namespace Quinn
 
 			var inputDir = InputManager.Instance.MoveInputDir;
 			_movement.Move(inputDir);
+		}
+
+		private void UpdateAnimation()
+		{
+			if (IsDashing)
+			{
+				_animator.Play("Dashing");
+			}
+			else
+			{
+				_animator.Play(_movement.IsMoving ? "Moving" : "Idling");
+			}
 		}
 
 		private void UpdateDash()
