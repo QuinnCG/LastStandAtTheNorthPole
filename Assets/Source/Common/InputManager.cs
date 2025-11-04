@@ -10,9 +10,7 @@ namespace Quinn
 		public const string MoveInput = "Move";
 		public const string DashInput = "Dash";
 		public const string HealInput = "Heal";
-		public const string PrimaryCastInput = "PrimaryCast";
-		public const string SecondaryCastInput = "SecondaryCast";
-		public const string GamepadAimInput = "Aim";
+		public const string FireInput = "Fire";
 
 		public static InputManager Instance { get; private set; }
 
@@ -28,12 +26,10 @@ namespace Quinn
 		/// </summary>
 		public Vector2 MoveInputDir { get; private set; }
 
-		public event System.Action<Vector2> OnGamepadAim;
 		public event System.Action OnMoveStart, OnMoveStop;
 		public event System.Action OnDash;
 		public event System.Action OnHeal;
-		public event System.Action OnPrimaryCastStart, OnPrimaryCastStop;
-		public event System.Action OnSecondaryCastStart, OnSecondaryCastStop;
+		public event System.Action OnFireStart, OnFireStop;
 
 		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 		private static void StaticReset()
@@ -161,35 +157,17 @@ namespace Quinn
 					OnHeal?.Invoke();
 					break;
 				}
-				case PrimaryCastInput:
+				case FireInput:
 				{
 					if (context.performed)
 					{
-						OnPrimaryCastStart?.Invoke();
+						OnFireStart?.Invoke();
 					}
 					else if (context.canceled)
 					{
-						OnPrimaryCastStop?.Invoke();
+						OnFireStop?.Invoke();
 					}
 
-					break;
-				}
-				case SecondaryCastInput:
-				{
-					if (context.performed)
-					{
-						OnSecondaryCastStart?.Invoke();
-					}
-					else if (context.canceled)
-					{
-						OnSecondaryCastStop?.Invoke();
-					}
-
-					break;
-				}
-				case GamepadAimInput:
-				{
-					OnGamepadAim?.Invoke(context.action.ReadValue<Vector2>().normalized);
 					break;
 				}
 			}
