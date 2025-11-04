@@ -212,7 +212,7 @@ MonoBehaviour:
   _enableAutocomplete: 1
   _showPopupDisplay: 1
   _suggestionDisplayOrder: 1
-  _maxSuggestionDisplaySize: 22
+  _maxSuggestionDisplaySize: 32
   _useFuzzySearch: 1
   _caseSensitiveSearch: 0
   _collapseSuggestionOverloads: 1
