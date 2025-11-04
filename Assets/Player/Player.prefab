@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 97828287179417443}
   - component: {fileID: 3472399652548140284}
+  - component: {fileID: 4372092487424959372}
   - component: {fileID: 9054072876065131751}
   - component: {fileID: 6906262039628413441}
   - component: {fileID: 2631654742936653768}
   - component: {fileID: 5531591138259948478}
   - component: {fileID: 3315685873996508411}
-  - component: {fileID: 4372092487424959372}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -96,6 +96,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!95 &4372092487424959372
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023899215203131685}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 1045875501397289954, guid: 1e08265a3b025024e8b983196c244bcc, type: 3}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!70 &9054072876065131751
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -172,9 +194,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 925807db3f501234a97ca806c2326541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Quinn.Player
-  DashSpeed: 12
-  DashDistance: 3
-  DashCooldown: 0.5
+  DashSpeed: 16
+  DashDistance: 2.5
+  DashCooldown: 0.3
 --- !u!114 &5531591138259948478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,8 +209,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b314092d5ca4ead44bfacce6460442b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Quinn.MovementSystem.CharacterMovement
-  DefaultMoveSpeed: 5
-  KnockbackDecayRate: 32
+  DefaultMoveSpeed: 4
+  KnockbackDecayRate: 64
 --- !u!114 &3315685873996508411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,25 +230,3 @@ MonoBehaviour:
   ResistancesDmgFactor: 0.5
   Weaknesses: 0
   WeaknessesDmgFactor: 2
---- !u!95 &4372092487424959372
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1023899215203131685}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 1045875501397289954, guid: 1e08265a3b025024e8b983196c244bcc, type: 3}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
