@@ -1,3 +1,4 @@
+using FMODUnity;
 using Quinn.MovementSystem;
 using System;
 using UnityEngine;
@@ -10,6 +11,8 @@ namespace Quinn
 	{
 		[SerializeField]
 		private float DashSpeed = 12f, DashDistance = 3f, DashCooldown = 0.5f;
+		[SerializeField]
+		private EventReference DashSound;
 
 		public bool IsDashing { get; private set; }
 
@@ -82,6 +85,8 @@ namespace Quinn
 				IsDashing = true;
 				_dashEndTime = Time.time + (DashDistance / DashSpeed);
 				_nextDashAllowedTime = _dashEndTime + DashCooldown;
+
+				Audio.Play(DashSound, transform);
 			}
 		}
 	}

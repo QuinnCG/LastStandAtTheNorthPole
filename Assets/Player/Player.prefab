@@ -201,6 +201,13 @@ MonoBehaviour:
   DashSpeed: 16
   DashDistance: 2.5
   DashCooldown: 0.3
+  DashSound:
+    Guid:
+      Data1: 132675271
+      Data2: 1243668796
+      Data3: 709385111
+      Data4: 1405023600
+    Path: event:/Player/Dash
 --- !u!114 &5531591138259948478
 MonoBehaviour:
   m_ObjectHideFlags: 0
