@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace Quinn
 {
+	[RequireComponent(typeof(SpriteRenderer))]
 	[RequireComponent(typeof(Animator))]
 	[RequireComponent(typeof(CharacterMovement))]
 	public class Player : MonoBehaviour
@@ -16,6 +17,7 @@ namespace Quinn
 
 		public bool IsDashing { get; private set; }
 
+		private SpriteRenderer _renderer;
 		private Animator _animator;
 		private CharacterMovement _movement;
 
@@ -24,6 +26,7 @@ namespace Quinn
 
 		private void Awake()
 		{
+			_renderer = GetComponent<SpriteRenderer>();
 			_animator = GetComponent<Animator>();
 			_movement = GetComponent<CharacterMovement>();
 
@@ -35,6 +38,24 @@ namespace Quinn
 			UpdateMove();
 			UpdateDash();
 			UpdateAnimation();
+		}
+
+		private void LateUpdate()
+		{
+			if (IsDashing)
+			{
+				_movement.SetFacingDirection(_movement.LastMoveDirection.x);
+			}
+			else
+			{
+				var dir = GetAimDir();
+				_movement.SetFacingDirection(dir.x);
+			}
+		}
+
+		private Vector3 GetAimDir()
+		{
+			return _renderer.bounds.center.DirectionTo(CrosshairManager.CrosshairPos);
 		}
 
 		private void UpdateMove()
@@ -54,7 +75,17 @@ namespace Quinn
 			}
 			else
 			{
-				_animator.Play(_movement.IsMoving ? "Moving" : "Idling");
+				float moveDir = Mathf.Sign(_movement.RealVelocity.x);
+				float lookDir = Mathf.Sign(GetAimDir().x);
+
+				string moveAnim = "Moving";
+
+				if (_movement.IsMoving && moveDir != lookDir)
+				{
+					moveAnim = "MovingBack";
+				}
+
+				_animator.Play(_movement.IsMoving ? moveAnim : "Idling");
 			}
 		}
 
