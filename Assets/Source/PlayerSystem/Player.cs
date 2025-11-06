@@ -1,11 +1,11 @@
 using FMODUnity;
 using Quinn.MovementSystem;
+using Sirenix.OdinInspector;
 using System;
 using UnityEngine;
 
-namespace Quinn
+namespace Quinn.PlayerSystem
 {
-	[RequireComponent(typeof(SpriteRenderer))]
 	[RequireComponent(typeof(Animator))]
 	[RequireComponent(typeof(CharacterMovement))]
 	public class Player : MonoBehaviour
@@ -14,10 +14,11 @@ namespace Quinn
 		private float DashSpeed = 12f, DashDistance = 3f, DashCooldown = 0.5f;
 		[SerializeField]
 		private EventReference DashSound;
+		[SerializeField, Required]
+		private Transform Origin;
 
 		public bool IsDashing { get; private set; }
 
-		private SpriteRenderer _renderer;
 		private Animator _animator;
 		private CharacterMovement _movement;
 
@@ -26,7 +27,6 @@ namespace Quinn
 
 		private void Awake()
 		{
-			_renderer = GetComponent<SpriteRenderer>();
 			_animator = GetComponent<Animator>();
 			_movement = GetComponent<CharacterMovement>();
 
@@ -55,7 +55,7 @@ namespace Quinn
 
 		private Vector3 GetAimDir()
 		{
-			return _renderer.bounds.center.DirectionTo(CrosshairManager.CrosshairPos);
+			return Origin.position.DirectionTo(CrosshairManager.CrosshairPos);
 		}
 
 		private void UpdateMove()
@@ -107,6 +107,7 @@ namespace Quinn
 		private void SetUpBindings()
 		{
 			InputManager.Instance.OnDash += OnDash;
+			InputManager.Instance.OnFireStart += () => GunOrbiter.Instance.Recoil(0.3f, 1f);
 		}
 
 		private void OnDash()

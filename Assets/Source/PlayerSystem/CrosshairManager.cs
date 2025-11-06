@@ -2,7 +2,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Quinn
+namespace Quinn.PlayerSystem
 {
 	public class CrosshairManager : MonoBehaviour
 	{
