@@ -200,6 +200,7 @@ GameObject:
   - component: {fileID: 1420600550968480860}
   - component: {fileID: 3835345563179123393}
   - component: {fileID: 3852542438231994763}
+  - component: {fileID: 12515847788552982}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -482,6 +483,18 @@ MonoBehaviour:
   Handle: {fileID: 2469417757760871553}
   Distance: 0.3
   RecoveryEase: 9
+--- !u!114 &12515847788552982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023899215203131685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bda69fdcd2761924aacc99c795301c87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Quinn.PlayerSystem.GunManager
 --- !u!1 &1965215016073586726
 GameObject:
   m_ObjectHideFlags: 0

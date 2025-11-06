@@ -10,7 +10,7 @@ namespace Quinn.MissileSystem
 	[System.Serializable]
 	public record MissileSpawnData
 	{
-		[HideLabel]
+		[HideLabel, InlineEditor]
 		public MissileData Missile;
 		[HideLabel]
 		public MissileSpawnPattern Pattern;
