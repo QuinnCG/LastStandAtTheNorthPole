@@ -395,6 +395,7 @@ MonoBehaviour:
       Data4: 1405023600
     Path: event:/Player/Dash
   Origin: {fileID: 5533730925510843009}
+  FadeInTime: 1
 --- !u!114 &5531591138259948478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -495,6 +496,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bda69fdcd2761924aacc99c795301c87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Quinn.PlayerSystem.GunManager
+  GunSprite: {fileID: 0}
+  MuzzleTransform: {fileID: 0}
 --- !u!1 &1965215016073586726
 GameObject:
   m_ObjectHideFlags: 0

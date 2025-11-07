@@ -86,8 +86,12 @@
 		</relationship>
 	</object>
 	<object class="MultiSound" id="{f7206a8c-6d02-4713-ac48-b6bee182d1f6}">
+		<property name="playbackMode">
+			<value>1</value>
+		</property>
 		<relationship name="sounds">
 			<destination>{f0f536fa-2db9-47fa-950f-7a00b24e5e7b}</destination>
+			<destination>{eae58ecc-1e52-47cd-8de8-4c0b5c958bce}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{8e29eaa4-55ac-489e-a34b-0d3f8c044679}">
@@ -116,6 +120,19 @@
 			<destination>{03fb4c8c-ba09-49f6-b8ea-b0cce09929ea}</destination>
 			<destination>{c1274ff5-0bee-41ab-8614-14b18376b598}</destination>
 			<destination>{9959f1f7-e361-49e8-bddb-6bdae23f63fa}</destination>
+		</relationship>
+	</object>
+	<object class="MultiSound" id="{eae58ecc-1e52-47cd-8de8-4c0b5c958bce}">
+		<property name="volume">
+			<value>-3</value>
+		</property>
+		<relationship name="modulators">
+			<destination>{a40c5209-c162-451d-be91-5a8581555b9b}</destination>
+			<destination>{c4691cd3-ab17-44ec-8357-09a87e6f573c}</destination>
+		</relationship>
+		<relationship name="sounds">
+			<destination>{0504335d-0723-44d7-bd1d-54ff5812425a}</destination>
+			<destination>{e45a9b29-b4b0-4510-b73e-1d7118c59377}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{5557a27b-9747-4861-b840-b30af7ed094f}" />
@@ -170,6 +187,32 @@
 	<object class="SingleSound" id="{9959f1f7-e361-49e8-bddb-6bdae23f63fa}">
 		<relationship name="audioFile">
 			<destination>{6d0c8928-850e-4c2e-8673-724982adc276}</destination>
+		</relationship>
+	</object>
+	<object class="RandomizerModulator" id="{a40c5209-c162-451d-be91-5a8581555b9b}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>pitch</value>
+		</property>
+		<property name="amount">
+			<value>2</value>
+		</property>
+	</object>
+	<object class="RandomizerModulator" id="{c4691cd3-ab17-44ec-8357-09a87e6f573c}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>volume</value>
+		</property>
+		<property name="amount">
+			<value>4.79999971</value>
+		</property>
+	</object>
+	<object class="SingleSound" id="{0504335d-0723-44d7-bd1d-54ff5812425a}">
+		<relationship name="audioFile">
+			<destination>{1a52fd67-220f-438b-80f3-835774e6d2a5}</destination>
+		</relationship>
+	</object>
+	<object class="SingleSound" id="{e45a9b29-b4b0-4510-b73e-1d7118c59377}">
+		<relationship name="audioFile">
+			<destination>{676f4a71-b27d-497a-a1e0-8a33023bc24d}</destination>
 		</relationship>
 	</object>
 </objects>

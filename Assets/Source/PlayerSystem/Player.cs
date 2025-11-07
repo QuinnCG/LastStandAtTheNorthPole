@@ -16,6 +16,8 @@ namespace Quinn.PlayerSystem
 		private EventReference DashSound;
 		[SerializeField, Required]
 		private Transform Origin;
+		[SerializeField]
+		private float FadeInTime = 1f;
 
 		public bool IsDashing { get; private set; }
 
@@ -31,6 +33,11 @@ namespace Quinn.PlayerSystem
 			_movement = GetComponent<CharacterMovement>();
 
 			SetUpBindings();
+		}
+
+		private async void Start()
+		{
+			await TransitionManager.Instance.FadeFromBlackAsync(FadeInTime);
 		}
 
 		private void Update()

@@ -57,11 +57,6 @@ namespace Quinn.PlayerSystem
 			}
 		}
 
-		private Vector2 GetMuzzlePoint()
-		{
-			
-		}
-
 		private void Recoil(float offset, float recoveryTime)
 		{
 			GunOrbiter.Instance.Recoil(offset, recoveryTime);
