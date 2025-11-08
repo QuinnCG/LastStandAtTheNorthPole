@@ -12,15 +12,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72743b5e6fa2f20499654dd39777e36c, type: 3}
   m_Name: DummyMissile
   m_EditorClassIdentifier: Assembly-CSharp::Quinn.MissileSystem.MissileData
-  Sprite: {fileID: 5715504175398191096, guid: e5d479d54ef61d54ca524e8b36f765f3, type: 3}
-  CollisionRadius: 0.5
-  TrailSpawnRate: 1
+  Sprite: {fileID: -3081494980050754980, guid: e5d479d54ef61d54ca524e8b36f765f3, type: 3}
+  CollisionRadius: 0.2
+  TrailSpawnRate: 0
+  HasLight: 1
+  LightRadius: 2
+  LightIntensity: 0.1
+  LightColor: {r: 1, g: 0, b: 0, a: 1}
   TrailVFX: {fileID: 6031123069931590770, guid: a2b6802b8fad000459df955603fe5ca5, type: 3}
   TrailLifePostDetach: 3
   DeathVFX: {fileID: 6031123069931590770, guid: 373def8c0cb2dc441a6c527a09374aef, type: 3}
-  IsFriendlyTeam: 0
+  DeathSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  Team: 0
+  Damage: 10
+  Knockback: 6
+  Element: 0
+  DestoryOnCharacterHit: 1
+  DestoryOnObstacleHit: 1
   Behavior:
-    Speed: 3
+    Speed: 7
     DoesOscillation: 0
     OscillationAmplitude: 1
     OscillationFrequency: 1

@@ -1,7 +1,7 @@
-using Mono.Cecil.Cil;
 using Quinn.DamageSystem;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.VFX;
 
 namespace Quinn.MissileSystem
 {
@@ -41,6 +41,9 @@ namespace Quinn.MissileSystem
 			if (Data.TrailVFX != null)
 			{
 				_trail = Data.TrailVFX.Clone(transform).transform;
+
+				var vfx = _trail.GetComponent<VisualEffect>();
+				vfx.SetFloat("SpawnRate", data.TrailSpawnRate);
 			}
 
 			string charLayer = (Data.Team is Team.Friendly) ? Layers.HostileCharacterName : Layers.FriendlyCharacterName;

@@ -6,8 +6,11 @@ namespace Quinn.PlayerSystem
 {
 	public class CrosshairManager : MonoBehaviour
 	{
-		public static Vector2 CrosshairPos { get; private set; }
+		public static Vector2 Position { get; private set; }
+		public static Vector2 Direction { get; private set; }
 
+		[SerializeField, Required]
+		private Transform Origin;
 		[SerializeField, Required]
 		private Transform Crosshair;
 
@@ -30,7 +33,9 @@ namespace Quinn.PlayerSystem
 			mouseWorldPos.z = 0f;
 
 			Crosshair.position = mouseWorldPos;
-			CrosshairPos = mouseWorldPos;
+			Position = mouseWorldPos;
+
+			Direction = Origin.position.DirectionTo(Position);
 		}
 	}
 }

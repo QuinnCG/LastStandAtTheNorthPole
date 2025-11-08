@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{adfad770-58b4-4c73-804f-76d03815da54}">
+		<property name="assetPath">
+			<value>Guns/Fire/gma_gun_rifle_sniper_shot_02_528.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.0640000000000001</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{f476919a-fa81-452b-b350-359ad53a32fa}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -38,7 +38,7 @@ namespace Quinn.PlayerSystem
 		private void LateUpdate()
 		{
 			Vector2 origin = Origin.position;
-			var target = CrosshairManager.CrosshairPos;
+			var target = CrosshairManager.Position;
 			Vector2 dir = origin.DirectionTo(target);
 
 			Vector2 pos = origin + (dir * _dst);

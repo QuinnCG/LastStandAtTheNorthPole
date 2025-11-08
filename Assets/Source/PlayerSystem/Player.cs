@@ -8,6 +8,7 @@ namespace Quinn.PlayerSystem
 {
 	[RequireComponent(typeof(Animator))]
 	[RequireComponent(typeof(CharacterMovement))]
+	[RequireComponent(typeof(GunManager))]
 	public class Player : MonoBehaviour
 	{
 		[SerializeField]
@@ -23,6 +24,7 @@ namespace Quinn.PlayerSystem
 
 		private Animator _animator;
 		private CharacterMovement _movement;
+		private GunManager _gunManager;
 
 		private float _dashEndTime;
 		private float _nextDashAllowedTime;
@@ -31,6 +33,7 @@ namespace Quinn.PlayerSystem
 		{
 			_animator = GetComponent<Animator>();
 			_movement = GetComponent<CharacterMovement>();
+			_gunManager = GetComponent<GunManager>();
 
 			SetUpBindings();
 		}
@@ -62,7 +65,7 @@ namespace Quinn.PlayerSystem
 
 		private Vector3 GetAimDir()
 		{
-			return Origin.position.DirectionTo(CrosshairManager.CrosshairPos);
+			return Origin.position.DirectionTo(CrosshairManager.Position);
 		}
 
 		private void UpdateMove()
@@ -114,7 +117,9 @@ namespace Quinn.PlayerSystem
 		private void SetUpBindings()
 		{
 			InputManager.Instance.OnDash += OnDash;
-			InputManager.Instance.OnFireStart += () => GunOrbiter.Instance.Recoil(0.3f, 1f);
+
+			InputManager.Instance.OnFireStart += () => _gunManager.StartFiring();
+			InputManager.Instance.OnFireStop += () => _gunManager.StopFiring();
 		}
 
 		private void OnDash()
@@ -126,6 +131,8 @@ namespace Quinn.PlayerSystem
 				_nextDashAllowedTime = _dashEndTime + DashCooldown;
 
 				Audio.Play(DashSound, transform);
+
+				_gunManager.ReplenishMagazine();
 			}
 		}
 	}
