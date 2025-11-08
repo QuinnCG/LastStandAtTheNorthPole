@@ -1,7 +1,8 @@
 using FMODUnity;
+using QFSW.QC;
+using Quinn.DamageSystem;
 using Quinn.MovementSystem;
 using Sirenix.OdinInspector;
-using System;
 using UnityEngine;
 
 namespace Quinn.PlayerSystem
@@ -11,6 +12,8 @@ namespace Quinn.PlayerSystem
 	[RequireComponent(typeof(GunManager))]
 	public class Player : MonoBehaviour
 	{
+		public static Player Instance { get; private set; }
+
 		[SerializeField]
 		private float DashSpeed = 12f, DashDistance = 3f, DashCooldown = 0.5f;
 		[SerializeField]
@@ -31,6 +34,8 @@ namespace Quinn.PlayerSystem
 
 		private void Awake()
 		{
+			Instance = this;
+
 			_animator = GetComponent<Animator>();
 			_movement = GetComponent<CharacterMovement>();
 			_gunManager = GetComponent<GunManager>();
@@ -133,7 +138,40 @@ namespace Quinn.PlayerSystem
 				Audio.Play(DashSound, transform);
 
 				_gunManager.ReplenishMagazine();
+				_gunManager.StopFiring();
 			}
+		}
+
+		[Command("hurt")]
+		protected void Hurt_Cmd(float dmg = 1f)
+		{
+			float angle = Random.Range(0f, Mathf.PI * 2f);
+
+			GetComponent<Health>().TryTakeDamage(new()
+			{
+				Damage = dmg,
+				Direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)),
+				Knockback = Random.Range(5f, 18f),
+				Team = Team.Environment
+			});
+		}
+
+		[Command("kill")]
+		protected void Kill_Cmd()
+		{
+			GetComponent<Health>().Kill(true);
+		}
+
+		[Command("heal")]
+		protected void Heal_Cmd(float health = 1f)
+		{
+			GetComponent<Health>().Heal(health);
+		}
+
+		[Command("fullheal")]
+		protected void FullHeal_Cmd(float health = 1f)
+		{
+			GetComponent<Health>().FullHeal();
 		}
 	}
 }

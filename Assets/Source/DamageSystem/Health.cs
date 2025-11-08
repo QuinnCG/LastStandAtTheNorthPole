@@ -1,3 +1,4 @@
+using FMODUnity;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -12,11 +13,16 @@ namespace Quinn.DamageSystem
 
 		[Space, SerializeField, Unit(Units.Second)]
 		private float PostHurtImmunity;
+		[SerializeField]
+		private bool AllowHalfHeart;
+		[SerializeField]
+		private EventReference HurtSound, DeathSound;
 
 		public float Current { get; private set; }
 		public float Max { get; private set; }
 		public float Missing => Mathf.Clamp(Max - Current, 0f, Max);
 		public float Normalized => Current / Max;
+		public bool IsHalfHeart { get; private set; }
 
 		public bool IsAlive => !IsDead;
 		public bool IsDead { get; private set; }
@@ -56,16 +62,27 @@ namespace Quinn.DamageSystem
 			var dmgInstance = new DamageInstance()
 			{
 				Info = info,
-				FinalDamage = info.Damage
+				FinalDamage = info.Damage,
+				RealDamage = Mathf.Min(info.Damage, Current)
 			};
 
 			Current = Mathf.Max(0f, Current - dmgInstance.FinalDamage);
 
+			if (!force && AllowHalfHeart && !IsHalfHeart && Current < 0.5f)
+			{
+				IsHalfHeart = true;
+				Current = 0.5f;
+			}
+
 			dmgInstance.WasLethal = Current == 0f;
 			OnDamage?.Invoke(dmgInstance);
 
+			Audio.Play(HurtSound, transform.position);
+
 			if (Current == 0f)
 			{
+				Audio.Play(DeathSound, transform.position);
+
 				IsDead = true;
 				OnDeath?.Invoke(dmgInstance);
 			}
@@ -73,17 +90,18 @@ namespace Quinn.DamageSystem
 			return true;
 		}
 
-		public void Kill()
+		public void Kill(bool force = false)
 		{
 			TryTakeDamage(new()
 			{
 				Damage = Max,
 				Team = (Team == Team.Friendly) ? Team.Hostile : Team.Environment
-			}, force: true);
+			}, force: force);
 		}
 
 		public void Heal(float health)
 		{
+			IsHalfHeart = false;
 			Current = Mathf.Min(Max, Current + health);
 			OnHeal?.Invoke(health);
 		}

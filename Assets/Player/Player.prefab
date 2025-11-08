@@ -334,9 +334,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40cb525cd491d244194548c6d074b044, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Quinn.DamageSystem.Health
-  Default: 50
+  Default: 5
   <Team>k__BackingField: 0
-  PostHurtImmunity: 0
+  PostHurtImmunity: 3
+  AllowHalfHeart: 1
+  HurtSound:
+    Guid:
+      Data1: 500878467
+      Data2: 1264559357
+      Data3: 199541660
+      Data4: 1387665084
+    Path: event:/Player/Hurt
+  DeathSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!114 &-4259345970049430109
 MonoBehaviour:
   m_ObjectHideFlags: 0

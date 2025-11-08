@@ -2,7 +2,6 @@ using DG.Tweening;
 using Quinn.MissileSystem;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace Quinn.PlayerSystem
 {
@@ -89,7 +88,7 @@ namespace Quinn.PlayerSystem
 
 		public void StartFiring()
 		{
-			if (!IsFiring)
+			if (!IsFiring && !Player.Instance.IsDashing)
 			{
 				IsFiring = true;
 				Fire();

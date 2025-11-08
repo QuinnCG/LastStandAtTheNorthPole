@@ -4,6 +4,6 @@ namespace Quinn.DamageSystem
 	{
 		public bool CanDamage(DamageInfo info);
 		public bool TryTakeDamage(DamageInfo info, bool force = false);
-		public void Kill();
+		public void Kill(bool force = false);
 	}
 }
