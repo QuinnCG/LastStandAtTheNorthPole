@@ -13,16 +13,6 @@ namespace Quinn.DamageSystem
 		[Space, SerializeField, Unit(Units.Second)]
 		private float PostHurtImmunity;
 
-		[SerializeField, BoxGroup("Elemental Stats")]
-		private Element Resistances;
-		[SerializeField, BoxGroup("Elemental Stats")]
-		private float ResistancesDmgFactor = 0.5f;
-
-		[Space, SerializeField, BoxGroup("Elemental Stats")]
-		private Element Weaknesses;
-		[SerializeField, BoxGroup("Elemental Stats")]
-		private float WeaknessesDmgFactor = 2f;
-
 		public float Current { get; private set; }
 		public float Max { get; private set; }
 		public float Missing => Mathf.Clamp(Max - Current, 0f, Max);
@@ -69,18 +59,6 @@ namespace Quinn.DamageSystem
 				FinalDamage = info.Damage
 			};
 
-			if (IsResistantTo(info.Element))
-			{
-				dmgInstance.FinalDamage *= ResistancesDmgFactor;
-				dmgInstance.WasResisted = true;
-			}
-
-			if (IsWeakTo(info.Element))
-			{
-				dmgInstance.FinalDamage *= WeaknessesDmgFactor;
-				dmgInstance.WasWeak = true;
-			}
-
 			Current = Mathf.Max(0f, Current - dmgInstance.FinalDamage);
 
 			dmgInstance.WasLethal = Current == 0f;
@@ -113,16 +91,6 @@ namespace Quinn.DamageSystem
 		public void FullHeal()
 		{
 			Heal(Max);
-		}
-
-		public bool IsResistantTo(Element element)
-		{
-			return (Resistances & element) != 0;
-		}
-
-		public bool IsWeakTo(Element element)
-		{
-			return (Weaknesses & element) != 0;
 		}
 	}
 }

@@ -37,7 +37,7 @@ namespace Quinn.MissileSystem
 		public Team Team;
 		public float Damage = 10f;
 		public float Knockback = 6f;
-		public Element Element = Element.None;
+		public StatusEffectInstance[] StatusEffects;
 
 		[Space]
 

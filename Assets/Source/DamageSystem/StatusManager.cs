@@ -1,4 +1,6 @@
+using QFSW.QC;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 namespace Quinn.DamageSystem
@@ -6,55 +8,130 @@ namespace Quinn.DamageSystem
 	[RequireComponent(typeof(Health))]
 	public class StatusManager : MonoBehaviour
 	{
-		[SerializeField]
-		private ElementData[] ElementData;
-
-		private readonly Dictionary<Element, ElementData> _data = new();
+		/// <summary>
+		/// The number of unique status effects currently applied.
+		/// </summary>
+		public int StatusCount => _statusEffectEndTimes.Count;
+		private readonly Dictionary<StatusEffect, float> _statusEffectEndTimes = new();
 
 		private void Awake()
 		{
 			var health = GetComponent<Health>();
 			health.OnDamage += OnDamaged;
+		}
 
-			foreach (var data in ElementData)
+		private void FixedUpdate()
+		{
+			var toRemove = new HashSet<StatusEffect>();
+
+			foreach (var entry in _statusEffectEndTimes)
 			{
-				_data.Add(data.Element, data);
+				if (Time.time > entry.Value)
+				{
+					toRemove.Add(entry.Key);
+				}
+			}
+
+			foreach (var status in toRemove)
+			{
+				_statusEffectEndTimes.Remove(status);
+			}
+		}
+
+		public bool HasStatus(StatusEffect status)
+		{
+			return _statusEffectEndTimes.ContainsKey(status);
+		}
+
+		public float GetStatusDuration(StatusEffect status)
+		{
+			if (HasStatus(status))
+			{
+				return Mathf.Max(0f, _statusEffectEndTimes[status] - Time.time);
+			}
+
+			return 0f;
+		}
+
+		public bool TryGetStatus(StatusEffect status, out float duration)
+		{
+			if (HasStatus(status))
+			{
+				duration = _statusEffectEndTimes[status];
+				return true;
+			}
+
+			duration = 0f;
+			return false;
+		}
+
+		public void ApplyStatus(StatusEffect status, float duration)
+		{
+			if (_statusEffectEndTimes.ContainsKey(status))
+			{
+				_statusEffectEndTimes[status] += duration;
+			}
+			else
+			{
+				_statusEffectEndTimes.Add(status, duration);
+			}
+		}
+
+		public bool RemoveStatus(StatusEffect status)
+		{
+			return _statusEffectEndTimes.Remove(status);
+		}
+
+		public void SetStatusDuration(StatusEffect status, float duration)
+		{
+			if (!HasStatus(status))
+			{
+				ApplyStatus(status, duration);
+			}
+			else
+			{
+				_statusEffectEndTimes[status] = duration;
 			}
 		}
 
 		private void OnDamaged(DamageInstance instance)
 		{
-			var elements = GetIndividualElements(instance.Info.Element);
-
-			foreach (var element in elements)
+			foreach (var statusTimePair in instance.Info.StatusEffects)
 			{
-				if (_data.TryGetValue(element, out var data))
-				{
-					data.VFX.Play();
-				}
+				ApplyStatus(statusTimePair.Status, statusTimePair.Duration);
 			}
 		}
 
-		private IEnumerable<Element> GetIndividualElements(Element flags)
+		[Command("status.list")]
+		protected void ListStatuses_Cmd()
 		{
-			var set = new HashSet<Element>();
-			
-			foreach (var element in System.Enum.GetValues(typeof(Element)))
-			{
-				var e = (Element)element;
+			var builder = new StringBuilder();
 
-				if (HasElements(flags, e))
+			if (_statusEffectEndTimes.Count == 0)
+			{
+				builder.AppendLine("  - No status effects on player.");
+			}
+			else
+			{
+				foreach (var entry in _statusEffectEndTimes)
 				{
-					set.Add(e);
+					builder.AppendLine($"  - {entry.Key}: {entry.Value}s");
 				}
 			}
 
-			return set;
+			Log.Notice(builder.ToString());
 		}
 
-		private bool HasElements(Element flags, Element mask)
+		[Command("status.apply")]
+		protected void ApplyStatus_Cmd(StatusEffect status, float duration = 5f)
 		{
-			return (flags & mask) != 0;
+			ApplyStatus(status, duration);
+		}
+
+		[Command("status.remove")]
+		protected void RemoveStatus_Cmd(StatusEffect status)
+		{
+			RemoveStatus(status);
 		}
 	}
 }

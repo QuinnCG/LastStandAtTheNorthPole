@@ -79,7 +79,7 @@ namespace Quinn.MissileSystem
 					{
 						Damage = Data.Damage,
 						Knockback = Data.Knockback,
-						Element = Data.Element,
+						StatusEffects = Data.StatusEffects,
 						Direction = deltaPos.normalized,
 						Team = Data.Team
 					};

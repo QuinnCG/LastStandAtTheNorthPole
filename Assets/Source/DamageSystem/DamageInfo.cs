@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 namespace Quinn.DamageSystem
@@ -12,6 +11,6 @@ namespace Quinn.DamageSystem
 		public Team Team = Team.Environment;
 		public Vector2 Direction;
 		public float Knockback;
-		public Element Element = Element.None;
+		public StatusEffectInstance[] StatusEffects = System.Array.Empty<StatusEffectInstance>();
 	}
 }

@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 3835345563179123393}
   - component: {fileID: 3852542438231994763}
   - component: {fileID: 12515847788552982}
+  - component: {fileID: -2240122771808080094}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -336,10 +337,6 @@ MonoBehaviour:
   Default: 50
   <Team>k__BackingField: 0
   PostHurtImmunity: 0
-  Resistances: 0
-  ResistancesDmgFactor: 0.5
-  Weaknesses: 0
-  WeaknessesDmgFactor: 2
 --- !u!114 &-4259345970049430109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,6 +409,18 @@ MonoBehaviour:
   MuzzleFlashEase: 3
   GunHandle: {fileID: 2469417757760871553}
   TestingGun: {fileID: 1142618887974905389, guid: 3e09564a14c054b4591f6e2bb62c3c12, type: 3}
+--- !u!114 &-2240122771808080094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023899215203131685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a8bad3c92c447e4c8cc3f4f04f8543d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Quinn.DamageSystem.StatusManager
 --- !u!1 &1965215016073586726
 GameObject:
   m_ObjectHideFlags: 0
