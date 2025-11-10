@@ -138,7 +138,6 @@ namespace Quinn.PlayerSystem
 				Audio.Play(DashSound, transform);
 
 				_gunManager.ReplenishMagazine();
-				_gunManager.StopFiring();
 			}
 		}
 
@@ -169,7 +168,7 @@ namespace Quinn.PlayerSystem
 		}
 
 		[Command("fullheal")]
-		protected void FullHeal_Cmd(float health = 1f)
+		protected void FullHeal_Cmd()
 		{
 			GetComponent<Health>().FullHeal();
 		}

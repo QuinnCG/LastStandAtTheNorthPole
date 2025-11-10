@@ -10,6 +10,8 @@ namespace Quinn.MissileSystem
 	{
 		[SerializeField]
 		private Light2D Light;
+		[SerializeField]
+		private float DistanceTillDeath = 20f;
 
 		public LayerMask CompositeMask { get; private set; }
 		public LayerMask CharacterMask { get; private set; }
@@ -22,6 +24,8 @@ namespace Quinn.MissileSystem
 		private Vector2 _lastPhysicsPos;
 		private Transform _trail;
 
+		private Vector2 _startPos;
+
 		private void OnDestroy()
 		{
 			OnDeath?.Invoke();
@@ -29,6 +33,8 @@ namespace Quinn.MissileSystem
 
 		public void Init(Vector2 dir, MissileData data)
 		{
+			_startPos = transform.position;
+
 			Data = data;
 			Direction = dir.normalized;
 
@@ -71,7 +77,7 @@ namespace Quinn.MissileSystem
 			if (hit.collider != null)
 			{
 				int colliderMask = LayerMask.GetMask(LayerMask.LayerToName(hit.collider.gameObject.layer));
-				bool destroy = false;
+				bool doDestroy = false;
 
 				if (Data.DestoryOnCharacterHit && (colliderMask & CharacterMask) > 0)
 				{
@@ -86,19 +92,25 @@ namespace Quinn.MissileSystem
 
 					if (hit.collider.TryGetComponent(out IDamageable dmg) && dmg.TryTakeDamage(dmgInfo))
 					{
-						destroy = true;
+						doDestroy = true;
 					}
 				}
 
 				if (Data.DestoryOnObstacleHit && (colliderMask & Layers.ObstacleMask) > 0)
 				{
-					destroy = true;
+					doDestroy = true;
 				}
 
-				if (destroy)
+				if (doDestroy)
 				{
 					Kill();
+					return;
 				}
+			}
+
+			if (transform.position.DistanceTo(_startPos) > DistanceTillDeath)
+			{
+				Kill();
 			}
 		}
 

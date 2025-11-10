@@ -115,6 +115,7 @@ MonoBehaviour:
   FireInterval: 0.5
   AmmoUI: {fileID: 0}
   MagazineSize: 20
+  ConsumePerShot: 1
   ReloadTime: 2
   Muzzle: {fileID: 1010215278848745057}
   MuzzleLight: {fileID: 5204276468303724589}
@@ -136,14 +137,7 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
-  ReloadStartSound:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  ReloadFinishSound:
+  ReloadSound:
     Guid:
       Data1: 0
       Data2: 0

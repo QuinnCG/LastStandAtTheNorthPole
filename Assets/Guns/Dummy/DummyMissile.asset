@@ -21,7 +21,7 @@ MonoBehaviour:
   LightColor: {r: 1, g: 0, b: 0, a: 1}
   TrailVFX: {fileID: 6031123069931590770, guid: a2b6802b8fad000459df955603fe5ca5, type: 3}
   TrailLifePostDetach: 3
-  DeathVFX: {fileID: 6031123069931590770, guid: 373def8c0cb2dc441a6c527a09374aef, type: 3}
+  DeathVFX: {fileID: 5544924759339998949, guid: 3f15ad73d02126a48bb650b3fde04408, type: 3}
   DeathSound:
     Guid:
       Data1: 0
@@ -32,7 +32,7 @@ MonoBehaviour:
   Team: 0
   Damage: 10
   Knockback: 6
-  Element: 0
+  StatusEffects: []
   DestoryOnCharacterHit: 1
   DestoryOnObstacleHit: 1
   Behavior:

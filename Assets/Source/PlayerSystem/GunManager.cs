@@ -44,7 +44,7 @@ namespace Quinn.PlayerSystem
 			{
 				if (Time.time > _nextFireTime)
 				{
-					Fire();
+					TryFire();
 
 					if (!Equipped.IsContinuousFire)
 					{
@@ -88,10 +88,10 @@ namespace Quinn.PlayerSystem
 
 		public void StartFiring()
 		{
-			if (!IsFiring && !Player.Instance.IsDashing)
+			if (!IsFiring)
 			{
 				IsFiring = true;
-				Fire();
+				TryFire();
 			}
 		}
 
@@ -103,8 +103,11 @@ namespace Quinn.PlayerSystem
 			}
 		}
 
-		private void Fire()
+		private bool TryFire()
 		{
+			if (Player.Instance.IsDashing)
+				return false;
+
 			_nextFireTime = Time.time + Equipped.FireInterval;
 
 			var origin = GetMissileSpawnPoint();
@@ -126,6 +129,8 @@ namespace Quinn.PlayerSystem
 			{
 				Audio.Play(Equipped.DryFireSound, Equipped.Muzzle.transform.position);
 			}
+
+			return true;
 		}
 
 		private Vector2 GetMissileSpawnPoint()
