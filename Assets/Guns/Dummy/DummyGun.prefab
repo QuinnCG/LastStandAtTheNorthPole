@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -920180030026477806, guid: 41d9a782396302d459c2c88e8a6de2fc, type: 3}
+      propertyPath: AmmoUI
+      value: 
+      objectReference: {fileID: -6648949594218417625, guid: ed582cd4129a58d44980288ae33e8d20, type: 3}
+    - target: {fileID: -920180030026477806, guid: 41d9a782396302d459c2c88e8a6de2fc, type: 3}
       propertyPath: FireInterval
       value: 0.25
       objectReference: {fileID: 0}
@@ -96,14 +100,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DummyGun
       objectReference: {fileID: 0}
-    - target: {fileID: 1010215278848745057, guid: 41d9a782396302d459c2c88e8a6de2fc, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.282
-      objectReference: {fileID: 0}
-    - target: {fileID: 1010215278848745057, guid: 41d9a782396302d459c2c88e8a6de2fc, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.048
-      objectReference: {fileID: 0}
     - target: {fileID: 2343469975894015812, guid: 41d9a782396302d459c2c88e8a6de2fc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -146,16 +142,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8394154153505737492, guid: 41d9a782396302d459c2c88e8a6de2fc, type: 3}
       propertyPath: m_Size.x
-      value: 0.5
+      value: 0.4375
       objectReference: {fileID: 0}
     - target: {fileID: 8394154153505737492, guid: 41d9a782396302d459c2c88e8a6de2fc, type: 3}
       propertyPath: m_Size.y
-      value: 0.5
+      value: 0.25
       objectReference: {fileID: 0}
-    - target: {fileID: 8394154153505737492, guid: 41d9a782396302d459c2c88e8a6de2fc, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: cec030a110168994db13cd116170aac1, type: 3}
     - target: {fileID: 8394154153505737492, guid: 41d9a782396302d459c2c88e8a6de2fc, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1

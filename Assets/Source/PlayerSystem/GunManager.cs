@@ -7,6 +7,8 @@ namespace Quinn.PlayerSystem
 {
 	public class GunManager : MonoBehaviour
 	{
+		public static GunManager Instance { get; private set; }
+
 		[SerializeField]
 		private float MuzzleFlashFadeTime = 0.1f;
 		[SerializeField]
@@ -30,6 +32,8 @@ namespace Quinn.PlayerSystem
 
 		private void Awake()
 		{
+			Instance = this;
+
 #if UNITY_EDITOR
 			if (TestingGun != null)
 			{
