@@ -30,8 +30,8 @@ MonoBehaviour:
       Data4: 0
     Path: 
   Team: 0
-  Damage: 10
-  Knockback: 6
+  Damage: 3
+  Knockback: 1
   StatusEffects: []
   DestoryOnCharacterHit: 1
   DestoryOnObstacleHit: 1
@@ -40,7 +40,7 @@ MonoBehaviour:
     DoesOscillation: 0
     OscillationAmplitude: 1
     OscillationFrequency: 1
-    DoesHoming: 1
+    DoesHoming: 0
     MaxHomingDistance: 10
     HomingNearTurnRate: 5
     HomingFarmTurnRate: 180

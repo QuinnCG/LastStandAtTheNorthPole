@@ -1,4 +1,5 @@
 using Quinn.DamageSystem;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.VFX;
@@ -10,7 +11,7 @@ namespace Quinn.MissileSystem
 	{
 		[SerializeField]
 		private Light2D Light;
-		[SerializeField]
+		[SerializeField, Unit(Units.Meter)]
 		private float DistanceTillDeath = 20f;
 
 		public LayerMask CompositeMask { get; private set; }
@@ -21,10 +22,9 @@ namespace Quinn.MissileSystem
 
 		public event System.Action OnDeath;
 
+		private Vector2 _startPos;
 		private Vector2 _lastPhysicsPos;
 		private Transform _trail;
-
-		private Vector2 _startPos;
 
 		private void OnDestroy()
 		{

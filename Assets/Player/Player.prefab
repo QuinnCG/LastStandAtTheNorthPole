@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7801335514026400481}
   - component: {fileID: 7610672350958956989}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Crosshair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 12515847788552982}
   - component: {fileID: -2240122771808080094}
   - component: {fileID: 1054931321947057699}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -460,7 +460,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2469417757760871553}
   - component: {fileID: 7395115982738702463}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GunHandle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -504,7 +504,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9070656932582917573}
   - component: {fileID: 1020942878725070031}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Light (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -589,7 +589,7 @@ GameObject:
   - component: {fileID: 3804253382982960674}
   - component: {fileID: 5549424889692493223}
   - component: {fileID: 2858624416643897631}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FootstepVFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -711,7 +711,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7122815222926761089}
   - component: {fileID: 1650105576715857435}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -795,7 +795,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5533730925510843009}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerCenter
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
@@ -827,7 +827,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1175534567620988422}
   - component: {fileID: 6150239793388520556}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -917,7 +917,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4391392141144612983}
   - component: {fileID: 7866700337590341330}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1002,7 +1002,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6960749497669834169}
   - component: {fileID: 8825763127507662464}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Light (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

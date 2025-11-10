@@ -155,6 +155,10 @@ PrefabInstance:
       propertyPath: managedReferences[7086341676440486203].GUID.m_Value1
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4920405441915362278, guid: 9aa83a62752928142a2bc80dd0a710ac, type: 3}
+      propertyPath: DefaultMoveSpeed
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6635639165146414014, guid: 9aa83a62752928142a2bc80dd0a710ac, type: 3}
       propertyPath: Default
       value: 25
