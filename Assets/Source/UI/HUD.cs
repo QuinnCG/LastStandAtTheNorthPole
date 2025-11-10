@@ -3,6 +3,7 @@ using FMODUnity;
 using Quinn.DamageSystem;
 using Quinn.PlayerSystem;
 using Sirenix.OdinInspector;
+using System.Collections;
 using System.Text;
 using System.Threading;
 using TMPro;
@@ -34,6 +35,13 @@ namespace Quinn.UI
 		[SerializeField]
 		private EventReference WriteSound;
 
+		[Space]
+
+		[SerializeField]
+		private string StartDialogue = "Somewhere in the North Pole...";
+		[SerializeField]
+		private float StartDialogueDuration = 5f;
+
 		public static HUD Instance { get; private set; }
 
 		public float Alpha => Group.alpha;
@@ -53,9 +61,13 @@ namespace Quinn.UI
 			_defaultScale = LowHPVignette.transform.localScale.y;
 		}
 
-		private void Start()
+		private IEnumerator Start()
 		{
 			_playerHealth = Player.Instance.GetComponent<Health>();
+
+			WriteDialogue(StartDialogue);
+			yield return new WaitForSeconds(StartDialogueDuration);
+			HideDialogue();
 		}
 
 		public void Update()
