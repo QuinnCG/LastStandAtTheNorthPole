@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7899127782005721281}
   - component: {fileID: 7474986039797753222}
-  - component: {fileID: 6284080332531108435}
   - component: {fileID: 4675956465329612706}
   - component: {fileID: 1395325463387705130}
   - component: {fileID: 4920405441915362278}
@@ -67,7 +66,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: -876546973899608171, guid: 9a4714f31f00293459c94124872c9844, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -99,37 +98,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!114 &6284080332531108435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2846602245852011288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40cb525cd491d244194548c6d074b044, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Quinn.DamageSystem.Health
-  Default: 50
-  <Team>k__BackingField: 1
-  PostHurtImmunity: 0
-  AllowHalfHeart: 0
-  HurtSound:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  DeathSound:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+  m_SpriteSortPoint: 1
 --- !u!70 &4675956465329612706
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -226,11 +195,11 @@ MonoBehaviour:
   AllowHalfHeart: 0
   HurtSound:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -251220683
+      Data2: 1103232241
+      Data3: 310099367
+      Data4: -1474372157
+    Path: event:/Hurt
   DeathSound:
     Guid:
       Data1: 0

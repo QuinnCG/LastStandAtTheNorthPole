@@ -407,6 +407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Quinn.PlayerSystem.GunOrbiter
   Origin: {fileID: 5533730925510843009}
   Handle: {fileID: 2469417757760871553}
+  GunSortingGroup: {fileID: 7395115982738702463}
   Distance: 0.3
   RecoveryEase: 9
 --- !u!114 &12515847788552982
@@ -458,6 +459,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2469417757760871553}
+  - component: {fileID: 7395115982738702463}
   m_Layer: 0
   m_Name: GunHandle
   m_TagString: Untagged
@@ -480,6 +482,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 97828287179417443}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!210 &7395115982738702463
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1965215016073586726}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 1
 --- !u!1 &2547596989065105174
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,7 +796,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5533730925510843009}
   m_Layer: 0
-  m_Name: Origin
+  m_Name: PlayerCenter
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

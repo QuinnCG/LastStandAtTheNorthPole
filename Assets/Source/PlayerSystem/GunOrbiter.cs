@@ -1,6 +1,7 @@
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace Quinn.PlayerSystem
 {
@@ -12,6 +13,8 @@ namespace Quinn.PlayerSystem
 		private Transform Origin;
 		[SerializeField, Required]
 		private Transform Handle;
+		[SerializeField, Required]
+		private SortingGroup GunSortingGroup;
 		[SerializeField]
 		private float Distance = 0.5f;
 		[SerializeField]
@@ -46,6 +49,8 @@ namespace Quinn.PlayerSystem
 
 			Handle.SetPositionAndRotation(pos, Quaternion.AngleAxis(rot, Vector3.forward));
 			Handle.localScale = new Vector3(1f, Mathf.Sign(dir.x), 1f);
+
+			GunSortingGroup.sortingOrder = (dir.y > 0f) ? -1 : 1;
 		}
 
 		public void Recoil(float offset, float recoveryTime)
