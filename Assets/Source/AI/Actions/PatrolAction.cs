@@ -36,6 +36,9 @@ public partial class PatrolAction : Action
     {
         if (Time.time > _nextAllowedMoveTime)
         {
+			if (GameObject.transform.position.DistanceTo(_target) < StoppingDst.Value)
+				return Status.Running;
+
 			if (_movement.MoveTo(_target, stoppingDst: StoppingDst.Value))
             {
 				_target = GetRandomPos();
