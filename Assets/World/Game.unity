@@ -640,6 +640,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snowman
       objectReference: {fileID: 0}
+    - target: {fileID: 1910696296517820383, guid: 51488fcf85f64c24aadacfc68628fb6f, type: 3}
+      propertyPath: DistanceFromPlayerRange.y
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5604100949648151699, guid: 51488fcf85f64c24aadacfc68628fb6f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.537925
@@ -680,7 +684,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6364567512393824626, guid: 51488fcf85f64c24aadacfc68628fb6f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

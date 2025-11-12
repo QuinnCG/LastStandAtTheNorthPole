@@ -18,8 +18,8 @@ GameObject:
   - component: {fileID: 7323977805087278643}
   - component: {fileID: 3139828910382669902}
   - component: {fileID: 4622495130170513528}
-  - component: {fileID: 8649706984021583136}
   - component: {fileID: 4780386595135896599}
+  - component: {fileID: 4242033415218693005}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
@@ -198,8 +198,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b314092d5ca4ead44bfacce6460442b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Quinn.MovementSystem.CharacterMovement
-  DefaultMoveSpeed: 5
-  KnockbackDecayRate: 32
+  DefaultMoveSpeed: 1
+  KnockbackDecayRate: 64
 --- !u!114 &6635639165146414014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,18 +268,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Quinn.MovementSystem.FootstepVFX
   VFX: {fileID: 0}
---- !u!114 &8649706984021583136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2846602245852011288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b8703bc03b148849835dbffe0116098, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Quinn.AI.Agent
 --- !u!114 &4780386595135896599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,3 +288,16 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
+--- !u!114 &4242033415218693005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2846602245852011288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de35ac9b7a16cc24380590664a411d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Quinn.AI.AgentAI
+  DistanceFromPlayerRange: {x: 2, y: 4}
