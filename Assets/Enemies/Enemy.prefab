@@ -300,4 +300,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de35ac9b7a16cc24380590664a411d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Quinn.AI.AgentAI
-  DistanceFromPlayerRange: {x: 2, y: 4}
+  ActRange: 8
+  IdleDurationWhenInRange: {x: 2, y: 6}
+  OrbitArc: 180
+  OrbitFrequency: 0.5
+  OrbitFrequencyFloor: -0.5
+  OscillateRange: {x: 2, y: 4}
+  OscillateFrequency: 0.1
+  OscillateTimeOffset: 0.5

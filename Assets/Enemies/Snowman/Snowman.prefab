@@ -159,6 +159,10 @@ PrefabInstance:
       propertyPath: managedReferences[7086341676440486203].GUID.m_Value1
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4920405441915362278, guid: 9aa83a62752928142a2bc80dd0a710ac, type: 3}
+      propertyPath: DefaultMoveSpeed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6635639165146414014, guid: 9aa83a62752928142a2bc80dd0a710ac, type: 3}
       propertyPath: Default
       value: 25
@@ -209,18 +213,42 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4622495130170513528, guid: 9aa83a62752928142a2bc80dd0a710ac, type: 3}
+    - {fileID: 4242033415218693005, guid: 9aa83a62752928142a2bc80dd0a710ac, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7899127782005721281, guid: 9aa83a62752928142a2bc80dd0a710ac, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1671573784182126875}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2846602245852011288, guid: 9aa83a62752928142a2bc80dd0a710ac, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6761944468018021454}
   m_SourcePrefab: {fileID: 100100000, guid: 9aa83a62752928142a2bc80dd0a710ac, type: 3}
 --- !u!1 &566252250096027466 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2846602245852011288, guid: 9aa83a62752928142a2bc80dd0a710ac, type: 3}
   m_PrefabInstance: {fileID: 2331337123282279506}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6761944468018021454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566252250096027466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a81d06eec0521848b659695b8299c60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Quinn.AI.Brains.SnowmanAI
+  ActRange: 6
+  IdleDurationWhenInRange: {x: 2, y: 6}
+  OrbitArc: 180
+  OrbitFrequency: 0.5
+  OrbitFrequencyFloor: -0.5
+  OscillateRange: {x: 2, y: 4}
+  OscillateFrequency: 0.1
+  OscillateTimeOffset: 0.5
 --- !u!4 &5604100949648151699 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7899127782005721281, guid: 9aa83a62752928142a2bc80dd0a710ac, type: 3}
