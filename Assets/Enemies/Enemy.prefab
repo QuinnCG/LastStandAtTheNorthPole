@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 4622495130170513528}
   - component: {fileID: 4780386595135896599}
   - component: {fileID: 4242033415218693005}
+  - component: {fileID: 1818420529393156671}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
@@ -308,3 +309,19 @@ MonoBehaviour:
   OscillateRange: {x: 2, y: 4}
   OscillateFrequency: 0.1
   OscillateTimeOffset: 0.5
+--- !u!114 &1818420529393156671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2846602245852011288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4062d218231e1fd4d8af5c7ae28a15d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Quinn.DamageSystem.DamageOnContact
+  Damage: 1
+  Knockback: 16
+  Statuses: []
+  Team: 0

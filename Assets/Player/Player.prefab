@@ -337,7 +337,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Quinn.DamageSystem.Health
   Default: 5
   <Team>k__BackingField: 0
-  PostHurtImmunity: 3
+  PostHurtImmunity: 1
   AllowHalfHeart: 1
   HurtSound:
     Guid:
