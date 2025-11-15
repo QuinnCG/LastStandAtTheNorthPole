@@ -8,6 +8,7 @@ using UnityEngine;
 
 namespace Quinn.AI
 {
+	[RequireComponent(typeof(Animator))]
 	[RequireComponent(typeof(Health))]
 	[RequireComponent(typeof(CharacterMovement))]
 	public class AgentAI : MonoBehaviour
@@ -35,6 +36,7 @@ namespace Quinn.AI
 		[SerializeField, Range(0f, 1f)]
 		private float OscillateTimeOffset = 0.5f;
 
+		protected Animator Animator { get; private set; }
 		protected Health Health { get; private set; }
 		protected CharacterMovement Movement { get; private set; }
 		protected Transform Player { get; private set; }
@@ -51,6 +53,7 @@ namespace Quinn.AI
 
 		protected virtual void Awake()
 		{
+			Animator = GetComponent<Animator>();
 			Health = GetComponent<Health>();
 			Movement = GetComponent<CharacterMovement>();
 
@@ -65,7 +68,10 @@ namespace Quinn.AI
 		protected virtual void Update()
 		{
 			if (HasActiveSequence)
+			{
+				OnUpdate(true);
 				return;
+			}
 
 			if (DstToPlayer < ActRange && Time.time > _idleEndTime)
 			{
@@ -81,10 +87,14 @@ namespace Quinn.AI
 
 				Movement.MoveTo(target, stoppingDst: 0.01f, setFacingDir: false);
 				Movement.SetFacingDirection(DirToPlayer.x);
+
+				OnUpdate(false);
 			}
 		}
 
 		protected virtual void OnRegisterSequences() { }
+
+		protected virtual void OnUpdate(bool hasActiveSequence) { }
 
 		protected void PlaySequence(IEnumerator sequence)
 		{
