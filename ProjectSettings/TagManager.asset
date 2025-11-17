@@ -41,8 +41,17 @@ TagManager:
   - name: Ground
     uniqueID: 2649557091
     locked: 0
+  - name: BackVFX
+    uniqueID: 3485142889
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Missile
+    uniqueID: 4250559381
+    locked: 0
+  - name: FrontVFX
+    uniqueID: 1120433019
     locked: 0
   - name: UI
     uniqueID: 2154743433

@@ -18,8 +18,6 @@ GameObject:
   - component: {fileID: 7323977805087278643}
   - component: {fileID: 3139828910382669902}
   - component: {fileID: 4622495130170513528}
-  - component: {fileID: 4780386595135896599}
-  - component: {fileID: 4242033415218693005}
   - component: {fileID: 1818420529393156671}
   m_Layer: 6
   m_Name: Enemy
@@ -269,46 +267,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Quinn.MovementSystem.FootstepVFX
   VFX: {fileID: 0}
---- !u!114 &4780386595135896599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2846602245852011288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Behavior::Unity.Behavior.BehaviorGraphAgent
-  m_Graph: {fileID: 0}
-  m_BlackboardVariableOverridesList: []
-  m_OriginalGraph: {fileID: 0}
-  m_IsInitialised: 0
-  m_IsStarted: 0
-  references:
-    version: 2
-    RefIds: []
---- !u!114 &4242033415218693005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2846602245852011288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de35ac9b7a16cc24380590664a411d59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Quinn.AI.AgentAI
-  ActRange: 8
-  IdleDurationWhenInRange: {x: 2, y: 6}
-  OrbitArc: 180
-  OrbitFrequency: 0.5
-  OrbitFrequencyFloor: -0.5
-  OscillateRange: {x: 2, y: 4}
-  OscillateFrequency: 0.1
-  OscillateTimeOffset: 0.5
 --- !u!114 &1818420529393156671
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -27,7 +27,7 @@ namespace Quinn.DamageSystem
 		public bool IsAlive => !IsDead;
 		public bool IsDead { get; private set; }
 
-		public event System.Action<DamageInstance> OnDamage, OnDeath;
+		public event System.Action<DamageInstance> OnDamaged, OnDeath;
 		public event System.Action<float> OnHeal;
 
 		private float _nextImmunityEndTime;
@@ -75,7 +75,7 @@ namespace Quinn.DamageSystem
 			}
 
 			dmgInstance.WasLethal = Current == 0f;
-			OnDamage?.Invoke(dmgInstance);
+			OnDamaged?.Invoke(dmgInstance);
 
 			Audio.Play(HurtSound, transform.position);
 

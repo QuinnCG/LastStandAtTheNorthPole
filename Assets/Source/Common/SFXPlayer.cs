@@ -25,7 +25,11 @@ namespace Quinn
 				}
 			}
 
-			_pathToCooldownEndTime.Add(eventPath, Time.time + CooldownPerUniqueEvent);
+			if (CooldownPerUniqueEvent > 0f)
+			{
+				_pathToCooldownEndTime.Add(eventPath, Time.time + CooldownPerUniqueEvent);
+			}
+
 			Audio.Play(eventPath, transform.position);
 		}
 	}

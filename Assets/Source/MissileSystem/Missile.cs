@@ -17,14 +17,14 @@ namespace Quinn.MissileSystem
 		public LayerMask CompositeMask { get; private set; }
 		public LayerMask CharacterMask { get; private set; }
 
-		public MissileData Data { get; private set; }
+		public MissileData? Data { get; private set; }
 		public Vector2 Direction { get; private set; }
 
-		public event System.Action OnDeath;
+		public event System.Action? OnDeath;
 
 		private Vector2 _startPos;
 		private Vector2 _lastPhysicsPos;
-		private Transform _trail;
+		private Transform? _trail;
 
 		private void OnDestroy()
 		{
@@ -71,13 +71,14 @@ namespace Quinn.MissileSystem
 		public void PhysicsUpdate()
 		{
 			Vector2 deltaPos = (Vector2)transform.position - _lastPhysicsPos;
-			var hit = Physics2D.CircleCast(_lastPhysicsPos, Data.CollisionRadius, deltaPos.normalized, deltaPos.magnitude, CompositeMask);
+			var hit = Physics2D.CircleCast(_lastPhysicsPos, Data!.CollisionRadius, deltaPos.normalized, deltaPos.magnitude, CompositeMask);
 			_lastPhysicsPos = transform.position;
 
 			if (hit.collider != null)
 			{
 				int colliderMask = LayerMask.GetMask(LayerMask.LayerToName(hit.collider.gameObject.layer));
 				bool doDestroy = false;
+				bool hitObstacle = false;
 
 				if (Data.DestoryOnCharacterHit && (colliderMask & CharacterMask) > 0)
 				{
@@ -93,16 +94,23 @@ namespace Quinn.MissileSystem
 					if (hit.collider.TryGetComponent(out IDamageable dmg) && dmg.TryTakeDamage(dmgInfo))
 					{
 						doDestroy = true;
+						hitObstacle = true;
 					}
 				}
 
 				if (Data.DestoryOnObstacleHit && (colliderMask & Layers.ObstacleMask) > 0)
 				{
 					doDestroy = true;
+					hitObstacle = true;
 				}
 
 				if (doDestroy)
 				{
+					if (hitObstacle)
+					{
+						Audio.Play(Data!.HitSound, transform.position);
+					}
+
 					Kill();
 					return;
 				}
@@ -121,7 +129,7 @@ namespace Quinn.MissileSystem
 
 		public bool GetHomingTarget(out Vector2 pos)
 		{
-			var results = Physics2D.OverlapCircleAll(transform.position, Data.Behavior.MaxHomingDistance, CharacterMask);
+			var results = Physics2D.OverlapCircleAll(transform.position, Data!.Behavior.MaxHomingDistance, CharacterMask);
 			var nearest = results.GetClosestTo(x => x.transform.position.SquaredDistanceTo(transform.position));
 
 			if (nearest == null)
@@ -136,7 +144,7 @@ namespace Quinn.MissileSystem
 
 		public void Kill()
 		{
-			Audio.Play(Data.DeathSound, transform.position);
+			Audio.Play(Data!.DeathSound, transform.position);
 
 			MissileManager.Instance.DestroyMissile(this);
 

@@ -30,7 +30,7 @@ namespace Quinn.MissileSystem
 
 		[Space]
 
-		public EventReference DeathSound;
+		public EventReference DeathSound, HitSound;
 
 		[Space, Header("Behavior")]
 

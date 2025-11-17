@@ -17,7 +17,7 @@ namespace Quinn.DamageSystem
 		private void Awake()
 		{
 			var health = GetComponent<Health>();
-			health.OnDamage += OnDamaged;
+			health.OnDamaged += OnDamaged;
 		}
 
 		private void FixedUpdate()

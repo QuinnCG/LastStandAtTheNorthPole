@@ -10,9 +10,13 @@ namespace Quinn.PlayerSystem
 	[RequireComponent(typeof(Animator))]
 	[RequireComponent(typeof(CharacterMovement))]
 	[RequireComponent(typeof(GunManager))]
+	[RequireComponent(typeof(Collider2D))]
 	public class Player : MonoBehaviour
 	{
 		public static Player Instance { get; private set; }
+
+		public Bounds Hitbox => _hitbox.bounds;
+		public Vector2 Velocity => _movement.Velocity;
 
 		[SerializeField]
 		private float DashSpeed = 12f, DashDistance = 3f, DashCooldown = 0.5f;
@@ -28,6 +32,7 @@ namespace Quinn.PlayerSystem
 		private Animator _animator;
 		private CharacterMovement _movement;
 		private GunManager _gunManager;
+		private Collider2D _hitbox;
 
 		private float _dashEndTime;
 		private float _nextDashAllowedTime;
@@ -39,6 +44,7 @@ namespace Quinn.PlayerSystem
 			_animator = GetComponent<Animator>();
 			_movement = GetComponent<CharacterMovement>();
 			_gunManager = GetComponent<GunManager>();
+			_hitbox = GetComponent<Collider2D>();
 
 			SetUpBindings();
 		}
@@ -90,7 +96,7 @@ namespace Quinn.PlayerSystem
 			}
 			else
 			{
-				float moveDir = Mathf.Sign(_movement.RealVelocity.x);
+				float moveDir = Mathf.Sign(_movement.Velocity.x);
 				float lookDir = Mathf.Sign(GetAimDir().x);
 
 				string moveAnim = "Moving";

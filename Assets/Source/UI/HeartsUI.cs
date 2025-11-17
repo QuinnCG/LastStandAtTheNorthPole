@@ -41,7 +41,7 @@ namespace Quinn.UI
 		{
 			_health = Player.Instance.GetComponent<Health>();
 
-			_health.OnDamage += info =>
+			_health.OnDamaged += info =>
 			{
 				OnHealthChange(-info.RealDamage);
 			};

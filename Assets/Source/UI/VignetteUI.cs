@@ -21,7 +21,7 @@ namespace Quinn.UI
 
 		public void Start()
 		{
-			Player.Instance.GetComponent<Health>().OnDamage += OnHurt;
+			Player.Instance.GetComponent<Health>().OnDamaged += OnHurt;
 		}
 
 		private void OnHurt(DamageInstance dmg)

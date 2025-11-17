@@ -1,6 +1,5 @@
 using Quinn.DamageSystem;
 using Sirenix.OdinInspector;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,8 +13,8 @@ namespace Quinn.MovementSystem
 		[SerializeField, Unit(Units.MetersPerSecond)]
 		private float KnockbackDecayRate = 32f;
 
-		public Vector2 RealVelocity => Rigidbody.linearVelocity;
-		public float RealSpeed => RealVelocity.magnitude;
+		public Vector2 Velocity => Rigidbody.linearVelocity;
+		public float RealSpeed => Velocity.magnitude;
 		public Vector2 Knockback { get; private set; }
 
 		public bool IsMoving { get; private set; }
@@ -32,7 +31,7 @@ namespace Quinn.MovementSystem
 			base.Awake();
 			ResetMoveSpeed();
 
-			GetComponent<Health>().OnDamage += OnDamage;
+			GetComponent<Health>().OnDamaged += OnDamage;
 		}
 
 		protected override void LateUpdate()

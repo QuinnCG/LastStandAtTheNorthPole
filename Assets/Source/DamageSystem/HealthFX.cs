@@ -52,7 +52,7 @@ namespace Quinn.DamageSystem
 		private void Awake()
 		{
 			var health = GetComponent<Health>();
-			health.OnDamage += OnDamage;
+			health.OnDamaged += OnDamage;
 			health.OnDeath += OnDeath;
 		}
 
