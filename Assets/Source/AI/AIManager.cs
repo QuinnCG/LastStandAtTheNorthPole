@@ -27,11 +27,6 @@ namespace Quinn.AI
 			Instance = this;
 		}
 
-        private void Update()
-        {
-			Log.Notice($"{_sumThreatOfEngaged:0.00}/{MaxSumThreat:0.00}");
-        }
-
         private void FixedUpdate()
 		{
 			if (Time.time >= _nextTick)
@@ -82,9 +77,6 @@ namespace Quinn.AI
 			{
 				if (_sumThreatOfEngaged >= MaxSumThreat)
 					break;
-
-				float dst = agent.transform.position.DistanceTo(playerPos);
-				Debug.DrawLine(agent.transform.position, playerPos, Color.HSVToRGB(dst / 10f, 1f, 1f), 5f);
 
 				if (_sumThreatOfEngaged + agent.Threat > MaxSumThreat)
 					continue;

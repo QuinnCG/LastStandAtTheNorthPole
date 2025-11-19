@@ -37,5 +37,10 @@ namespace Quinn.PlayerSystem
 
 			Direction = Origin.position.DirectionTo(Position);
 		}
+
+		public void HideCrosshair()
+		{
+			Crosshair.gameObject.SetActive(false);
+		}
 	}
 }

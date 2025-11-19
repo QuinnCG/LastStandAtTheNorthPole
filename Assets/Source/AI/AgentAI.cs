@@ -113,7 +113,15 @@ namespace Quinn.AI
 			}
 		}
 
-		public void Engage()
+        private void OnDestroy()
+        {
+            if (AIManager.Instance != null)
+			{
+				AIManager.Instance.Unregister(this);
+			}
+		}
+
+        public void Engage()
 		{
 			if (!IsEngaged)
 			{

@@ -4,6 +4,8 @@ using Quinn.DamageSystem;
 using Quinn.MovementSystem;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 namespace Quinn.PlayerSystem
 {
@@ -12,7 +14,9 @@ namespace Quinn.PlayerSystem
 	[RequireComponent(typeof(GunManager))]
 	[RequireComponent(typeof(Collider2D))]
 	[RequireComponent(typeof(Health))]
-	public class Player : MonoBehaviour
+    [RequireComponent(typeof(GunOrbiter))]
+    [RequireComponent(typeof(CrosshairManager))]
+    public class Player : MonoBehaviour
 	{
 		public static Player Instance { get; private set; }
 
@@ -27,6 +31,10 @@ namespace Quinn.PlayerSystem
 		private Transform Origin;
 		[SerializeField]
 		private float FadeInTime = 1f;
+		[SerializeField]
+		private float DeathFadeOutTime = 3.6f;
+		[SerializeField, Required]
+		private Light2D AuraLight;
 
 		public bool IsDashing { get; private set; }
 
@@ -50,10 +58,13 @@ namespace Quinn.PlayerSystem
 			_health = GetComponent<Health>();
 
 			SetUpBindings();
+
+			_health.OnDeath += OnDeath;
 		}
 
-		private async void Start()
+        private async void Start()
 		{
+			InputManager.Instance.UnblockInput(this);
 			await TransitionManager.Instance.FadeFromBlackAsync(FadeInTime);
 		}
 
@@ -93,6 +104,9 @@ namespace Quinn.PlayerSystem
 
 		private void UpdateAnimation()
 		{
+			if (_health.IsDead)
+				return;
+
 			if (IsDashing)
 			{
 				_animator.Play("Dashing");
@@ -182,6 +196,21 @@ namespace Quinn.PlayerSystem
 		protected void FullHeal_Cmd()
 		{
 			GetComponent<Health>().FullHeal();
+		}
+
+		private async void OnDeath(DamageInstance dmgInstance)
+		{
+			InputManager.Instance.BlockInput(this);
+
+			GetComponent<GunOrbiter>().HideGun();
+			GetComponent<CrosshairManager>().HideCrosshair();
+
+			_animator.Play("Death");
+
+			AuraLight.DOFade(0f, DeathFadeOutTime);
+
+			await TransitionManager.Instance.FadeToBlackAsync(DeathFadeOutTime);
+			await SceneManager.LoadSceneAsync(0);
 		}
 	}
 }

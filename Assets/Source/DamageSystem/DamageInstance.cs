@@ -5,7 +5,7 @@ namespace Quinn.DamageSystem
 	/// </summary>
 	public record DamageInstance
 	{
-		public DamageInfo Info;
+		public DamageInfo? Info;
 
 		/// <summary>
 		/// The final damage that was attempted to be applied, after accounting for resistances/weaknesses.

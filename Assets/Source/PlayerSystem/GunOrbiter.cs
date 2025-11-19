@@ -53,6 +53,11 @@ namespace Quinn.PlayerSystem
 			GunSortingGroup.sortingOrder = (dir.y > 0f) ? -1 : 1;
 		}
 
+		public void HideGun()
+		{
+			Handle.gameObject.SetActive(false);
+		}
+
 		public void Recoil(float offset, float recoveryTime)
 		{
 			DOTween.Kill(this);

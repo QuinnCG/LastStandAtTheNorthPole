@@ -309,6 +309,8 @@ MonoBehaviour:
     Path: event:/Player/Dash
   Origin: {fileID: 5533730925510843009}
   FadeInTime: 3
+  DeathFadeOutTime: 3.6
+  AuraLight: {fileID: 1650105576715857435}
 --- !u!114 &5531591138259948478
 MonoBehaviour:
   m_ObjectHideFlags: 0
