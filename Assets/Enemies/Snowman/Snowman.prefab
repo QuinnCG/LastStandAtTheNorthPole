@@ -644,6 +644,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81d06eec0521848b659695b8299c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Quinn.AI.Brains.SnowmanAI
+  <Threat>k__BackingField: 10
+  <DisengageDistance>k__BackingField: 12
+  <DisengageBelowHP>k__BackingField: 0.2
+  DisengagedRange: {x: 4, y: 6}
   ActRange: 6
   IdleDurationWhenInRange: {x: 2, y: 6}
   OrbitArc: 180

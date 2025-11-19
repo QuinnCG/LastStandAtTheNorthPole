@@ -13,6 +13,17 @@ namespace Quinn.AI
 	[RequireComponent(typeof(CharacterMovement))]
 	public class AgentAI : MonoBehaviour
 	{
+		[field: SerializeField, Range(0f, 50f)]
+		public float Threat { get; private set; } = 10f;
+		[field: SerializeField]
+		public float DisengageDistance { get; private set; } = 12f;
+		[field: SerializeField, Range(0f, 1f)]
+		public float DisengageBelowHP { get; private set; } = 0.2f;
+		[SerializeField]
+		private Vector2 DisengagedRange = new(8f, 10f);
+
+		[Space]
+
 		[SerializeField]
 		private float ActRange = 8f;
 		[SerializeField]
@@ -36,6 +47,8 @@ namespace Quinn.AI
 		[SerializeField, Range(0f, 1f)]
 		private float OscillateTimeOffset = 0.5f;
 
+		public bool IsEngaged { get; private set; }
+
 		protected Animator Animator { get; private set; }
 		protected Health Health { get; private set; }
 		protected CharacterMovement Movement { get; private set; }
@@ -58,18 +71,33 @@ namespace Quinn.AI
 			Movement = GetComponent<CharacterMovement>();
 
 			Health.OnDamaged += OnDamaged;
-			Health.OnDeath += OnDeath;
+			Health.OnDeath += info =>
+			{
+				AIManager.Instance.Unregister(this);
+				OnDeath(info);
+			};
 
 			OnRegisterSequences();
+
+			_idleEndTime = Time.time + IdleDurationWhenInRange.GetRandom();
 		}
 
 		protected virtual void Start()
 		{
 			PlayerTransform = PlayerSystem.Player.Instance.transform;
+			AIManager.Instance.Register(this);
 		}
 
 		protected virtual void Update()
 		{
+			OnUpdate();
+
+			if (!IsEngaged)
+			{
+				OrbitPlayer(DisengagedRange.x, DisengagedRange.y);
+				return;
+			}
+
 			if (HasActiveSequence)
 			{
 				return;
@@ -81,17 +109,29 @@ namespace Quinn.AI
 			}
 			else
 			{
-				float angleOffset = Mathf.Max((Mathf.PerlinNoise1D(Time.time * OrbitFrequency) - 0.5f) * 2f, OrbitFrequencyFloor) * OrbitArc;
-				Vector2 dirFromPlayer = Quaternion.AngleAxis(angleOffset, Vector3.forward) * -DirToPlayer;
-
-				float dstFromPlayer = Mathf.Lerp(OscillateRange.x, OscillateRange.y, Mathf.PerlinNoise1D((Time.time + OscillateTimeOffset) * OscillateFrequency));
-				Vector2 target = (Vector2)PlayerTransform.position + (dirFromPlayer * dstFromPlayer);
-
-				Movement.MoveTo(target, stoppingDst: 0.01f, setFacingDir: false);
-				Movement.SetFacingDirection(DirToPlayer.x);
+				OrbitPlayer(OscillateRange.x, OscillateRange.y);
 			}
+		}
 
-			OnUpdate();
+		public void Engage()
+		{
+			if (!IsEngaged)
+			{
+				IsEngaged = true;
+			}
+		}
+
+		public void Disengage()
+		{
+			if (IsEngaged)
+			{
+				IsEngaged = false;
+			}
+		}
+
+		public virtual bool WantsToDisengage()
+		{
+			return DstToPlayer > DisengageDistance || Health.Normalized <= DisengageBelowHP;
 		}
 
 		protected virtual void OnRegisterSequences() { }
@@ -152,7 +192,10 @@ namespace Quinn.AI
 
 		protected virtual void OnDamaged(DamageInstance instance) { }
 
-		protected virtual void OnDeath(DamageInstance instance) { }
+		protected virtual void OnDeath(DamageInstance instance)
+		{
+			gameObject.Destroy();
+		}
 
 		private void StartRandomSequence()
 		{
@@ -165,6 +208,18 @@ namespace Quinn.AI
 			var callback = sequence.Callback();
 			PlaySequence(callback);
 			sequence.CooldownEndTime = Time.time + sequence.Cooldown;
+		}
+
+		private void OrbitPlayer(float minDst, float maxDst)
+		{
+			float angleOffset = Mathf.Max((Mathf.PerlinNoise1D(Time.time * OrbitFrequency) - 0.5f) * 2f, OrbitFrequencyFloor) * OrbitArc;
+			Vector2 dirFromPlayer = Quaternion.AngleAxis(angleOffset, Vector3.forward) * -DirToPlayer;
+
+			float dstFromPlayer = Mathf.Lerp(minDst, maxDst, Mathf.PerlinNoise1D((Time.time + OscillateTimeOffset) * OscillateFrequency));
+			Vector2 target = (Vector2)PlayerTransform.position + (dirFromPlayer * dstFromPlayer);
+
+			Movement.MoveTo(target, stoppingDst: 0.01f, setFacingDir: false);
+			Movement.SetFacingDirection(DirToPlayer.x);
 		}
 	}
 }

@@ -1,5 +1,6 @@
 using FMODUnity;
 using Sirenix.OdinInspector;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Quinn.DamageSystem
@@ -27,18 +28,32 @@ namespace Quinn.DamageSystem
 		public bool IsAlive => !IsDead;
 		public bool IsDead { get; private set; }
 
-		public event System.Action<DamageInstance> OnDamaged, OnDeath;
-		public event System.Action<float> OnHeal;
+		public event System.Action<DamageInstance>? OnDamaged, OnDeath;
+		public event System.Action<float>? OnHeal;
 
 		private float _nextImmunityEndTime;
+		private readonly HashSet<object> _damageBlockers = new();
 
 		private void Awake()
 		{
 			Current = Max = Default;
 		}
 
+		public void BlockDamage<T>(T key) where T : class
+		{
+			_damageBlockers.Add(key);
+		}
+
+		public void UnblockDamage<T>(T key) where T : class
+		{
+			_damageBlockers.Remove(key);
+		}
+
 		public bool CanDamage(DamageInfo info)
 		{
+			if (_damageBlockers.Count > 0)
+				return false;
+
 			if (info.Team == Team)
 				return false;
 

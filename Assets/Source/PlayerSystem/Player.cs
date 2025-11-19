@@ -11,6 +11,7 @@ namespace Quinn.PlayerSystem
 	[RequireComponent(typeof(CharacterMovement))]
 	[RequireComponent(typeof(GunManager))]
 	[RequireComponent(typeof(Collider2D))]
+	[RequireComponent(typeof(Health))]
 	public class Player : MonoBehaviour
 	{
 		public static Player Instance { get; private set; }
@@ -33,6 +34,7 @@ namespace Quinn.PlayerSystem
 		private CharacterMovement _movement;
 		private GunManager _gunManager;
 		private Collider2D _hitbox;
+		private Health _health;
 
 		private float _dashEndTime;
 		private float _nextDashAllowedTime;
@@ -45,6 +47,7 @@ namespace Quinn.PlayerSystem
 			_movement = GetComponent<CharacterMovement>();
 			_gunManager = GetComponent<GunManager>();
 			_hitbox = GetComponent<Collider2D>();
+			_health = GetComponent<Health>();
 
 			SetUpBindings();
 		}
@@ -117,6 +120,7 @@ namespace Quinn.PlayerSystem
 				if (Time.time > _dashEndTime)
 				{
 					IsDashing = false;
+					_health.UnblockDamage(this);
 					return;
 				}
 
@@ -141,9 +145,10 @@ namespace Quinn.PlayerSystem
 				_dashEndTime = Time.time + (DashDistance / DashSpeed);
 				_nextDashAllowedTime = _dashEndTime + DashCooldown;
 
-				Audio.Play(DashSound, transform);
-
 				_gunManager.ReplenishMagazine();
+				_health.BlockDamage(this);
+
+				Audio.Play(DashSound, transform);
 			}
 		}
 
