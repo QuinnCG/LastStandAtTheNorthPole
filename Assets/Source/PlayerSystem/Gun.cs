@@ -12,6 +12,7 @@ namespace Quinn.PlayerSystem
 		public MissileSpawnData Missile;
 		public bool IsContinuousFire = true;
 		public float FireInterval = 0.5f;
+		public float SelfKnockback = 5f;
 
 		[Space]
 

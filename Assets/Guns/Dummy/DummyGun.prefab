@@ -21,6 +21,10 @@ PrefabInstance:
       value: 24
       objectReference: {fileID: 0}
     - target: {fileID: -920180030026477806, guid: 41d9a782396302d459c2c88e8a6de2fc, type: 3}
+      propertyPath: SelfKnockback
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -920180030026477806, guid: 41d9a782396302d459c2c88e8a6de2fc, type: 3}
       propertyPath: ConsumePerShot
       value: 3
       objectReference: {fileID: 0}

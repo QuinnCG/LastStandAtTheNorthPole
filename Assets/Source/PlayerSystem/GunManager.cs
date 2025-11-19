@@ -1,10 +1,12 @@
 using DG.Tweening;
 using Quinn.MissileSystem;
+using Quinn.MovementSystem;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Quinn.PlayerSystem
 {
+	[RequireComponent(typeof(CharacterMovement))]
 	public class GunManager : MonoBehaviour
 	{
 		public static GunManager Instance { get; private set; }
@@ -21,18 +23,20 @@ namespace Quinn.PlayerSystem
 		[SerializeField, AssetsOnly]
 		private Gun TestingGun;
 
-		public Gun Equipped { get; private set; }
+		public Gun? Equipped { get; private set; }
 		public bool IsFiring { get; private set; }
 		public int Magazine { get; private set; }
 
-		public event System.Action<Gun> OnEquipped;
-		public event System.Action OnUnequipped;
+		public event System.Action<Gun>? OnEquipped;
+		public event System.Action? OnUnequipped;
 
+		private CharacterMovement _movement;
 		private float _nextFireTime;
 
 		private void Awake()
 		{
 			Instance = this;
+			_movement = GetComponent<CharacterMovement>();
 
 #if UNITY_EDITOR
 			if (TestingGun != null)
@@ -112,14 +116,14 @@ namespace Quinn.PlayerSystem
 			if (Player.Instance.IsDashing)
 				return false;
 
-			_nextFireTime = Time.time + Equipped.FireInterval;
+			_nextFireTime = Time.time + Equipped!.FireInterval;
 
 			var origin = GetMissileSpawnPoint();
 			var dir = CrosshairManager.Direction;
 
 			if (Magazine > 0)
 			{
-				MissileManager.Instance.Spawn(origin, dir, Equipped.Missile.Missile, Equipped.Missile.Pattern);
+				MissileManager.Instance.Spawn(origin, dir, Equipped.Missile.Missile!, Equipped.Missile.Pattern);
 				Recoil(Equipped.RecoilOffset, Equipped.RecoilRecoveryTime);
 
 				Audio.Play(Equipped.FireSound, origin);
@@ -128,6 +132,8 @@ namespace Quinn.PlayerSystem
 					.SetEase(MuzzleFlashEase);
 
 				Magazine = Mathf.Max(0, Magazine - Equipped.ConsumePerShot);
+
+				_movement.ApplyKnockback(-dir * Equipped.SelfKnockback);
 			}
 			else
 			{
