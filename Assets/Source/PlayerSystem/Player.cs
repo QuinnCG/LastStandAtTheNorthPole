@@ -94,6 +94,9 @@ namespace Quinn.PlayerSystem
 
         private void OnDestroy()
         {
+			if (InputManager.Instance == null)
+				return;
+
 			InputManager.Instance.OnDash -= OnDash;
 
 			InputManager.Instance.OnFireStart -= OnFireStart;

@@ -309,7 +309,7 @@ MonoBehaviour:
     Path: event:/Player/Dash
   Origin: {fileID: 5533730925510843009}
   FadeInTime: 3
-  DeathFadeOutTime: 3.6
+  DeathFadeOutTime: 7
   AuraLights:
   - {fileID: 1650105576715857435}
   - {fileID: 7866700337590341330}
@@ -354,11 +354,11 @@ MonoBehaviour:
     Path: event:/Player/Hurt
   DeathSound:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1501731148
+      Data2: 1118810447
+      Data3: 142171544
+      Data4: 589130100
+    Path: event:/Player/Death
 --- !u!114 &-4259345970049430109
 MonoBehaviour:
   m_ObjectHideFlags: 0
