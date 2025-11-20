@@ -221,7 +221,8 @@ namespace Quinn.PlayerSystem
 			}
 
 			await TransitionManager.Instance.FadeToBlackAsync(DeathFadeOutTime);
-			await SceneManager.LoadSceneAsync(0);
+			// Load menu scene (2nd index).
+			await SceneManager.LoadSceneAsync(1);
 		}
 
 		[Command("hurt")]

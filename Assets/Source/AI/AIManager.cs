@@ -68,6 +68,9 @@ namespace Quinn.AI
 
 		private void Tick()
 		{
+			if (Player.Instance == null)
+				return;
+
 			Vector2 playerPos = Player.Instance.transform.position;
 
 			var disengaged = _allAgents.Where(x => !x.IsEngaged);
