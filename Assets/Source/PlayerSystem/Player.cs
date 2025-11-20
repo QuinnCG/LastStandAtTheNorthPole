@@ -16,9 +16,10 @@ namespace Quinn.PlayerSystem
 	[RequireComponent(typeof(Health))]
     [RequireComponent(typeof(GunOrbiter))]
     [RequireComponent(typeof(CrosshairManager))]
-    public class Player : MonoBehaviour
+	public class Player : MonoBehaviour
 	{
 		public static Player Instance { get; private set; }
+		private static readonly object _blockInputKey = new();
 
 		public Bounds Hitbox => _hitbox.bounds;
 		public Vector2 Velocity => _movement.Velocity;
@@ -34,7 +35,7 @@ namespace Quinn.PlayerSystem
 		[SerializeField]
 		private float DeathFadeOutTime = 3.6f;
 		[SerializeField, Required]
-		private Light2D AuraLight;
+		private Light2D[] AuraLights;
 
 		public bool IsDashing { get; private set; }
 
@@ -64,7 +65,7 @@ namespace Quinn.PlayerSystem
 
         private async void Start()
 		{
-			InputManager.Instance.UnblockInput(this);
+			InputManager.Instance.UnblockInput(_blockInputKey);
 			await TransitionManager.Instance.FadeFromBlackAsync(FadeInTime);
 		}
 
@@ -77,6 +78,9 @@ namespace Quinn.PlayerSystem
 
 		private void LateUpdate()
 		{
+			if (_health.IsDead)
+				return;
+
 			if (IsDashing)
 			{
 				_movement.SetFacingDirection(_movement.LastMoveDirection.x);
@@ -88,7 +92,15 @@ namespace Quinn.PlayerSystem
 			}
 		}
 
-		private Vector3 GetAimDir()
+        private void OnDestroy()
+        {
+			InputManager.Instance.OnDash -= OnDash;
+
+			InputManager.Instance.OnFireStart -= OnFireStart;
+			InputManager.Instance.OnFireStop -= OnFireStop;
+		}
+
+        private Vector3 GetAimDir()
 		{
 			return Origin.position.DirectionTo(CrosshairManager.Position);
 		}
@@ -132,23 +144,44 @@ namespace Quinn.PlayerSystem
 			if (IsDashing)
 			{
 				if (Time.time > _dashEndTime)
-				{
-					IsDashing = false;
-					_health.UnblockDamage(this);
-					return;
-				}
+                {
+                    StopDashing();
+                    return;
+                }
 
-				var inputDir = _movement.LastMoveDirection;
+                var inputDir = _movement.LastMoveDirection;
 				_movement.AddVelocity(inputDir * DashSpeed);
 			}
 		}
 
-		private void SetUpBindings()
+        private void StopDashing()
+        {
+            IsDashing = false;
+            _health.UnblockDamage(this);
+        }
+
+        private void SetUpBindings()
 		{
 			InputManager.Instance.OnDash += OnDash;
 
-			InputManager.Instance.OnFireStart += () => _gunManager.StartFiring();
-			InputManager.Instance.OnFireStop += () => _gunManager.StopFiring();
+			InputManager.Instance.OnFireStart += OnFireStart;
+			InputManager.Instance.OnFireStop += OnFireStop;
+		}
+
+        private void OnFireStart()
+        {
+			if (_health.IsDead)
+				return;
+
+			_gunManager.StartFiring();
+		}
+
+		private void OnFireStop()
+		{
+			if (_health.IsDead)
+				return;
+
+			_gunManager.StopFiring();
 		}
 
 		private void OnDash()
@@ -164,6 +197,28 @@ namespace Quinn.PlayerSystem
 
 				Audio.Play(DashSound, transform);
 			}
+		}
+
+		private async void OnDeath(DamageInstance dmgInstance)
+		{
+
+			_gunManager.StopFiring();
+			StopDashing();
+
+			InputManager.Instance.BlockInput(_blockInputKey);
+
+			GetComponent<GunOrbiter>().HideGun();
+			GetComponent<CrosshairManager>().HideCrosshair();
+
+			_animator.Play("Death");
+
+			foreach (var light in AuraLights)
+			{
+				light.DOFade(0f, DeathFadeOutTime);
+			}
+
+			await TransitionManager.Instance.FadeToBlackAsync(DeathFadeOutTime);
+			await SceneManager.LoadSceneAsync(0);
 		}
 
 		[Command("hurt")]
@@ -196,21 +251,6 @@ namespace Quinn.PlayerSystem
 		protected void FullHeal_Cmd()
 		{
 			GetComponent<Health>().FullHeal();
-		}
-
-		private async void OnDeath(DamageInstance dmgInstance)
-		{
-			InputManager.Instance.BlockInput(this);
-
-			GetComponent<GunOrbiter>().HideGun();
-			GetComponent<CrosshairManager>().HideCrosshair();
-
-			_animator.Play("Death");
-
-			AuraLight.DOFade(0f, DeathFadeOutTime);
-
-			await TransitionManager.Instance.FadeToBlackAsync(DeathFadeOutTime);
-			await SceneManager.LoadSceneAsync(0);
 		}
 	}
 }

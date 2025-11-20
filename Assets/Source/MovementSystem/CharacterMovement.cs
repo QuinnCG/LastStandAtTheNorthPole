@@ -1,5 +1,6 @@
 using Quinn.DamageSystem;
 using Sirenix.OdinInspector;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -189,5 +190,5 @@ namespace Quinn.MovementSystem
 				ApplyKnockback(info.Knockback * info.Direction);
 			}
 		}
-	}
+    }
 }

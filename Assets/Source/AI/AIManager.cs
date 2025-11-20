@@ -1,8 +1,10 @@
 ﻿using Quinn.PlayerSystem;
 using Sirenix.OdinInspector;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Quinn.AI
 {
@@ -25,6 +27,19 @@ namespace Quinn.AI
 		private void Awake()
 		{
 			Instance = this;
+
+			SceneManager.sceneUnloaded += OnSceneUnloaded;
+		}
+
+        private void OnDestroy()
+        {
+			SceneManager.sceneUnloaded -= OnSceneUnloaded;
+		}
+
+        private void OnSceneUnloaded(Scene scene)
+        {
+			_allAgents.Clear();
+			_sumThreatOfEngaged = 0f;
 		}
 
         private void FixedUpdate()

@@ -1,9 +1,11 @@
 using QFSW.QC;
+using System;
 using System.Collections.Generic;
 using Unity.Collections;
 using Unity.Jobs;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.VFX;
 
 namespace Quinn.MissileSystem
@@ -31,9 +33,16 @@ namespace Quinn.MissileSystem
 		{
 			Instance = this;
 			_pool.Buffer(PoolPrecache);
+
+			SceneManager.sceneUnloaded += OnSceneUnloaded;
 		}
 
-		private void Update()
+        private void OnDestroy()
+        {
+			SceneManager.sceneUnloaded -= OnSceneUnloaded;
+		}
+
+        private void Update()
 		{
 			int missileCount = _toUpdate.Count;
 
@@ -125,6 +134,14 @@ namespace Quinn.MissileSystem
 			{
 				GUI.color = Color.cyan;
 				GUI.Label(new(10f, 0f, 1000f, 100f), $"Missiles: [Active: {_toUpdate.Count}, Dormant: {_pool.Count}]");
+			}
+		}
+
+		private void OnSceneUnloaded(Scene scene)
+		{
+			foreach (var missile in _toUpdate)
+			{
+				_toDestroy.Add(missile);
 			}
 		}
 

@@ -310,7 +310,11 @@ MonoBehaviour:
   Origin: {fileID: 5533730925510843009}
   FadeInTime: 3
   DeathFadeOutTime: 3.6
-  AuraLight: {fileID: 1650105576715857435}
+  AuraLights:
+  - {fileID: 1650105576715857435}
+  - {fileID: 7866700337590341330}
+  - {fileID: 8825763127507662464}
+  - {fileID: 1020942878725070031}
 --- !u!114 &5531591138259948478
 MonoBehaviour:
   m_ObjectHideFlags: 0
