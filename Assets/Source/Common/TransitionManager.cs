@@ -48,16 +48,26 @@ namespace Quinn
 				.SetEase(FadeToBlackEase)
 				.AsyncWaitForCompletion();
 
-			_transitionSnapshot.start();
+			MuffleAudio();
 		}
 
 		public async Awaitable FadeFromBlackAsync(float duration)
 		{
-			_transitionSnapshot.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+			UnmuffleAudio();
 
 			await Blackout.DOFade(0f, duration)
 				.SetEase(FadeFromBlackEase)
 				.AsyncWaitForCompletion();
+		}
+
+		public void MuffleAudio()
+		{
+			_transitionSnapshot.start();
+		}
+
+		public void UnmuffleAudio()
+		{
+			_transitionSnapshot.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
 		}
 	}
 }

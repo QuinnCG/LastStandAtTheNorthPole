@@ -24,6 +24,7 @@ namespace Quinn.PlayerSystem
 		private Gun TestingGun;
 
 		public Gun? Equipped { get; private set; }
+		public float StatMultiplier { get; set; } = 1f;
 		public bool IsFiring { get; private set; }
 		public int Magazine { get; private set; }
 
@@ -116,7 +117,7 @@ namespace Quinn.PlayerSystem
 			if (Player.Instance.IsDashing)
 				return false;
 
-			_nextFireTime = Time.time + Equipped!.FireInterval;
+			_nextFireTime = Time.time + (Equipped!.FireInterval / StatMultiplier);
 
 			var origin = GetMissileSpawnPoint();
 			var dir = CrosshairManager.Direction;

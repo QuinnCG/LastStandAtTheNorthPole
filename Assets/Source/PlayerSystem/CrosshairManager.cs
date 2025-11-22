@@ -6,6 +6,8 @@ namespace Quinn.PlayerSystem
 {
 	public class CrosshairManager : MonoBehaviour
 	{
+		public static CrosshairManager Instance { get; private set; }
+
 		public static Vector2 Position { get; private set; }
 		public static Vector2 Direction { get; private set; }
 
@@ -16,6 +18,7 @@ namespace Quinn.PlayerSystem
 
 		private void Awake()
 		{
+			Instance = this;
 			Crosshair.SetParent(null);
 		}
 
@@ -36,6 +39,11 @@ namespace Quinn.PlayerSystem
 			Position = mouseWorldPos;
 
 			Direction = Origin.position.DirectionTo(Position);
+		}
+
+		public void ShowCrosshair()
+		{
+			Crosshair.gameObject.SetActive(true);
 		}
 
 		public void HideCrosshair()
