@@ -28,25 +28,34 @@ namespace Quinn.UI
 			Instance = this;
 		}
 
-		public async void PlayNewWaveSequence()
+		public async Awaitable PlayNewWaveSequenceAsync()
 		{
 			StopAllCoroutines();
 
-			var pos = WaveCount.transform.localPosition;
-			var scale = WaveCount.transform.localScale;
-
 			var rect = WaveCount.GetComponent<RectTransform>();
 
-			float duration = 0.5f;
+			var pos = rect.anchoredPosition;
+			var scale = rect.localScale;
 
-			rect.DOAnchorPos(WaveCountTarget.anchoredPosition, duration);
-			rect.DOLocalScale(WaveCountTarget.localScale, duration);
+			float inDur = 1f;
 
-			await Wait.Duration(duration);
+			rect.DOAnchorPos(WaveCountTarget.anchoredPosition, inDur).SetEase(Ease.InCubic);
+			rect.DOLocalScale(WaveCountTarget.localScale, inDur).SetEase(Ease.OutBack);
+
+			await Wait.Duration(inDur);
 			rect.rotation = Quaternion.AngleAxis(Random.Range(-WaveCountRotAngle, WaveCountRotAngle), Vector3.forward);
 			StartCoroutine(TypeWave());
 
-			// TODO: Wait, then return to position faster.
+			await Wait.Duration(3f);
+
+			float outDur = 0.2f;
+
+			rect.DOAnchorPos(pos, outDur).SetEase(Ease.Linear);
+			rect.DORotateZ(0f, outDur).SetEase(Ease.Linear);
+			rect.DOLocalScale(scale, outDur).SetEase(Ease.Linear);
+
+			WaveCount.text = WaveManager.Instance.WaveNumber.ToString();
+
 			// TODO: Play punch SFX at apex of anim.
 			// TODO: Play VFX.
 			// TODO: Add horizontal screen stretched ribbon.

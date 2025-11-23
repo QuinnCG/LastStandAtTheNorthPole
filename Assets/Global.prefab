@@ -230,7 +230,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 026fb83d83808434f88c99f74031bcb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Quinn.PlayerSystem.UpgradeManager
-  AllUpgrades: []
+  AllUpgrades:
+  - {fileID: 11400000, guid: 29f7fb6e0723f8144850223bc02a252d, type: 2}
 --- !u!114 &2419149667846636398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,6 +244,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cb74f4ef068d864eac4ffb2efb9b96d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Quinn.WaveManager
+  WaveDifficultyDelta: 0.1
+  Waves:
+  - MinimumWaveNumber: 1
+    Profile: {fileID: 11400000, guid: 7202ed82b7e3e8a478d452e294e24376, type: 2}
 --- !u!1 &3456824886341250406
 GameObject:
   m_ObjectHideFlags: 0
