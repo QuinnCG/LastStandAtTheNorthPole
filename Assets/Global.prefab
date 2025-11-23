@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 7882322571577207700}
   - component: {fileID: 3142566232849439284}
   - component: {fileID: 266435933927056045}
+  - component: {fileID: 2419149667846636398}
   m_Layer: 0
   m_Name: Global
   m_TagString: Untagged
@@ -229,7 +230,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 026fb83d83808434f88c99f74031bcb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Quinn.PlayerSystem.UpgradeManager
-  UI: {fileID: 0}
+  AllUpgrades: []
+--- !u!114 &2419149667846636398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2568351968977617489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cb74f4ef068d864eac4ffb2efb9b96d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Quinn.WaveManager
 --- !u!1 &3456824886341250406
 GameObject:
   m_ObjectHideFlags: 0

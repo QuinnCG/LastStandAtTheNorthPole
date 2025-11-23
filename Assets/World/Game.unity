@@ -387,6 +387,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4429959360846807686, guid: 0dfd82c4f1efca04e9ee7d9ab5b20c4a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -74.04224
+      objectReference: {fileID: 0}
+    - target: {fileID: 4429959360846807686, guid: 0dfd82c4f1efca04e9ee7d9ab5b20c4a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -192.05432
+      objectReference: {fileID: 0}
     - target: {fileID: 5500597648719656212, guid: 0dfd82c4f1efca04e9ee7d9ab5b20c4a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -844,6 +852,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snowman (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 566252250096027466, guid: 51488fcf85f64c24aadacfc68628fb6f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853624073334880643, guid: 51488fcf85f64c24aadacfc68628fb6f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4916347974552387369, guid: 51488fcf85f64c24aadacfc68628fb6f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5604100949648151699, guid: 51488fcf85f64c24aadacfc68628fb6f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.23
@@ -884,6 +904,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7869796399998709803, guid: 51488fcf85f64c24aadacfc68628fb6f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -900,6 +924,18 @@ PrefabInstance:
     - target: {fileID: 566252250096027466, guid: 51488fcf85f64c24aadacfc68628fb6f, type: 3}
       propertyPath: m_Name
       value: Snowman
+      objectReference: {fileID: 0}
+    - target: {fileID: 566252250096027466, guid: 51488fcf85f64c24aadacfc68628fb6f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853624073334880643, guid: 51488fcf85f64c24aadacfc68628fb6f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4916347974552387369, guid: 51488fcf85f64c24aadacfc68628fb6f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5604100949648151699, guid: 51488fcf85f64c24aadacfc68628fb6f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -941,6 +977,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7869796399998709803, guid: 51488fcf85f64c24aadacfc68628fb6f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -962,6 +1002,18 @@ PrefabInstance:
     - target: {fileID: 566252250096027466, guid: 51488fcf85f64c24aadacfc68628fb6f, type: 3}
       propertyPath: m_Name
       value: Snowman (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 566252250096027466, guid: 51488fcf85f64c24aadacfc68628fb6f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853624073334880643, guid: 51488fcf85f64c24aadacfc68628fb6f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4916347974552387369, guid: 51488fcf85f64c24aadacfc68628fb6f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5604100949648151699, guid: 51488fcf85f64c24aadacfc68628fb6f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1001,6 +1053,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5604100949648151699, guid: 51488fcf85f64c24aadacfc68628fb6f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7869796399998709803, guid: 51488fcf85f64c24aadacfc68628fb6f, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1069,6 +1125,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snowman (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 566252250096027466, guid: 51488fcf85f64c24aadacfc68628fb6f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853624073334880643, guid: 51488fcf85f64c24aadacfc68628fb6f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4916347974552387369, guid: 51488fcf85f64c24aadacfc68628fb6f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5604100949648151699, guid: 51488fcf85f64c24aadacfc68628fb6f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.73
@@ -1107,6 +1175,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5604100949648151699, guid: 51488fcf85f64c24aadacfc68628fb6f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7869796399998709803, guid: 51488fcf85f64c24aadacfc68628fb6f, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
