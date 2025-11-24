@@ -29,39 +29,39 @@ namespace Quinn.UI
 		}
 
 		public async Awaitable PlayNewWaveSequenceAsync()
-		{
-			StopAllCoroutines();
+        {
+            StopAllCoroutines();
 
-			var rect = WaveCount.GetComponent<RectTransform>();
+            var rect = WaveCount.GetComponent<RectTransform>();
 
-			var pos = rect.anchoredPosition;
-			var scale = rect.localScale;
+            var pos = rect.anchoredPosition;
+            var scale = rect.localScale;
 
-			float inDur = 1f;
+            float inDur = 1f;
 
-			rect.DOAnchorPos(WaveCountTarget.anchoredPosition, inDur).SetEase(Ease.InCubic);
-			rect.DOLocalScale(WaveCountTarget.localScale, inDur).SetEase(Ease.OutBack);
+            rect.DOAnchorPos(WaveCountTarget.anchoredPosition, inDur).SetEase(Ease.InCubic);
+            rect.DOLocalScale(WaveCountTarget.localScale, inDur).SetEase(Ease.OutBack);
 
-			await Wait.Duration(inDur);
-			rect.rotation = Quaternion.AngleAxis(Random.Range(-WaveCountRotAngle, WaveCountRotAngle), Vector3.forward);
-			StartCoroutine(TypeWave());
+            await Wait.Duration(inDur);
+            SetRandomRotationForWaveCount(rect);
+            StartCoroutine(TypeWave());
 
-			await Wait.Duration(3f);
+            await Wait.Duration(3f);
 
-			float outDur = 0.2f;
+            float outDur = 0.2f;
 
-			rect.DOAnchorPos(pos, outDur).SetEase(Ease.Linear);
-			rect.DORotateZ(0f, outDur).SetEase(Ease.Linear);
-			rect.DOLocalScale(scale, outDur).SetEase(Ease.Linear);
+            rect.DOAnchorPos(pos, outDur).SetEase(Ease.Linear);
+            rect.DORotateZ(0f, outDur).SetEase(Ease.Linear);
+            rect.DOLocalScale(scale, outDur).SetEase(Ease.Linear);
 
-			WaveCount.text = WaveManager.Instance.WaveNumber.ToString();
+            WaveCount.text = WaveManager.Instance.WaveNumber.ToString();
 
-			// TODO: Play punch SFX at apex of anim.
-			// TODO: Play VFX.
-			// TODO: Add horizontal screen stretched ribbon.
-		}
+            // TODO: Play punch SFX at apex of anim.
+            // TODO: Play VFX.
+            // TODO: Add horizontal screen stretched ribbon.
+        }
 
-		private IEnumerator TypeWave()
+        private IEnumerator TypeWave()
 		{
 			int waveNum = WaveManager.Instance.WaveNumber;
 			string text = $"Wave\n{waveNum}";
@@ -75,8 +75,21 @@ namespace Quinn.UI
 				WaveCount.text = builder.ToString();
 
 				Audio.Play(WritesSound);
-				yield return new WaitForSeconds(WriteInterval * i);
+
+				if (i == text.Length - 1)
+				{
+					SetRandomRotationForWaveCount(WaveCount.GetComponent<RectTransform>());
+				}
+				else
+				{
+					yield return new WaitForSeconds(WriteInterval * i);
+				}
 			}
+		}
+
+		private void SetRandomRotationForWaveCount(RectTransform rect)
+		{
+			rect.rotation = Quaternion.AngleAxis(Random.Range(-WaveCountRotAngle, WaveCountRotAngle), Vector3.forward);
 		}
 	}
 }

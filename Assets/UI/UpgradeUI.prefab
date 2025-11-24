@@ -222,7 +222,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7912185086005873254}
   - component: {fileID: 8310432844136544922}
-  - component: {fileID: 8114147536952322703}
   m_Layer: 5
   m_Name: Stack
   m_TagString: Untagged
@@ -247,10 +246,10 @@ RectTransform:
   - {fileID: 7255672174173700195}
   m_Father: {fileID: 7424847560328215656}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 520, y: -419.3315}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1040, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8310432844136544922
 MonoBehaviour:
@@ -278,20 +277,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &8114147536952322703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2907713485411616739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ContentSizeFitter
-  m_HorizontalFit: 2
-  m_VerticalFit: 2
 --- !u!1 &3930792585657792595
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,9 +655,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7912185086005873254}
     m_Modifications:
+    - target: {fileID: 1584612796444781773, guid: 2de77926bbd6d03498fb82e91552c78b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584612796444781773, guid: 2de77926bbd6d03498fb82e91552c78b, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584612796444781773, guid: 2de77926bbd6d03498fb82e91552c78b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584612796444781773, guid: 2de77926bbd6d03498fb82e91552c78b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2337828460652552610, guid: 2de77926bbd6d03498fb82e91552c78b, type: 3}
       propertyPath: m_Name
       value: UpgradeSlot_Left
+      objectReference: {fileID: 0}
+    - target: {fileID: 2932681083092574127, guid: 2de77926bbd6d03498fb82e91552c78b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2932681083092574127, guid: 2de77926bbd6d03498fb82e91552c78b, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2932681083092574127, guid: 2de77926bbd6d03498fb82e91552c78b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2932681083092574127, guid: 2de77926bbd6d03498fb82e91552c78b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3826823517172436329, guid: 2de77926bbd6d03498fb82e91552c78b, type: 3}
       propertyPath: m_AnchorMax.y
@@ -815,9 +832,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7912185086005873254}
     m_Modifications:
+    - target: {fileID: 1584612796444781773, guid: 2de77926bbd6d03498fb82e91552c78b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584612796444781773, guid: 2de77926bbd6d03498fb82e91552c78b, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584612796444781773, guid: 2de77926bbd6d03498fb82e91552c78b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584612796444781773, guid: 2de77926bbd6d03498fb82e91552c78b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2337828460652552610, guid: 2de77926bbd6d03498fb82e91552c78b, type: 3}
       propertyPath: m_Name
       value: Upgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 2932681083092574127, guid: 2de77926bbd6d03498fb82e91552c78b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2932681083092574127, guid: 2de77926bbd6d03498fb82e91552c78b, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2932681083092574127, guid: 2de77926bbd6d03498fb82e91552c78b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2932681083092574127, guid: 2de77926bbd6d03498fb82e91552c78b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3826823517172436329, guid: 2de77926bbd6d03498fb82e91552c78b, type: 3}
       propertyPath: m_AnchorMax.y
@@ -960,9 +1009,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7912185086005873254}
     m_Modifications:
+    - target: {fileID: 1584612796444781773, guid: 2de77926bbd6d03498fb82e91552c78b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584612796444781773, guid: 2de77926bbd6d03498fb82e91552c78b, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584612796444781773, guid: 2de77926bbd6d03498fb82e91552c78b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584612796444781773, guid: 2de77926bbd6d03498fb82e91552c78b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2337828460652552610, guid: 2de77926bbd6d03498fb82e91552c78b, type: 3}
       propertyPath: m_Name
       value: UpgradeSlot_Center
+      objectReference: {fileID: 0}
+    - target: {fileID: 2932681083092574127, guid: 2de77926bbd6d03498fb82e91552c78b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2932681083092574127, guid: 2de77926bbd6d03498fb82e91552c78b, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2932681083092574127, guid: 2de77926bbd6d03498fb82e91552c78b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2932681083092574127, guid: 2de77926bbd6d03498fb82e91552c78b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3826823517172436329, guid: 2de77926bbd6d03498fb82e91552c78b, type: 3}
       propertyPath: m_AnchorMax.y
