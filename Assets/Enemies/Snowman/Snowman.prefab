@@ -499,6 +499,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 522271342736234255, guid: 9aa83a62752928142a2bc80dd0a710ac, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.452
+      objectReference: {fileID: 0}
     - target: {fileID: 2062156851964986373, guid: 9aa83a62752928142a2bc80dd0a710ac, type: 3}
       propertyPath: m_Controller
       value: 
@@ -513,7 +517,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4675956465329612706, guid: 9aa83a62752928142a2bc80dd0a710ac, type: 3}
       propertyPath: m_Size.y
-      value: 0.6008967
+      value: 0.9117733
       objectReference: {fileID: 0}
     - target: {fileID: 4675956465329612706, guid: 9aa83a62752928142a2bc80dd0a710ac, type: 3}
       propertyPath: m_Offset.x
@@ -521,7 +525,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4675956465329612706, guid: 9aa83a62752928142a2bc80dd0a710ac, type: 3}
       propertyPath: m_Offset.y
-      value: 0.32359558
+      value: 0.4790339
       objectReference: {fileID: 0}
     - target: {fileID: 4780386595135896599, guid: 9aa83a62752928142a2bc80dd0a710ac, type: 3}
       propertyPath: m_Graph
