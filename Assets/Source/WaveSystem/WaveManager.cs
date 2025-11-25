@@ -1,4 +1,5 @@
 ﻿using QFSW.QC;
+using Quinn.AI;
 using Quinn.DamageSystem;
 using Quinn.PlayerSystem;
 using Quinn.UI;
@@ -33,7 +34,20 @@ namespace Quinn.WaveSystem
 		public int WaveNumber { get; private set; } = 0;
 		public float WaveDifficultyFactor { get; set; } = 1f;
 		public int AliveInCurrentWave { get; private set; }
+		public Vector2 LastEnemyPos
+		{
+			get
+			{
+				if (AliveInCurrentWave > 0)
+				{
+					return _aliveEnemies.First().bounds.center;
+				}
 
+				return Vector2.zero;
+			}
+		}
+
+		private readonly HashSet<Collider2D> _aliveEnemies = new();
 		private bool _forceStartNextSubWave;
 
 		private void Awake()
@@ -94,9 +108,13 @@ namespace Quinn.WaveSystem
 				AliveInCurrentWave++;
 
 				var instance = prefab.Clone(pos);
+				var hitbox = instance.GetComponent<Collider2D>();
+				_aliveEnemies.Add(hitbox);
+
 				instance.GetComponent<Health>().OnDeath += _ =>
 				{
 					AliveInCurrentWave--;
+					_aliveEnemies.Remove(hitbox);
 
 					if (AliveInCurrentWave <= 0)
 					{
