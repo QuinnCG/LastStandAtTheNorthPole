@@ -1,5 +1,6 @@
 ﻿using DG.Tweening;
 using FMODUnity;
+using Quinn.WaveSystem;
 using Sirenix.OdinInspector;
 using System.Collections;
 using System.Text;
