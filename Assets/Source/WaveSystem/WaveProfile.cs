@@ -6,8 +6,8 @@ namespace Quinn.WaveSystem
 	[CreateAssetMenu]
 	public class WaveProfile : ScriptableObject
 	{
-		public Vector2 SpawnInterval = new(3f, 7f);
-		public Vector2Int SubWaveCount = new(1, 3);
+		public Vector2 SpawnInterval = new(20f, 30f);
+		public Vector2Int SubWaveCount = new(2, 3);
 		[InlineProperty]
 		public EnemySpawnDefinition[] SpawnDefinitions = System.Array.Empty<EnemySpawnDefinition>();
 	}

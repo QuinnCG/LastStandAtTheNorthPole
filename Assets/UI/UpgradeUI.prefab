@@ -633,8 +633,8 @@ MonoBehaviour:
   - {fileID: 4769298985106495148}
   - {fileID: 3870165390398677996}
   - {fileID: 6112905393011212015}
-  FadeInTime: 0.2
-  FadeOutTime: 0.2
+  FadeInTime: 0.5
+  FadeOutTime: 1
 --- !u!225 &8536612684130229564
 CanvasGroup:
   m_ObjectHideFlags: 0

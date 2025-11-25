@@ -2,6 +2,7 @@
 using FMODUnity;
 using Quinn.DamageSystem;
 using Quinn.PlayerSystem;
+using Quinn.WaveSystem;
 using Sirenix.OdinInspector;
 using System.Collections;
 using System.Text;
@@ -18,6 +19,8 @@ namespace Quinn.UI
 		private CanvasGroup Group;
 		[SerializeField]
 		private float FadeDuration = 1f;
+		[SerializeField, Required]
+		private TextMeshProUGUI AliveCount;
 
 		[SerializeField, Required, Space]
 		private Image LowHPVignette;
@@ -51,7 +54,7 @@ namespace Quinn.UI
 		private float _alphaVel;
 		private float _defaultScale;
 
-		private Health _playerHealth;
+		private Health? _playerHealth;
 
 		public void Awake()
 		{
@@ -75,7 +78,7 @@ namespace Quinn.UI
 			var color = LowHPVignette.color;
 
 			float targetAlpha;
-			if (_playerHealth.IsDead || _playerHealth.Current <= 1.55f) // HACK
+			if (_playerHealth!.IsDead || _playerHealth.Current <= 1.55f) // HACK
 			{
 				targetAlpha = 1f;
 			}
@@ -96,7 +99,12 @@ namespace Quinn.UI
 			LowHPVignette.transform.localScale = new Vector3(scale, scale, 1f);
 		}
 
-		public void OnDestroy()
+        private void LateUpdate()
+        {
+            AliveCount.text = $"Alive: {WaveManager.Instance.AliveInCurrentWave}";
+		}
+
+        public void OnDestroy()
 		{
 			Group.DOKill();
 			_cancelDialogue.Cancel();
