@@ -1,14 +1,24 @@
 ﻿using Quinn.WaveSystem;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Quinn.UI
 {
-	public class LastEnemyIndicatorUI : MonoBehaviour
+    [RequireComponent(typeof(SpriteRenderer))]
+    public class LastEnemyIndicatorUI : MonoBehaviour
 	{
 		[SerializeField]
 		private float EnemyMinDstToShow = 5f;
 		[SerializeField]
 		private float ArrowMaxDstFromCamCenter = 3f;
+
+		private SpriteRenderer _renderer;
+
+        private void Awake()
+        {
+            _renderer = GetComponent<SpriteRenderer>();
+
+		}
 
 		private void LateUpdate()
 		{
@@ -16,7 +26,7 @@ namespace Quinn.UI
 			var cam = Camera.main;
 
 			int count = WaveManager.Instance.AliveInCurrentWave;
-			gameObject.SetActive(count is 1 && enemyPos.DistanceTo(cam.transform.position) >= EnemyMinDstToShow);
+			_renderer.enabled = count is 1 && enemyPos.DistanceTo(cam.transform.position) >= EnemyMinDstToShow;
 
 			var diff = enemyPos - (Vector2)cam.transform.position;
 			var dir = diff.normalized;
