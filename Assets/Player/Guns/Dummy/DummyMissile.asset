@@ -29,9 +29,16 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
+  HitSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   Team: 0
   Damage: 3
-  Knockback: 1
+  Knockback: 3
   StatusEffects: []
   DestoryOnCharacterHit: 1
   DestoryOnObstacleHit: 1

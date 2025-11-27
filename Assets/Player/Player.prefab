@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 12515847788552982}
   - component: {fileID: -2240122771808080094}
   - component: {fileID: 1054931321947057699}
+  - component: {fileID: 6207632511002322917}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -166,7 +167,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: -876546973899608171, guid: 032ac1f572bff6743ae3016256ca75a9, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -456,6 +457,60 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortAtRoot: 1
+--- !u!114 &6207632511002322917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023899215203131685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd0574e1d0badaa40964d75dd289d55e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Quinn.DamageSystem.HealthFX
+  DoesFlash: 1
+  FlashHold: 0.1
+  FlashOut: 0.1
+  DoesBlink: 1
+  BlinkCount: 6
+  BlinkVisible: 0.1
+  BlinkInvisible: 0.1
+  RegularHurtSFX:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  WeakHurtSFX:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  ResistantHurtSFX:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  DeathSFX:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  HurtVFX: {fileID: 0}
+  DeathVFX: {fileID: 0}
+  DirectionFieldVFX:
+    IsEnabled: 0
+    Value: Direction
+  Renderers:
+  - {fileID: 3472399652548140284}
 --- !u!1 &1965215016073586726
 GameObject:
   m_ObjectHideFlags: 0

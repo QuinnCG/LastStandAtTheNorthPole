@@ -170,6 +170,7 @@ GameObject:
   - component: {fileID: 4622495130170513528}
   - component: {fileID: 1818420529393156671}
   - component: {fileID: 1018374356252386695}
+  - component: {fileID: -8931104815107424108}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
@@ -218,7 +219,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 9a4714f31f00293459c94124872c9844, type: 3}
+  - {fileID: -876546973899608171, guid: ea013fc136f43644ea40d2e26a27eecd, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -453,6 +454,60 @@ MonoBehaviour:
   FadeOutTime: 0.5
   PunchScale: 1.1
   PunchTime: 0.1
+--- !u!114 &-8931104815107424108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2846602245852011288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd0574e1d0badaa40964d75dd289d55e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Quinn.DamageSystem.HealthFX
+  DoesFlash: 1
+  FlashHold: 0.1
+  FlashOut: 0.1
+  DoesBlink: 0
+  BlinkCount: 6
+  BlinkVisible: 0.1
+  BlinkInvisible: 0.1
+  RegularHurtSFX:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  WeakHurtSFX:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  ResistantHurtSFX:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  DeathSFX:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  HurtVFX: {fileID: 0}
+  DeathVFX: {fileID: 0}
+  DirectionFieldVFX:
+    IsEnabled: 0
+    Value: Direction
+  Renderers:
+  - {fileID: 7474986039797753222}
 --- !u!1 &3910149908749170066
 GameObject:
   m_ObjectHideFlags: 0

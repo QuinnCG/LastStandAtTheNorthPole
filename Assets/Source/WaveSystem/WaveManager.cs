@@ -28,6 +28,8 @@ namespace Quinn.WaveSystem
 		private float WaveDifficultyDelta = 0.1f;
 		[SerializeField]
 		private float PlayerNoSpawnRadius = 10f;
+		[SerializeField]
+		private float WaveInterval = 3f;
 		[SerializeField, InlineProperty]
 		private WaveDefinition[] Waves;
 
@@ -102,6 +104,15 @@ namespace Quinn.WaveSystem
 			}
 
 			yield return new WaitUntil(() => AliveInCurrentWave <= 0);
+
+			var health = Player.Instance.GetComponent<Health>();
+			if (health.IsAlive)
+			{
+				health.FullHeal();
+			}
+
+			yield return new WaitForSeconds(WaveInterval);
+
 			StartNextWave();
 		}
 
