@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 3142566232849439284}
   - component: {fileID: 266435933927056045}
   - component: {fileID: 2419149667846636398}
+  - component: {fileID: 4189724061992870740}
   m_Layer: 0
   m_Name: Global
   m_TagString: Untagged
@@ -45,7 +46,6 @@ Transform:
   - {fileID: 4069476520325780110}
   - {fileID: 7910943731215663959}
   - {fileID: 9078703003819599067}
-  - {fileID: 8339269827099363867}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1312147056362529366
@@ -245,9 +245,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Quinn.WaveManager
   WaveDifficultyDelta: 0.1
+  PlayerNoSpawnRadius: 10
   Waves:
   - MinimumWaveNumber: 1
     Profile: {fileID: 11400000, guid: 7202ed82b7e3e8a478d452e294e24376, type: 2}
+--- !u!114 &4189724061992870740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2568351968977617489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e143f95ed7cb949acbbf2ab4331247, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Quinn.MusicManager
+  Music:
+    Guid:
+      Data1: -569821849
+      Data2: 1218128719
+      Data3: 501953945
+      Data4: -196865969
+    Path: event:/Music
 --- !u!1 &3456824886341250406
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,69 +537,6 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
---- !u!1 &8169757488632853015
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8339269827099363867}
-  - component: {fileID: 399380618466993378}
-  m_Layer: 0
-  m_Name: Music
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8339269827099363867
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8169757488632853015}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8231273025360781947}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &399380618466993378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8169757488632853015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -569821849
-      Data2: 1218128719
-      Data3: 501953945
-      Data4: -196865969
-    Path: event:/Music
-  Event: 
-  EventPlayTrigger: 1
-  EventStopTrigger: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1 &8537473789062089921
 GameObject:
   m_ObjectHideFlags: 0

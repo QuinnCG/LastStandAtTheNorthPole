@@ -1,5 +1,4 @@
 ﻿using Quinn.WaveSystem;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Quinn.UI

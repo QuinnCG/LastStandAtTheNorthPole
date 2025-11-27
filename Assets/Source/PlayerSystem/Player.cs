@@ -65,6 +65,8 @@ namespace Quinn.PlayerSystem
 
         private async void Start()
 		{
+			MusicManager.Instance.Play();
+
 			InputManager.Instance.UnblockInput(_blockInputKey);
 			await TransitionManager.Instance.FadeFromBlackAsync(FadeInTime);
 		}
@@ -204,6 +206,7 @@ namespace Quinn.PlayerSystem
 
 		private async void OnDeath(DamageInstance dmgInstance)
 		{
+			MusicManager.Instance.Pause();
 
 			_gunManager.StopFiring();
 			StopDashing();
