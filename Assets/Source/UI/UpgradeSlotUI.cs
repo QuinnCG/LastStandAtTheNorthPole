@@ -1,5 +1,6 @@
 ﻿using DG.Tweening;
 using FMODUnity;
+using Quinn.PlayerSystem;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;

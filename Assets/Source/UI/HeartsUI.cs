@@ -50,7 +50,6 @@ namespace Quinn.UI
 				OnHealthChange(hp);
 			};
 
-			transform.DestroyChildren();
 			ReconstructHearts();
 		}
 
@@ -72,6 +71,11 @@ namespace Quinn.UI
 
 		private async void OnHealthChange(float delta)
 		{
+			if (_health.Max != _hearts.Count)
+			{
+				ReconstructHearts();
+			}
+
 			if (delta != 0f)
 			{
 				if (delta > 0f)
@@ -92,6 +96,8 @@ namespace Quinn.UI
 
 		private void ReconstructHearts()
 		{
+			transform.DestroyChildren();
+
 			foreach (var heart in _hearts.ToArray())
 			{
 				Destroy(heart.gameObject);

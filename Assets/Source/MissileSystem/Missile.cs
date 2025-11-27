@@ -19,7 +19,7 @@ namespace Quinn.MissileSystem
 
 		public MissileData? Data { get; private set; }
 		public Vector2 Direction { get; private set; }
-		public float StatFactor { get; set; } = 1f;
+		public float DamageFactor { get; set; } = 1f;
 
 		public event System.Action? OnDeath;
 
@@ -85,8 +85,8 @@ namespace Quinn.MissileSystem
 				{
 					var dmgInfo = new DamageInfo()
 					{
-						Damage = Data.Damage * StatFactor,
-						Knockback = Data.Knockback * StatFactor,
+						Damage = Data.Damage * DamageFactor,
+						Knockback = Data.Knockback * DamageFactor,
 						StatusEffects = Data.StatusEffects,
 						Direction = deltaPos.normalized,
 						Team = Data.Team

@@ -25,9 +25,8 @@ namespace Quinn.PlayerSystem
         private void OnUpgradeSelected(UpgradeSO upgrade)
         {
 			_upgradeSelected = true;
-        }
-
-		// TODO: Apply new upgrade.
+			upgrade.Upgrade.ApplyUpgrade();
+		}
 
         public async Awaitable BeginUpgradeSequenceAsync()
 		{
@@ -35,6 +34,7 @@ namespace Quinn.PlayerSystem
 			UpgradeUI.Instance.Show(AllUpgrades.GetRandom(), AllUpgrades.GetRandom(), AllUpgrades.GetRandom());
 
 			await Wait.Until(() => _upgradeSelected);
+			_upgradeSelected = false;
 		}
 	}
 }

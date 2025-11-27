@@ -166,7 +166,7 @@ namespace Quinn.MissileSystem
 			return instance;
 		}
 
-		public Missile[] Spawn(Vector2 pos, Vector2 dir, MissileData missile, MissileSpawnPattern pattern, bool defer = false, float statFactor = 1f)
+		public Missile[] Spawn(Vector2 pos, Vector2 dir, MissileData missile, MissileSpawnPattern pattern, bool defer = false, float damageFactor = 1f)
 		{
 			var spawned = new Missile[pattern.Count];
 
@@ -174,7 +174,7 @@ namespace Quinn.MissileSystem
 			{
 				Vector2 newDir = CalculateDir(i, dir, pattern);
 				var instance = Spawn(pos, newDir, missile, defer);
-				instance.StatFactor = statFactor;
+				instance.DamageFactor = damageFactor;
 
 				spawned[i] = instance;
 			}

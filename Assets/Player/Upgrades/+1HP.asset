@@ -10,16 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b4d82db8544ca946bbea7884090ebdb, type: 3}
-  m_Name: DummyUpgrade
+  m_Name: +1HP
   m_EditorClassIdentifier: Assembly-CSharp::Quinn.UI.UpgradeSO
-  Icon: {fileID: -1332902815624945795, guid: ed582cd4129a58d44980288ae33e8d20, type: 3}
-  Details: A basic testing gun
+  Icon: {fileID: -97003750754964358, guid: 954cdfbbf10476840aacf1db0cd7e341, type: 3}
+  Details: Increase max HP by 1 heart
   Upgrade:
-    rid: 7086342059839717493
+    rid: 7086342059839717506
   references:
     version: 2
     RefIds:
-    - rid: 7086342059839717493
-      type: {class: WeaponUpgrade, ns: Quinn.PlayerSystem.Upgrades, asm: Assembly-CSharp}
+    - rid: 7086342059839717506
+      type: {class: StatUpgrade, ns: Quinn.PlayerSystem.Upgrades, asm: Assembly-CSharp}
       data:
-        GunPrefab: {fileID: 1142618887974905389, guid: 3e09564a14c054b4591f6e2bb62c3c12, type: 3}
+        SpeedAddend: 0
+        DamageAddend: 0
+        HealthAddend: 1

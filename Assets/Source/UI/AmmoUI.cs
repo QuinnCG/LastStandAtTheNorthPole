@@ -38,6 +38,8 @@ namespace Quinn.UI
 			var manager = GunManager.Instance;
 			var gun = manager.Equipped;
 
+			bool showRed = false;
+
 			if (gun == null)
 			{
 				AmmoSprite.sprite = null;
@@ -49,12 +51,18 @@ namespace Quinn.UI
 				AmmoSprite.sprite = gun.AmmoUI;
 				AmmoSprite.color = new Color(1f, 1f, 1f, 1f);
 				AmmoText.text = $"{manager.Magazine}/{gun.MagazineSize}";
+
+				float normPercent = (float)manager.Magazine / gun.MagazineSize;
+
+				if (normPercent <= ShowRedBelowNormPercentage)
+				{
+					showRed = true;
+				}
 			}
 
-			float normPercent = (float)manager.Magazine / gun.MagazineSize;
-			AmmoText.color = normPercent <= ShowRedBelowNormPercentage ? RedAmmo : _defaultColor;
+			AmmoText.color = showRed ? RedAmmo : _defaultColor;
 
-			float amp = normPercent <= ShowRedBelowNormPercentage ? 1f : 0f;
+			float amp = showRed ? 1f : 0f;
 
 			float t = ((Mathf.Sin(Time.time * ThrobFrequency) * amp) + 1f) / 2f;
 			float scale = Mathf.Lerp(ThrobSize.x, ThrobSize.y, t);

@@ -63,6 +63,11 @@ namespace Quinn.MovementSystem
 			MoveSpeed = speed;
 		}
 
+		public void IncreaseMoveSpeed(float addend)
+		{
+			MoveSpeed += addend;
+		}
+
 		/// <summary>
 		/// Set <see cref="MoveSpeed"/> to <see cref="DefaultMoveSpeed"/>.
 		/// </summary>

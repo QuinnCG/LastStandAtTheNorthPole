@@ -31,6 +31,8 @@ namespace Quinn.PlayerSystem
 		public event System.Action<Gun>? OnEquipped;
 		public event System.Action? OnUnequipped;
 
+		public float DamageMultiplier { get; set; } = 1f;
+
 		private CharacterMovement _movement;
 		private float _nextFireTime;
 
@@ -63,6 +65,10 @@ namespace Quinn.PlayerSystem
 			}
 		}
 
+		/// <summary>
+		/// Equips a gun after deleting the current. Also, reloads ammo.
+		/// </summary>
+		/// <param name="gun">The prefab of the gun. This will be cloned.</param>
 		public void Equip(Gun gun)
 		{
 			if (Equipped != null)
@@ -124,7 +130,7 @@ namespace Quinn.PlayerSystem
 
 			if (Magazine > 0)
 			{
-				MissileManager.Instance.Spawn(origin, dir, Equipped.Missile.Missile!, Equipped.Missile.Pattern);
+				MissileManager.Instance.Spawn(origin, dir, Equipped.Missile.Missile!, Equipped.Missile.Pattern, damageFactor: DamageMultiplier * StatMultiplier);
 				Recoil(Equipped.RecoilOffset, Equipped.RecoilRecoveryTime);
 
 				Audio.Play(Equipped.FireSound, origin);

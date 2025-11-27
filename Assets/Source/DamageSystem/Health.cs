@@ -125,5 +125,15 @@ namespace Quinn.DamageSystem
 		{
 			Heal(Max);
 		}
+
+		public void IncreaseMaxHP(int addend, bool heal = true)
+		{
+			Max += addend;
+			
+			if (heal)
+			{
+				FullHeal();
+			}
+		}
 	}
 }
