@@ -53,6 +53,8 @@ namespace Quinn.AI
 
 		[SerializeField, BoxGroup("Extras")]
 		private float DefaultDeathBehaviorFadeOutDelay = 5f, DefaultDeathBehaviorFadeOutDuration = 2f;
+		[SerializeField, BoxGroup("Extras"), Required]
+		private SpriteRenderer Shadow;
 
 		public bool IsEngaged { get; private set; }
 
@@ -223,6 +225,7 @@ namespace Quinn.AI
 		private IEnumerator DeathSequence()
 		{
 			StopActiveSequence();
+			Shadow.DOFade(0f, 0.5f);
 
 			GetComponent<DamageOnContact>().enabled = false;
 			Animator.Play("Death");
