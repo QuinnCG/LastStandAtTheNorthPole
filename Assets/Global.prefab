@@ -230,6 +230,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 026fb83d83808434f88c99f74031bcb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Quinn.PlayerSystem.UpgradeManager
+  StartingUpgrades:
+  - {fileID: 11400000, guid: 29f7fb6e0723f8144850223bc02a252d, type: 2}
+  - {fileID: 11400000, guid: 29f7fb6e0723f8144850223bc02a252d, type: 2}
+  - {fileID: 11400000, guid: 29f7fb6e0723f8144850223bc02a252d, type: 2}
   AllUpgrades:
   - {fileID: 11400000, guid: 29f7fb6e0723f8144850223bc02a252d, type: 2}
   - {fileID: 11400000, guid: 2c09f43629dc2dc489798e0b0acb2f14, type: 2}

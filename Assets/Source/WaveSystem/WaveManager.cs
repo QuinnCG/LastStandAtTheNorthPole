@@ -72,6 +72,13 @@ namespace Quinn.WaveSystem
 			StartCoroutine(WaveSequence());
 		}
 
+		[Command("wave.reset")]
+		public void ResetWave()
+		{
+			WaveNumber = 0;
+			WaveDifficultyFactor = 1f;
+		}
+
 		[Command("wave.difficulty")]
 		protected void GetWaveDifficulty()
 		{

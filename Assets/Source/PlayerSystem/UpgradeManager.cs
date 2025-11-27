@@ -1,4 +1,6 @@
 ﻿using Quinn.UI;
+using Quinn.WaveSystem;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Quinn.PlayerSystem
@@ -7,6 +9,8 @@ namespace Quinn.PlayerSystem
 	{
 		public static UpgradeManager Instance { get; private set; }
 
+		[SerializeField, RequiredListLength(3, 3)]
+		private UpgradeSO[] StartingUpgrades;
 		[SerializeField]
 		private UpgradeSO[] AllUpgrades;
 
@@ -17,21 +21,37 @@ namespace Quinn.PlayerSystem
 			Instance = this;
 		}
 
-        private void Start()
-        {
+		private void Start()
+		{
 			UpgradeUI.Instance.OnUpgradeSelected += OnUpgradeSelected;
 		}
 
-        private void OnUpgradeSelected(UpgradeSO upgrade)
-        {
+		private void OnUpgradeSelected(UpgradeSO upgrade)
+		{
 			_upgradeSelected = true;
 			upgrade.Upgrade.ApplyUpgrade();
 		}
 
-        public async Awaitable BeginUpgradeSequenceAsync()
+		public async Awaitable BeginUpgradeSequenceAsync()
 		{
+			UpgradeSO u1, u2, u3;
+
+			// First wave.
+			if (WaveManager.Instance.WaveNumber <= 1)
+			{
+				u1 = StartingUpgrades[0];
+				u2 = StartingUpgrades[1];
+				u3 = StartingUpgrades[2];
+			}
+			else
+			{
+				u1 = AllUpgrades.GetRandom();
+				u2 = AllUpgrades.GetRandom();
+				u3 = AllUpgrades.GetRandom();
+			}
+
 			_upgradeSelected = false;
-			UpgradeUI.Instance.Show(AllUpgrades.GetRandom(), AllUpgrades.GetRandom(), AllUpgrades.GetRandom());
+			UpgradeUI.Instance.Show(u1, u2, u3);
 
 			await Wait.Until(() => _upgradeSelected);
 			_upgradeSelected = false;

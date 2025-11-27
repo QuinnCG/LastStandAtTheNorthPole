@@ -2,6 +2,7 @@ using FMODUnity;
 using QFSW.QC;
 using Quinn.DamageSystem;
 using Quinn.MovementSystem;
+using Quinn.WaveSystem;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -224,6 +225,8 @@ namespace Quinn.PlayerSystem
 			}
 
 			await TransitionManager.Instance.FadeToBlackAsync(DeathFadeOutTime);
+			WaveManager.Instance.ResetWave();
+
 			// Load menu scene (2nd index).
 			await SceneManager.LoadSceneAsync(1);
 		}
