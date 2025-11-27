@@ -1,9 +1,11 @@
+using DG.Tweening;
 using Quinn.DamageSystem;
 using Quinn.MovementSystem;
 using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Quinn.AI
@@ -11,6 +13,8 @@ namespace Quinn.AI
 	[RequireComponent(typeof(Animator))]
 	[RequireComponent(typeof(Health))]
 	[RequireComponent(typeof(CharacterMovement))]
+	[RequireComponent(typeof(SpriteRenderer))]
+	[RequireComponent(typeof(DamageOnContact))]
 	public class AgentAI : MonoBehaviour
 	{
 		[field: SerializeField, Range(0f, 50f)]
@@ -46,6 +50,9 @@ namespace Quinn.AI
 		private float OscillateFrequency = 0.1f;
 		[SerializeField, Range(0f, 1f)]
 		private float OscillateTimeOffset = 0.5f;
+
+		[SerializeField, BoxGroup("Extras")]
+		private float DefaultDeathBehaviorFadeOutDelay = 5f, DefaultDeathBehaviorFadeOutDuration = 2f;
 
 		public bool IsEngaged { get; private set; }
 
@@ -90,6 +97,9 @@ namespace Quinn.AI
 
 		protected virtual void Update()
 		{
+			if (Health.IsDead)
+				return;
+
 			OnUpdate();
 
 			if (!IsEngaged)
@@ -113,15 +123,15 @@ namespace Quinn.AI
 			}
 		}
 
-        private void OnDestroy()
-        {
-            if (AIManager.Instance != null)
+		private void OnDestroy()
+		{
+			if (AIManager.Instance != null)
 			{
 				AIManager.Instance.Unregister(this);
 			}
 		}
 
-        public void Engage()
+		public void Engage()
 		{
 			if (!IsEngaged)
 			{
@@ -168,7 +178,11 @@ namespace Quinn.AI
 
 		protected void StopActiveSequence()
 		{
-			StopCoroutine(_activeRoutine);
+			if (_activeRoutine != null)
+			{
+				StopCoroutine(_activeRoutine);
+			}
+
 			_activeRoutine = null;
 			_activeSequence = null;
 		}
@@ -202,6 +216,20 @@ namespace Quinn.AI
 
 		protected virtual void OnDeath(DamageInstance instance)
 		{
+			StopAllCoroutines();
+			StartCoroutine(DeathSequence());
+		}
+
+		private IEnumerator DeathSequence()
+		{
+			StopActiveSequence();
+
+			GetComponent<DamageOnContact>().enabled = false;
+			Animator.Play("Death");
+			yield return new WaitForSeconds(DefaultDeathBehaviorFadeOutDelay);
+
+			var renderer = GetComponent<SpriteRenderer>();
+			yield return renderer.DOFade(0f, DefaultDeathBehaviorFadeOutDuration).WaitForCompletion();
 			gameObject.Destroy();
 		}
 

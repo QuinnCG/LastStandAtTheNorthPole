@@ -62,6 +62,7 @@ namespace Quinn.UI
 		private void LateUpdate()
 		{
 			HPBar.value = _health.Normalized;
+			HPBar.gameObject.SetActive(_health.IsAlive);
 		}
 	}
 }

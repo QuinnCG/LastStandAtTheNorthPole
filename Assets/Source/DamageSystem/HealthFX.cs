@@ -75,7 +75,7 @@ namespace Quinn.DamageSystem
 			{
 				if (DirectionFieldVFX.IsEnabled)
 				{
-					HurtVFX.SetVector2(DirectionFieldVFX.Value, dmgInstance.Info.Direction);
+					HurtVFX.SetVector2(DirectionFieldVFX.Value, dmgInstance.Info!.Direction);
 				}
 
 				HurtVFX.Play();
@@ -109,7 +109,7 @@ namespace Quinn.DamageSystem
 			{
 				if (DirectionFieldVFX.IsEnabled)
 				{
-					DeathVFX.SetVector2(DirectionFieldVFX.Value, dmgInstance.Info.Direction);
+					DeathVFX.SetVector2(DirectionFieldVFX.Value, dmgInstance.Info!.Direction);
 				}
 
 				DeathVFX.Play();

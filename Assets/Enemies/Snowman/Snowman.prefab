@@ -511,6 +511,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snowman
       objectReference: {fileID: 0}
+    - target: {fileID: 2992138280351213610, guid: 9aa83a62752928142a2bc80dd0a710ac, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992138280351213610, guid: 9aa83a62752928142a2bc80dd0a710ac, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4675956465329612706, guid: 9aa83a62752928142a2bc80dd0a710ac, type: 3}
       propertyPath: m_Size.x
       value: 0.6008967
@@ -573,9 +581,17 @@ PrefabInstance:
       value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7474986039797753222, guid: 9aa83a62752928142a2bc80dd0a710ac, type: 3}
+      propertyPath: m_Size.y
+      value: 1.3125
+      objectReference: {fileID: 0}
+    - target: {fileID: 7474986039797753222, guid: 9aa83a62752928142a2bc80dd0a710ac, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -5571254168060228256, guid: 783e4cff18a31914a9f0a2dcc0da8201, type: 3}
+      objectReference: {fileID: -8917958835628237937, guid: 783e4cff18a31914a9f0a2dcc0da8201, type: 3}
+    - target: {fileID: 7474986039797753222, guid: 9aa83a62752928142a2bc80dd0a710ac, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7899127782005721281, guid: 9aa83a62752928142a2bc80dd0a710ac, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.537925
@@ -660,6 +676,8 @@ MonoBehaviour:
   OscillateRange: {x: 2, y: 4}
   OscillateFrequency: 0.1
   OscillateTimeOffset: 0.5
+  DefaultDeathBehaviorFadeOutDelay: 5
+  DefaultDeathBehaviorFadeOutDuration: 2
   MissileOrigin: {fileID: 2037913552535796611}
   LargeSnowball:
     Missile: {fileID: 11400000, guid: 94c739b54c6b2794b8103032efd546b6, type: 2}
