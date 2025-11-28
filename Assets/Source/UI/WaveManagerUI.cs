@@ -24,9 +24,17 @@ namespace Quinn.UI
 
 		public static WaveManagerUI Instance { get; private set; }
 
+		private Vector2 _defaultPos;
+		private Vector3 _defaultScale;
+
 		private void Awake()
 		{
 			Instance = this;
+
+			var rect = WaveCount.GetComponent<RectTransform>();
+
+			_defaultPos = rect.anchoredPosition;
+			_defaultScale = rect.localScale;
 		}
 
 		public async Awaitable PlayNewWaveSequenceAsync()
@@ -34,9 +42,6 @@ namespace Quinn.UI
             StopAllCoroutines();
 
             var rect = WaveCount.GetComponent<RectTransform>();
-
-            var pos = rect.anchoredPosition;
-            var scale = rect.localScale;
 
             float inDur = 1f;
 
@@ -51,9 +56,9 @@ namespace Quinn.UI
 
             float outDur = 0.2f;
 
-            rect.DOAnchorPos(pos, outDur).SetEase(Ease.Linear);
+            rect.DOAnchorPos(_defaultPos, outDur).SetEase(Ease.Linear);
             rect.DORotateZ(0f, outDur).SetEase(Ease.Linear);
-            rect.DOLocalScale(scale, outDur).SetEase(Ease.Linear);
+            rect.DOLocalScale(_defaultScale, outDur).SetEase(Ease.Linear);
 
             WaveCount.text = WaveManager.Instance.WaveNumber.ToString();
 
