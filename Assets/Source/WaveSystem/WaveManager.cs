@@ -1,4 +1,6 @@
-﻿using QFSW.QC;
+﻿using DG.Tweening;
+using FMODUnity;
+using QFSW.QC;
 using Quinn.AI;
 using Quinn.DamageSystem;
 using Quinn.PlayerSystem;
@@ -32,6 +34,8 @@ namespace Quinn.WaveSystem
 		private float WaveInterval = 3f;
 		[SerializeField, InlineProperty]
 		private WaveDefinition[] Waves;
+		[SerializeField]
+		private float StormChangeTime = 2f;
 
 		public int WaveNumber { get; private set; } = 0;
 		public float WaveDifficultyFactor { get; set; } = 1f;
@@ -57,20 +61,25 @@ namespace Quinn.WaveSystem
 			Instance = this;
 		}
 
-        private void Start()
-        {
+		private void Start()
+		{
 			StartNextWave();
-        }
+		}
 
-        [Command("wave.next")]
+		[Command("wave.next")]
 		public async void StartNextWave()
 		{
+			TweenStorm(0f);
+
 			WaveDifficultyFactor += WaveDifficultyDelta;
 			WaveNumber++;
 
 			await UpgradeManager.Instance.BeginUpgradeSequenceAsync();
 			await WaveManagerUI.Instance.PlayNewWaveSequenceAsync();
 			StartCoroutine(WaveSequence());
+
+			await Wait.Duration(1f);
+			TweenStorm(1f);
 		}
 
 		[Command("wave.reset")]
@@ -84,6 +93,19 @@ namespace Quinn.WaveSystem
 		protected void GetWaveDifficulty()
 		{
 			Log.Info($"Current wave difficulty: {WaveDifficultyFactor}");
+		}
+
+		private void TweenStorm(float normalizedFactor)
+		{
+			DOTween.To(() =>
+			{
+				return Audio.GetGlobalParameterAsFloat("ambience-intensity");
+			}, t =>
+			{
+				Audio.SetGlobalParameter("ambience-intensity", t);
+				Player.Instance.SetSnowSpawnFactor(Mathf.Lerp(0.3f, 1f, t));
+			}, normalizedFactor, StormChangeTime)
+				.SetTarget(this);
 		}
 
 		private IEnumerator WaveSequence()

@@ -91,6 +91,12 @@ namespace Quinn
 			return GetBus(string.Empty);
 		}
 
+		public static float GetGlobalParameterAsFloat(string name)
+		{
+			RuntimeManager.StudioSystem.getParameterByName(name, out var value);
+			return value;
+		}
+
 		public static void SetGlobalParameter(string name, float value, bool ignoreSeedSpeed = false)
 		{
 			RuntimeManager.StudioSystem.setParameterByName(name, value, ignoreSeedSpeed);

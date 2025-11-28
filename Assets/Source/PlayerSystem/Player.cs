@@ -7,6 +7,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
+using UnityEngine.VFX;
 
 namespace Quinn.PlayerSystem
 {
@@ -37,6 +38,8 @@ namespace Quinn.PlayerSystem
 		private float DeathFadeOutTime = 3.6f;
 		[SerializeField, Required]
 		private Light2D[] AuraLights;
+		[SerializeField, Required]
+		private VisualEffect SnowVFX;
 
 		public bool IsDashing { get; private set; }
 
@@ -104,6 +107,11 @@ namespace Quinn.PlayerSystem
 
 			InputManager.Instance.OnFireStart -= OnFireStart;
 			InputManager.Instance.OnFireStop -= OnFireStop;
+		}
+
+		public void SetSnowSpawnFactor(float factor)
+		{
+			SnowVFX.SetFloat("SpawnFactor", factor);
 		}
 
         private Vector3 GetAimDir()
