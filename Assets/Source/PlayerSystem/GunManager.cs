@@ -166,6 +166,8 @@ namespace Quinn.PlayerSystem
 				Magazine = Mathf.Max(0, Magazine - Equipped.ConsumePerShot);
 
 				_movement.ApplyKnockback(-dir * Equipped.SelfKnockback);
+
+				Equipped.MuzzleVFX.Play();
 			}
 			else
 			{
