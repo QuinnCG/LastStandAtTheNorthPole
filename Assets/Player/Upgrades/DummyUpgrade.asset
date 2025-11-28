@@ -22,4 +22,5 @@ MonoBehaviour:
     - rid: 7086342059839717493
       type: {class: WeaponUpgrade, ns: Quinn.PlayerSystem.Upgrades, asm: Assembly-CSharp}
       data:
+        SelfSO: {fileID: 11400000}
         GunPrefab: {fileID: 1142618887974905389, guid: 3e09564a14c054b4591f6e2bb62c3c12, type: 3}

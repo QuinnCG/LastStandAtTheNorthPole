@@ -54,6 +54,8 @@ namespace Quinn.UI
 		private float _alphaVel;
 		private float _defaultScale;
 
+		private bool _hasAlreadyPlayedDialogue;
+
 		private Health? _playerHealth;
 
 		public void Awake()
@@ -68,9 +70,16 @@ namespace Quinn.UI
 		{
 			_playerHealth = Player.Instance.GetComponent<Health>();
 
-			WriteDialogue(StartDialogue);
-			yield return new WaitForSeconds(StartDialogueDuration);
-			HideDialogue();
+			if (!_hasAlreadyPlayedDialogue)
+			{
+				_hasAlreadyPlayedDialogue = true;
+
+				yield return new WaitUntil(() => !UpgradeManager.Instance.InUpgradeSequence);
+				yield return new WaitForSeconds(4f);
+				WriteDialogue(StartDialogue);
+				yield return new WaitForSeconds(StartDialogueDuration);
+				HideDialogue();
+			}
 		}
 
 		public void Update()

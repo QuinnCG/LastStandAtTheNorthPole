@@ -65,11 +65,10 @@ namespace Quinn.WaveSystem
         [Command("wave.next")]
 		public async void StartNextWave()
 		{
-			await UpgradeManager.Instance.BeginUpgradeSequenceAsync();
-
 			WaveDifficultyFactor += WaveDifficultyDelta;
 			WaveNumber++;
 
+			await UpgradeManager.Instance.BeginUpgradeSequenceAsync();
 			await WaveManagerUI.Instance.PlayNewWaveSequenceAsync();
 			StartCoroutine(WaveSequence());
 		}

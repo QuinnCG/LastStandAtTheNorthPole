@@ -432,7 +432,6 @@ MonoBehaviour:
   MuzzleFlashFadeTime: 0.1
   MuzzleFlashEase: 3
   GunHandle: {fileID: 2469417757760871553}
-  TestingGun: {fileID: 1142618887974905389, guid: 3e09564a14c054b4591f6e2bb62c3c12, type: 3}
 --- !u!114 &-2240122771808080094
 MonoBehaviour:
   m_ObjectHideFlags: 0

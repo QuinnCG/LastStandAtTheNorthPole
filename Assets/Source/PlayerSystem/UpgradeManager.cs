@@ -14,11 +14,14 @@ namespace Quinn.PlayerSystem
 		[SerializeField]
 		private UpgradeSO[] AllUpgrades;
 
+		public bool InUpgradeSequence { get; private set; }
+
 		private bool _upgradeSelected;
 
 		private void Awake()
 		{
 			Instance = this;
+			InUpgradeSequence = true;
 		}
 
 		private void Start()
@@ -34,6 +37,8 @@ namespace Quinn.PlayerSystem
 
 		public async Awaitable BeginUpgradeSequenceAsync()
 		{
+			InUpgradeSequence = true;
+
 			UpgradeSO u1, u2, u3;
 
 			// First wave.
@@ -55,6 +60,8 @@ namespace Quinn.PlayerSystem
 
 			await Wait.Until(() => _upgradeSelected);
 			_upgradeSelected = false;
+
+			InUpgradeSequence = false;
 		}
 	}
 }

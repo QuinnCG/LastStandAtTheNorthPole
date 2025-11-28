@@ -1,6 +1,9 @@
 using DG.Tweening;
+using QFSW.QC;
 using Quinn.MissileSystem;
 using Quinn.MovementSystem;
+using Quinn.PlayerSystem.Upgrades;
+using Quinn.WaveSystem;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -20,33 +23,42 @@ namespace Quinn.PlayerSystem
 
 		[SerializeField, Required]
 		private Transform GunHandle;
-		[SerializeField, AssetsOnly]
-		private Gun TestingGun;
 
 		public Gun? Equipped { get; private set; }
-		public float StatMultiplier { get; set; } = 1f;
 		public bool IsFiring { get; private set; }
 		public int Magazine { get; private set; }
 
 		public event System.Action<Gun>? OnEquipped;
 		public event System.Action? OnUnequipped;
 
+		/// <summary>
+		/// A multiplier based on wave index.
+		/// </summary>
+		public float CurrentWaveStatMultiplier
+		{
+			get
+			{
+				int wave = WaveManager.Instance.WaveNumber;
+				float index = (wave - 1) / 10f;
+				return Mathf.Pow(wave, index);
+			}
+		}
+		/// <summary>
+		/// A multiplier based on upgrades.
+		/// </summary>
 		public float DamageMultiplier { get; set; } = 1f;
+
+		public UpgradeSO? EquippedGunUpgradeSO { get; private set; }
+		public float EquippedMultiplier { get; private set; } = 1f;
 
 		private CharacterMovement _movement;
 		private float _nextFireTime;
+
 
 		private void Awake()
 		{
 			Instance = this;
 			_movement = GetComponent<CharacterMovement>();
-
-#if UNITY_EDITOR
-			if (TestingGun != null)
-			{
-				Equip(TestingGun);
-			}
-#endif
 		}
 
 		private void Update()
@@ -69,16 +81,28 @@ namespace Quinn.PlayerSystem
 		/// Equips a gun after deleting the current. Also, reloads ammo.
 		/// </summary>
 		/// <param name="gun">The prefab of the gun. This will be cloned.</param>
-		public void Equip(Gun gun)
+		public void Equip(UpgradeSO gunUpgradeSO)
 		{
 			if (Equipped != null)
 			{
 				Unequip();
 			}
 
-			Equipped = gun.gameObject.Clone<Gun>(GunHandle);
+#if UNITY_EDITOR
+			if (gunUpgradeSO.Upgrade is null)
+			{
+				Log.Error($"Gun asset '{gunUpgradeSO.name}' is missing a reference to itself!");
+			}
+#endif
+
+			var gun = gunUpgradeSO.Upgrade as WeaponUpgrade;
+			EquippedGunUpgradeSO = gunUpgradeSO;
+
+			Equipped = gun!.GunPrefab!.gameObject.Clone<Gun>(GunHandle);
 			ReplenishMagazine();
-			OnEquipped?.Invoke(gun);
+
+			EquippedMultiplier = CurrentWaveStatMultiplier;
+			OnEquipped?.Invoke(gun.GunPrefab!);
 		}
 
 		public void Unequip()
@@ -88,6 +112,7 @@ namespace Quinn.PlayerSystem
 				Equipped.gameObject.Destroy();
 			}
 
+			EquippedGunUpgradeSO = null;
 			Equipped = null;
 			OnUnequipped?.Invoke();
 		}
@@ -123,14 +148,14 @@ namespace Quinn.PlayerSystem
 			if (Player.Instance.IsDashing)
 				return false;
 
-			_nextFireTime = Time.time + (Equipped!.FireInterval / StatMultiplier);
+			_nextFireTime = Time.time + (Equipped!.FireInterval / CurrentWaveStatMultiplier);
 
 			var origin = GetMissileSpawnPoint();
 			var dir = CrosshairManager.Direction;
 
 			if (Magazine > 0)
 			{
-				MissileManager.Instance.Spawn(origin, dir, Equipped.Missile.Missile!, Equipped.Missile.Pattern, damageFactor: DamageMultiplier * StatMultiplier);
+				MissileManager.Instance.Spawn(origin, dir, Equipped.Missile.Missile!, Equipped.Missile.Pattern, damageFactor: DamageMultiplier * EquippedMultiplier);
 				Recoil(Equipped.RecoilOffset, Equipped.RecoilRecoveryTime);
 
 				Audio.Play(Equipped.FireSound, origin);
@@ -161,6 +186,12 @@ namespace Quinn.PlayerSystem
 		private void Recoil(float offset, float recoveryTime)
 		{
 			GunOrbiter.Instance.Recoil(offset, recoveryTime);
+		}
+
+		[Command("wave.stat")]
+		protected void GetStatMultiplier()
+		{
+			Log.Info($"Wave Stat Multiplier: {CurrentWaveStatMultiplier:0.00}");
 		}
 	}
 }
