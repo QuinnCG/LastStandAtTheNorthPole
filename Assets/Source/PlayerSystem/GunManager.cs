@@ -162,10 +162,13 @@ namespace Quinn.PlayerSystem
 			var origin = GetMissileSpawnPoint();
 			var dir = CrosshairManager.Direction;
 
-			if (Magazine > 0 && Time.time >= _nextFireTime)
+			if (Time.time >= _nextFireTime)
 			{
 				_nextFireTime = Time.time + (Equipped!.FireInterval / CurrentWaveStatMultiplier);
+			}
 
+			if (Magazine > 0)
+			{
 				MissileManager.Instance.Spawn(origin, dir, Equipped.Missile.Missile!, Equipped.Missile.Pattern, damageFactor: DamageMultiplier * EquippedMultiplier);
 				Recoil(Equipped.RecoilOffset, Equipped.RecoilRecoveryTime);
 
@@ -180,7 +183,7 @@ namespace Quinn.PlayerSystem
 
 				Equipped.MuzzleVFX.Play();
 			}
-			else if (Magazine <= 0)
+			else
 			{
 				Audio.Play(Equipped.DryFireSound, Equipped.Muzzle.transform.position);
 			}
