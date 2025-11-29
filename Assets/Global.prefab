@@ -232,7 +232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Quinn.PlayerSystem.UpgradeManager
   StartingUpgrades:
   - {fileID: 11400000, guid: 29f7fb6e0723f8144850223bc02a252d, type: 2}
-  - {fileID: 11400000, guid: 29f7fb6e0723f8144850223bc02a252d, type: 2}
+  - {fileID: 11400000, guid: 52ee36b49cdbd5d4a87ccb738d5ccedc, type: 2}
   - {fileID: 11400000, guid: 29f7fb6e0723f8144850223bc02a252d, type: 2}
   AllUpgrades:
   - {fileID: 11400000, guid: 29f7fb6e0723f8144850223bc02a252d, type: 2}
@@ -251,9 +251,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Quinn.WaveManager
   WaveDifficultyDelta: 0.1
   PlayerNoSpawnRadius: 10
+  WaveInterval: 3
   Waves:
   - MinimumWaveNumber: 1
     Profile: {fileID: 11400000, guid: 7202ed82b7e3e8a478d452e294e24376, type: 2}
+  - MinimumWaveNumber: 3
+    Profile: {fileID: 11400000, guid: 2794abb74c0cfae49a8049badc082aa5, type: 2}
+  - MinimumWaveNumber: 1
+    Profile: {fileID: 11400000, guid: 9385783d1d0277f40b7fae6581894aa2, type: 2}
+  - MinimumWaveNumber: 10
+    Profile: {fileID: 11400000, guid: 7c97624fa2196f34b9335a5a4fd3abd7, type: 2}
+  StormChangeTime: 2
+  WaveStartDelay: 2
 --- !u!114 &4189724061992870740
 MonoBehaviour:
   m_ObjectHideFlags: 0

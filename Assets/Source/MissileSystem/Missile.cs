@@ -32,7 +32,19 @@ namespace Quinn.MissileSystem
 			OnDeath?.Invoke();
 		}
 
-		public void Init(Vector2 dir, MissileData data)
+        private void LateUpdate()
+        {
+			if (Data!.RotateToVelocity)
+			{
+				Vector2 deltaPos = (Vector2)transform.position - _lastPhysicsPos;
+				deltaPos.Normalize();
+				float angle = Mathf.Atan2(deltaPos.y, deltaPos.x) * Mathf.Rad2Deg;
+
+				transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+			}
+		}
+
+        public void Init(Vector2 dir, MissileData data)
 		{
 			_startPos = transform.position;
 

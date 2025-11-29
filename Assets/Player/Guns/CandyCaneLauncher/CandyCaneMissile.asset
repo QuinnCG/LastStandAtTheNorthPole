@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72743b5e6fa2f20499654dd39777e36c, type: 3}
-  m_Name: DummyMissile
+  m_Name: CandyCaneMissile
   m_EditorClassIdentifier: Assembly-CSharp::Quinn.MissileSystem.MissileData
-  Sprite: {fileID: -3081494980050754980, guid: e5d479d54ef61d54ca524e8b36f765f3, type: 3}
-  CollisionRadius: 0.2
+  Sprite: {fileID: -5047638687557803358, guid: ed582cd4129a58d44980288ae33e8d20, type: 3}
+  CollisionRadius: 0.3
   TrailSpawnRate: 0
-  HasLight: 1
-  LightRadius: 2
-  LightIntensity: 0.1
-  LightColor: {r: 1, g: 0, b: 0, a: 1}
-  TrailVFX: {fileID: 6031123069931590770, guid: a2b6802b8fad000459df955603fe5ca5, type: 3}
+  HasLight: 0
+  LightRadius: 5
+  LightIntensity: 1
+  LightColor: {r: 1, g: 1, b: 1, a: 1}
+  TrailVFX: {fileID: 0}
   TrailLifePostDetach: 3
-  DeathVFX: {fileID: 5544924759339998949, guid: 3f15ad73d02126a48bb650b3fde04408, type: 3}
+  DeathVFX: {fileID: 0}
   DeathSound:
     Guid:
       Data1: 0
@@ -37,18 +37,19 @@ MonoBehaviour:
       Data4: 0
     Path: 
   Team: 0
-  Damage: 1
-  Knockback: 1
+  Damage: 3
+  Knockback: 3
   StatusEffects: []
+  RotateToVelocity: 1
   DestoryOnCharacterHit: 1
   DestoryOnObstacleHit: 1
   Behavior:
     Speed: 7
     DoesOscillation: 0
-    OscillationAmplitude: 1
-    OscillationFrequency: 1
+    OscillationAmplitude: 0
+    OscillationFrequency: 3
     DoesHoming: 0
-    MaxHomingDistance: 10
-    HomingNearTurnRate: 5
-    HomingFarmTurnRate: 180
+    MaxHomingDistance: 0
+    HomingNearTurnRate: 0
+    HomingFarmTurnRate: 0
     AdditionalTurnRate: 0

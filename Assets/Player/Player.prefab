@@ -431,6 +431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bda69fdcd2761924aacc99c795301c87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Quinn.PlayerSystem.GunManager
+  StatMultiplierDivisor: 10
   MuzzleFlashFadeTime: 0.1
   MuzzleFlashEase: 3
   GunHandle: {fileID: 2469417757760871553}

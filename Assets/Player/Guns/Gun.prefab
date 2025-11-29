@@ -284,7 +284,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8922236883134673120}
   - component: {fileID: 674625053581164844}
-  - component: {fileID: 1858125371681126023}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -363,59 +362,6 @@ SpriteRenderer:
   m_Size: {x: 0.4375, y: 0.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!114 &1858125371681126023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7333879763572226415}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 984dee64a6209434ca00e04a47db8c5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Quinn.PlayerSystem.Gun
-  Missile:
-    Missile: {fileID: 0}
-    Pattern:
-      Count: 1
-      IsRandom: 0
-      SpreadType: 0
-      ArcSpread: 15
-  IsContinuousFire: 1
-  FireInterval: 0.5
-  SelfKnockback: 5
-  AmmoUI: {fileID: 0}
-  MagazineSize: 20
-  ConsumePerShot: 1
-  ReloadTime: 2
-  Muzzle: {fileID: 0}
-  MuzzleLight: {fileID: 0}
-  MuzzleFlashColor: {r: 2, g: 0.60565054, b: 0, a: 1}
-  MuzzleVFX: {fileID: 0}
-  RecoilOffset: 0.2
-  RecoilRecoveryTime: 0.5
-  FireSound:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  DryFireSound:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  ReloadSound:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+  m_SpriteSortPoint: 1

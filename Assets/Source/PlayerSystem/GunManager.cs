@@ -148,24 +148,24 @@ namespace Quinn.PlayerSystem
 			}
 		}
 
-		private bool TryFire()
+		private void TryFire()
 		{
 			if (Player.Instance.IsDashing)
-				return false;
+				return;
 
 			if (Equipped == null)
 			{
 				Log.Error($"No gun is equipped!");
-				return false;
+				return;
 			}
-
-			_nextFireTime = Time.time + (Equipped!.FireInterval / CurrentWaveStatMultiplier);
 
 			var origin = GetMissileSpawnPoint();
 			var dir = CrosshairManager.Direction;
 
-			if (Magazine > 0)
+			if (Magazine > 0 && Time.time >= _nextFireTime)
 			{
+				_nextFireTime = Time.time + (Equipped!.FireInterval / CurrentWaveStatMultiplier);
+
 				MissileManager.Instance.Spawn(origin, dir, Equipped.Missile.Missile!, Equipped.Missile.Pattern, damageFactor: DamageMultiplier * EquippedMultiplier);
 				Recoil(Equipped.RecoilOffset, Equipped.RecoilRecoveryTime);
 
@@ -180,12 +180,10 @@ namespace Quinn.PlayerSystem
 
 				Equipped.MuzzleVFX.Play();
 			}
-			else
+			else if (Magazine <= 0)
 			{
 				Audio.Play(Equipped.DryFireSound, Equipped.Muzzle.transform.position);
 			}
-
-			return true;
 		}
 
 		private Vector2 GetMissileSpawnPoint()

@@ -41,6 +41,7 @@ namespace Quinn.MissileSystem
 
 		[Space]
 
+		public bool RotateToVelocity;
 		public bool DestoryOnCharacterHit = true;
 		public bool DestoryOnObstacleHit = true;
 
