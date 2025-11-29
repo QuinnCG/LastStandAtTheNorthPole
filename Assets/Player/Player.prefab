@@ -344,7 +344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40cb525cd491d244194548c6d074b044, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Quinn.DamageSystem.Health
-  Default: 5
+  Default: 3
   <Team>k__BackingField: 0
   PostHurtImmunity: 1
   AllowHalfHeart: 1

@@ -166,6 +166,10 @@ namespace Quinn.PlayerSystem
 			{
 				_nextFireTime = Time.time + (Equipped!.FireInterval / CurrentWaveStatMultiplier);
 			}
+			else
+			{
+				return;
+			}
 
 			if (Magazine > 0)
 			{
