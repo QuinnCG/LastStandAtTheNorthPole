@@ -61,11 +61,6 @@ namespace Quinn
 			}
 		}
 
-		private void OnDestroy()
-		{
-			Instance = null;
-		}
-
 		public void RegisterShowCursor<T>(T key) where T : class
 		{
 			if (!_forceShowCursorInstances.Add(key))

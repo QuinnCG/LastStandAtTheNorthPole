@@ -77,7 +77,6 @@ namespace Quinn.UI
 			UpgradeUI.Instance.Hide();
 
 			Audio.Play(ClickSound);
-
 			OnUpgradeSelected?.Invoke(Upgrade!);
 		}
 	}

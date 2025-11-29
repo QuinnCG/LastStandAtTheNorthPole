@@ -2,6 +2,7 @@ using FMODUnity;
 using QFSW.QC;
 using Quinn.DamageSystem;
 using Quinn.MovementSystem;
+using Quinn.UI;
 using Quinn.WaveSystem;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -16,8 +17,8 @@ namespace Quinn.PlayerSystem
 	[RequireComponent(typeof(GunManager))]
 	[RequireComponent(typeof(Collider2D))]
 	[RequireComponent(typeof(Health))]
-    [RequireComponent(typeof(GunOrbiter))]
-    [RequireComponent(typeof(CrosshairManager))]
+	[RequireComponent(typeof(GunOrbiter))]
+	[RequireComponent(typeof(CrosshairManager))]
 	public class Player : MonoBehaviour
 	{
 		public static Player Instance { get; private set; }
@@ -55,6 +56,7 @@ namespace Quinn.PlayerSystem
 		private void Awake()
 		{
 			Instance = this;
+			WaveManager.Instance.ResetWave();
 
 			_animator = GetComponent<Animator>();
 			_movement = GetComponent<CharacterMovement>();
@@ -63,14 +65,14 @@ namespace Quinn.PlayerSystem
 			_health = GetComponent<Health>();
 
 			SetUpBindings();
-
 			_health.OnDeath += OnDeath;
 		}
 
-        private async void Start()
+		private async void Start()
 		{
-			MusicManager.Instance.Play();
+			WaveManager.Instance.StartNextWave();
 
+			MusicManager.Instance.Play();
 			InputManager.Instance.UnblockInput(_blockInputKey);
 			await TransitionManager.Instance.FadeFromBlackAsync(FadeInTime);
 		}
@@ -98,8 +100,8 @@ namespace Quinn.PlayerSystem
 			}
 		}
 
-        private void OnDestroy()
-        {
+		private void OnDestroy()
+		{
 			if (InputManager.Instance == null)
 				return;
 
@@ -114,7 +116,7 @@ namespace Quinn.PlayerSystem
 			SnowVFX.SetFloat("SpawnFactor", factor);
 		}
 
-        private Vector3 GetAimDir()
+		private Vector3 GetAimDir()
 		{
 			return Origin.position.DirectionTo(CrosshairManager.Position);
 		}
@@ -158,23 +160,23 @@ namespace Quinn.PlayerSystem
 			if (IsDashing)
 			{
 				if (Time.time > _dashEndTime)
-                {
-                    StopDashing();
-                    return;
-                }
+				{
+					StopDashing();
+					return;
+				}
 
-                var inputDir = _movement.LastMoveDirection;
+				var inputDir = _movement.LastMoveDirection;
 				_movement.AddVelocity(inputDir * DashSpeed);
 			}
 		}
 
-        private void StopDashing()
-        {
-            IsDashing = false;
-            _health.UnblockDamage(this);
-        }
+		private void StopDashing()
+		{
+			IsDashing = false;
+			_health.UnblockDamage(this);
+		}
 
-        private void SetUpBindings()
+		private void SetUpBindings()
 		{
 			InputManager.Instance.OnDash += OnDash;
 
@@ -182,8 +184,8 @@ namespace Quinn.PlayerSystem
 			InputManager.Instance.OnFireStop += OnFireStop;
 		}
 
-        private void OnFireStart()
-        {
+		private void OnFireStart()
+		{
 			if (_health.IsDead)
 				return;
 
@@ -215,6 +217,8 @@ namespace Quinn.PlayerSystem
 
 		private async void OnDeath(DamageInstance dmgInstance)
 		{
+			UpgradeUI.Instance.Hide();
+
 			MusicManager.Instance.Pause();
 
 			_gunManager.StopFiring();
@@ -233,7 +237,6 @@ namespace Quinn.PlayerSystem
 			}
 
 			await TransitionManager.Instance.FadeToBlackAsync(DeathFadeOutTime);
-			WaveManager.Instance.ResetWave();
 
 			// Load menu scene (2nd index).
 			await SceneManager.LoadSceneAsync(1);

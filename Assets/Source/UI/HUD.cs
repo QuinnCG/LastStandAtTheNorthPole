@@ -75,7 +75,7 @@ namespace Quinn.UI
 				_hasAlreadyPlayedDialogue = true;
 
 				yield return new WaitUntil(() => !UpgradeManager.Instance.InUpgradeSequence);
-				yield return new WaitForSeconds(4f);
+				yield return new WaitForSeconds(6.5f);
 				WriteDialogue(StartDialogue);
 				yield return new WaitForSeconds(StartDialogueDuration);
 				HideDialogue();

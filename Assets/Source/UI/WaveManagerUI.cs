@@ -1,9 +1,12 @@
 ﻿using DG.Tweening;
 using FMODUnity;
+using Quinn.DamageSystem;
+using Quinn.PlayerSystem;
 using Quinn.WaveSystem;
 using Sirenix.OdinInspector;
 using System.Collections;
 using System.Text;
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 
@@ -37,29 +40,39 @@ namespace Quinn.UI
 			_defaultScale = rect.localScale;
 		}
 
-		public async Awaitable PlayNewWaveSequenceAsync()
+        private void Start()
+        {
+			Player.Instance.GetComponent<Health>().OnDeath += OnDeath;
+        }
+
+        private async void OnDeath(DamageInstance dmgInstance)
+        {
+			TweenIn(0.5f);
+			await Wait.Duration(0.5f);
+
+			int waveNumber = WaveManager.Instance.WaveNumber;
+			string wave = waveNumber > 1 ? "Waves" : "Wave";
+			StartCoroutine(Type($"Survivded {waveNumber} {wave}!", 0.01f));
+        }
+
+        public async Awaitable PlayNewWaveSequenceAsync()
         {
             StopAllCoroutines();
 
-            var rect = WaveCount.GetComponent<RectTransform>();
+			var rect = WaveCount.GetComponent<RectTransform>();
 
-            float inDur = 1f;
-
-            rect.DOAnchorPos(WaveCountTarget.anchoredPosition, inDur).SetEase(Ease.InCubic);
-            rect.DOLocalScale(WaveCountTarget.localScale, inDur).SetEase(Ease.OutBack);
+			const float inDur = 1f;
+			TweenIn(inDur);
 
             await Wait.Duration(inDur);
             SetRandomRotationForWaveCount(rect);
-            StartCoroutine(TypeWave());
+
+			int waveNum = WaveManager.Instance.WaveNumber;
+			StartCoroutine(Type($"Wave\n{waveNum}", WriteInterval));
 
             await Wait.Duration(3f);
 
-            float outDur = 0.2f;
-
-            rect.DOAnchorPos(_defaultPos, outDur).SetEase(Ease.Linear);
-            rect.DORotateZ(0f, outDur).SetEase(Ease.Linear);
-            rect.DOLocalScale(_defaultScale, outDur).SetEase(Ease.Linear);
-
+			TweenOut();
             WaveCount.text = WaveManager.Instance.WaveNumber.ToString();
 
             // TODO: Play punch SFX at apex of anim.
@@ -67,11 +80,26 @@ namespace Quinn.UI
             // TODO: Add horizontal screen stretched ribbon.
         }
 
-        private IEnumerator TypeWave()
+		private void TweenIn(float inDur)
 		{
-			int waveNum = WaveManager.Instance.WaveNumber;
-			string text = $"Wave\n{waveNum}";
+			var rect = WaveCount.GetComponent<RectTransform>();
 
+			rect.DOAnchorPos(WaveCountTarget.anchoredPosition, inDur).SetEase(Ease.InCubic);
+			rect.DOLocalScale(WaveCountTarget.localScale, inDur).SetEase(Ease.OutBack);
+		}
+
+		private void TweenOut()
+		{
+			const float outDur = 0.2f;
+			var rect = WaveCount.GetComponent<RectTransform>();
+
+			rect.DOAnchorPos(_defaultPos, outDur).SetEase(Ease.Linear);
+			rect.DORotateZ(0f, outDur).SetEase(Ease.Linear);
+			rect.DOLocalScale(_defaultScale, outDur).SetEase(Ease.Linear);
+		}
+
+        private IEnumerator Type(string text, float interval)
+		{
 			var builder = new StringBuilder();
 
             for (int i = 0; i < text.Length; i++)
@@ -88,7 +116,7 @@ namespace Quinn.UI
 				}
 				else
 				{
-					yield return new WaitForSeconds(WriteInterval * i);
+					yield return new WaitForSeconds(interval * i);
 				}
 			}
 		}

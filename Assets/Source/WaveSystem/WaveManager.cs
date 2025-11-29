@@ -1,7 +1,5 @@
 ﻿using DG.Tweening;
-using FMODUnity;
 using QFSW.QC;
-using Quinn.AI;
 using Quinn.DamageSystem;
 using Quinn.PlayerSystem;
 using Quinn.UI;
@@ -9,7 +7,6 @@ using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.UIElements;
 using UnityEngine;
 
 namespace Quinn.WaveSystem
@@ -36,6 +33,8 @@ namespace Quinn.WaveSystem
 		private WaveDefinition[] Waves;
 		[SerializeField]
 		private float StormChangeTime = 2f;
+		[SerializeField]
+		private float WaveStartDelay = 2f;
 
 		public int WaveNumber { get; private set; } = 0;
 		public float WaveDifficultyFactor { get; set; } = 1f;
@@ -46,7 +45,11 @@ namespace Quinn.WaveSystem
 			{
 				if (AliveInCurrentWave > 0)
 				{
-					return _aliveEnemies.First().bounds.center;
+					var enemy = _aliveEnemies.FirstOrDefault();
+					if (enemy != null)
+					{
+						return enemy.bounds.center;
+					}
 				}
 
 				return Vector2.zero;
@@ -61,11 +64,6 @@ namespace Quinn.WaveSystem
 			Instance = this;
 		}
 
-		private void Start()
-		{
-			StartNextWave();
-		}
-
 		[Command("wave.next")]
 		public async void StartNextWave()
 		{
@@ -75,11 +73,12 @@ namespace Quinn.WaveSystem
 			WaveNumber++;
 
 			await UpgradeManager.Instance.BeginUpgradeSequenceAsync();
-			await WaveManagerUI.Instance.PlayNewWaveSequenceAsync();
-			StartCoroutine(WaveSequence());
+			await Wait.Duration(WaveStartDelay);
 
-			await Wait.Duration(1f);
 			TweenStorm(1f);
+			await WaveManagerUI.Instance.PlayNewWaveSequenceAsync();
+
+			StartCoroutine(WaveSequence());
 		}
 
 		[Command("wave.reset")]

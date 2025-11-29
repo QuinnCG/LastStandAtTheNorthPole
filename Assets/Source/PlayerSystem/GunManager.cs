@@ -15,6 +15,11 @@ namespace Quinn.PlayerSystem
 		public static GunManager Instance { get; private set; }
 
 		[SerializeField]
+		private float StatMultiplierDivisor = 10f;
+
+		[Space]
+
+		[SerializeField]
 		private float MuzzleFlashFadeTime = 0.1f;
 		[SerializeField]
 		private Ease MuzzleFlashEase = Ease.Linear;
@@ -39,7 +44,7 @@ namespace Quinn.PlayerSystem
 			get
 			{
 				int wave = WaveManager.Instance.WaveNumber;
-				float index = (wave - 1) / 10f;
+				float index = (wave - 1) / StatMultiplierDivisor;
 				return Mathf.Pow(wave, index);
 			}
 		}
@@ -147,6 +152,12 @@ namespace Quinn.PlayerSystem
 		{
 			if (Player.Instance.IsDashing)
 				return false;
+
+			if (Equipped == null)
+			{
+				Log.Error($"No gun is equipped!");
+				return false;
+			}
 
 			_nextFireTime = Time.time + (Equipped!.FireInterval / CurrentWaveStatMultiplier);
 
