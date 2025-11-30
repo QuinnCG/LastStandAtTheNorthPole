@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{6bc8e4e9-8b74-4774-9a62-b525234ab61a}">
+		<property name="assetPath">
+			<value>Fireball Cast/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{f476919a-fa81-452b-b350-359ad53a32fa}</destination>
+		</relationship>
+	</object>
+</objects>

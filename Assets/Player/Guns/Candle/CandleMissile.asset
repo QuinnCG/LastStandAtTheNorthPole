@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72743b5e6fa2f20499654dd39777e36c, type: 3}
+  m_Name: CandleMissile
+  m_EditorClassIdentifier: Assembly-CSharp::Quinn.MissileSystem.MissileData
+  Sprite: {fileID: 8704944872483882689, guid: ed582cd4129a58d44980288ae33e8d20, type: 3}
+  CollisionRadius: 0.3
+  TrailSpawnRate: 5
+  HasLight: 1
+  LightRadius: 5
+  LightIntensity: 0.3
+  LightColor: {r: 1, g: 0.377878, b: 0, a: 1}
+  TrailVFX: {fileID: 8915051073612879842, guid: ff1b9c9f0d94a274084ad259b2d5793b, type: 3}
+  TrailLifePostDetach: 3
+  DeathVFX: {fileID: 5201920735538608020, guid: 5aef2a5890e7e8e428e731647c2f2855, type: 3}
+  DeathSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  HitSound:
+    Guid:
+      Data1: -124084771
+      Data2: 1193449032
+      Data3: -993539653
+      Data4: -1009500019
+    Path: event:/Player/Guns/CandleFireHit
+  Team: 0
+  Damage: 6
+  Knockback: 2
+  StatusEffects: []
+  RotateToVelocity: 0
+  DestoryOnCharacterHit: 1
+  DestoryOnObstacleHit: 1
+  Behavior:
+    Speed: 9
+    DoesOscillation: 0
+    OscillationAmplitude: 0
+    OscillationFrequency: 0
+    DoesHoming: 0
+    MaxHomingDistance: 0
+    HomingNearTurnRate: 0
+    HomingFarmTurnRate: 0
+    AdditionalTurnRate: 0

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{bb6dd559-96b7-4d2c-822c-47503fc5468e}">
+		<property name="assetPath">
+			<value>Fireball Hit/Fireball Hit (1).wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.71999999999999997</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{f476919a-fa81-452b-b350-359ad53a32fa}</destination>
+		</relationship>
+	</object>
+</objects>

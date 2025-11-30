@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Quinn.PlayerSystem.UpgradeManager
   StartingUpgrades:
-  - {fileID: 11400000, guid: 29f7fb6e0723f8144850223bc02a252d, type: 2}
+  - {fileID: 11400000, guid: 4c63400085de72648a217a1e1563b622, type: 2}
   - {fileID: 11400000, guid: 52ee36b49cdbd5d4a87ccb738d5ccedc, type: 2}
   - {fileID: 11400000, guid: 29f7fb6e0723f8144850223bc02a252d, type: 2}
   AllUpgrades:
@@ -242,6 +242,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2c09f43629dc2dc489798e0b0acb2f14, type: 2}
   - {fileID: 11400000, guid: 03339ea8a2708bc4da34e1921f8c1424, type: 2}
   - {fileID: 11400000, guid: a4ae061b590899d4a9f6bb1ba96cb50d, type: 2}
+  - {fileID: 11400000, guid: 4c63400085de72648a217a1e1563b622, type: 2}
 --- !u!114 &2419149667846636398
 MonoBehaviour:
   m_ObjectHideFlags: 0

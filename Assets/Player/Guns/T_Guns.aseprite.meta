@@ -177,8 +177,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 19
-      y: 15
+      x: 4
+      y: 27
       width: 4
       height: 4
     spriteID: cb4b2bf069d462e4e85d7bf44491ada2
@@ -189,7 +189,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 19, y: 15}
+    uvTransform: {x: 4, y: 27}
   - name: Ammo_CandyCaneLauncher
     originalName: 
     pivot: {x: 0.33333334, y: 0.5}
@@ -198,11 +198,53 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 23
-      y: 4
+      x: 4
+      y: 39
       width: 3
       height: 2
     spriteID: ef6895f68bf3b0c48bd558914c3cfa7c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 39}
+  - name: Candle
+    originalName: 
+    pivot: {x: 0, y: 0.6}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 49
+      width: 1
+      height: 5
+    spriteID: ec057918885729849871f7c5ae5247a8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 49}
+  - name: Ammo_Candle
+    originalName: 
+    pivot: {x: 0.33333334, y: 0.6666667}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 23
+      y: 4
+      width: 3
+      height: 3
+    spriteID: 3fce3056d9d81d04db7902e0a17b3dd0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -314,6 +356,56 @@ ScriptedImporter:
     tileCells: []
     tileSetIndex: 0
     parentIndex: -1
+  - layerIndex: 4
+    uuid:
+      value0: 1491212253
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Candle
+    layerFlags: 2
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Candle
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 8
+        y: 5
+        width: 1
+        height: 5
+      spriteId: ec057918885729849871f7c5ae5247a8
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 5
+    uuid:
+      value0: 1202389300
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Ammo_Candle
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Ammo_Candle
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 7
+        y: 6
+        width: 3
+        height: 3
+      spriteId: 3fce3056d9d81d04db7902e0a17b3dd0
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
   tileSets: []
   platformSettings:
   - name: DefaultTexturePlatform
@@ -344,4 +436,4 @@ ScriptedImporter:
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 16, y: 16}
-  previousTextureSize: {x: 32, y: 32}
+  previousTextureSize: {x: 32, y: 64}
