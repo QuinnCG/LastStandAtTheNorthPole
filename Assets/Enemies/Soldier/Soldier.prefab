@@ -470,6 +470,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.929067
       objectReference: {fileID: 0}
+    - target: {fileID: 4920405441915362278, guid: 9aa83a62752928142a2bc80dd0a710ac, type: 3}
+      propertyPath: DefaultMoveSpeed
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6635639165146414014, guid: 9aa83a62752928142a2bc80dd0a710ac, type: 3}
       propertyPath: DeathSound.Path
       value: event:/Enemies/Soldier/Death

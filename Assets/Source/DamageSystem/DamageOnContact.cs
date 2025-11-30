@@ -19,6 +19,8 @@ namespace Quinn.DamageSystem
 		[SerializeField, ShowIf("@GetComponent<Health>() == null")]
 		private Team Team;
 
+		public event System.Action? OnContact;
+
 		private Collider2D _collider;
 		private Team _team;
 
@@ -60,6 +62,8 @@ namespace Quinn.DamageSystem
 						Direction = transform.position.DirectionTo(health.transform.position),
 						Knockback = Knockback
 					});
+
+					OnContact?.Invoke();
 				}
 			}
 		}

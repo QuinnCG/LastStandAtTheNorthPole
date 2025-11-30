@@ -19,3 +19,5 @@ MonoBehaviour:
     BaseSpawnCount: {x: 2, y: 3}
   - Prefab: {fileID: 8806019119437583122, guid: 03e3cf77570b65a458baefb814c7714d, type: 3}
     BaseSpawnCount: {x: 1, y: 3}
+  - Prefab: {fileID: 2901904042625285867, guid: 3c3916ecb4dee1247a4996081dc2877a, type: 3}
+    BaseSpawnCount: {x: 3, y: 7}

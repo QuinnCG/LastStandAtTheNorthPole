@@ -59,6 +59,7 @@ namespace Quinn.AI.Brains
 				}
 
 				yield return new WaitForSeconds(0.8f);
+				Animator.Play("Idling");
 			}
 
 			SmokeVFX.Stop();
