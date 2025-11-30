@@ -54,7 +54,7 @@ namespace Quinn.DamageSystem
 
 				if (collider.TryGetComponent(out Health health))
 				{
-					health.TryTakeDamage(new DamageInfo()
+					bool success = health.TryTakeDamage(new DamageInfo()
 					{
 						Damage = Damage,
 						Team = _team,
@@ -63,7 +63,10 @@ namespace Quinn.DamageSystem
 						Knockback = Knockback
 					});
 
-					OnContact?.Invoke();
+					if (success)
+					{
+						OnContact?.Invoke();
+					}
 				}
 			}
 		}

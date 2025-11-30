@@ -264,7 +264,7 @@ MonoBehaviour:
     Profile: {fileID: 11400000, guid: 7202ed82b7e3e8a478d452e294e24376, type: 2}
   - MinimumWaveNumber: 3
     Profile: {fileID: 11400000, guid: 2794abb74c0cfae49a8049badc082aa5, type: 2}
-  - MinimumWaveNumber: 1
+  - MinimumWaveNumber: 5
     Profile: {fileID: 11400000, guid: 9385783d1d0277f40b7fae6581894aa2, type: 2}
   - MinimumWaveNumber: 10
     Profile: {fileID: 11400000, guid: 7c97624fa2196f34b9335a5a4fd3abd7, type: 2}
