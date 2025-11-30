@@ -50,6 +50,7 @@ namespace Quinn.PlayerSystem
 		private float SnowSpawnRatePerWaveFactor = 16f, MaxSnowSpawnRate = 300f;
 
 		public bool IsDashing { get; private set; }
+		public bool IsImmuneDuringDash { get; set; }
 
 		private Animator _animator;
 		private CharacterMovement _movement;
@@ -60,8 +61,16 @@ namespace Quinn.PlayerSystem
 		private float _dashEndTime;
 		private float _nextDashAllowedTime;
 
+		private float _healInterval, _healAmount;
+		private float _nextHealTime;
+		private int _stopRegeningAfterWaveExclusive;
+
+		private float _dashDst;
+
 		private void Awake()
 		{
+			_dashDst = DashDistance;
+
 			Instance = this;
 			WaveManager.Instance.ResetWave();
 
@@ -72,10 +81,11 @@ namespace Quinn.PlayerSystem
 			_health = GetComponent<Health>();
 
 			SetUpBindings();
+            _health.OnDamaged += OnDamaged;
 			_health.OnDeath += OnDeath;
 		}
 
-		private async void Start()
+        private async void Start()
 		{
 			WaveManager.Instance.StartNextWave();
 
@@ -89,6 +99,12 @@ namespace Quinn.PlayerSystem
 			UpdateMove();
 			UpdateDash();
 			UpdateAnimation();
+
+			if (_healAmount > 0f && Time.time > _nextHealTime && _health.Normalized < 1f && WaveManager.Instance.WaveNumber < _stopRegeningAfterWaveExclusive)
+			{
+				_health.Heal(_healAmount);
+				_nextHealTime = Time.time + _healInterval;
+			}
 		}
 
 		private void LateUpdate()
@@ -121,6 +137,20 @@ namespace Quinn.PlayerSystem
 
 			InputManager.Instance.OnFireStart -= OnFireStart;
 			InputManager.Instance.OnFireStop -= OnFireStop;
+		}
+
+		public void IncreaseDashDistance(float addend)
+		{
+			_dashDst += addend;
+		}
+
+		public void SetRegen(float interval, float amount)
+		{
+			_healInterval = interval;
+			_healAmount = amount;
+
+			_nextHealTime = Time.time + interval;
+			_stopRegeningAfterWaveExclusive = WaveManager.Instance.WaveNumber + 1;
 		}
 
 		public void SetSnowSpawnFactor(float factor)
@@ -185,7 +215,11 @@ namespace Quinn.PlayerSystem
 		private void StopDashing()
 		{
 			IsDashing = false;
-			_health.UnblockDamage(this);
+			
+			if (IsImmuneDuringDash)
+			{
+				_health.UnblockDamage(this);
+			}
 		}
 
 		private void SetUpBindings()
@@ -217,11 +251,15 @@ namespace Quinn.PlayerSystem
 			if (!IsDashing && Time.time > _nextDashAllowedTime)
 			{
 				IsDashing = true;
-				_dashEndTime = Time.time + (DashDistance / DashSpeed);
+				_dashEndTime = Time.time + (_dashDst / DashSpeed);
 				_nextDashAllowedTime = _dashEndTime + DashCooldown;
 
 				_gunManager.ReplenishMagazine();
-				_health.BlockDamage(this);
+				
+				if (IsImmuneDuringDash)
+				{
+					_health.BlockDamage(this);
+				}
 
 				Audio.Play(DashSound, transform);
 			}
@@ -252,6 +290,11 @@ namespace Quinn.PlayerSystem
 
 			// Load menu scene (2nd index).
 			await SceneManager.LoadSceneAsync(1);
+		}
+
+		private void OnDamaged(DamageInstance instance)
+		{
+			_nextHealTime = Time.time + _healInterval;
 		}
 
 		[Command("hurt")]

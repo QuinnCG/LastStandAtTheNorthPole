@@ -1,4 +1,6 @@
-﻿namespace Quinn.PlayerSystem
+﻿using UnityEngine;
+
+namespace Quinn.PlayerSystem
 {
     [System.Serializable]
 	public abstract class Upgrade

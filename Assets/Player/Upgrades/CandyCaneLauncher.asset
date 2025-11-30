@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b4d82db8544ca946bbea7884090ebdb, type: 3}
   m_Name: CandyCaneLauncher
   m_EditorClassIdentifier: Assembly-CSharp::Quinn.UI.UpgradeSO
-  Icon: {fileID: -5047638687557803358, guid: ed582cd4129a58d44980288ae33e8d20, type: 3}
-  Details: Launches candy canes!
+  MaxAppearanceCount: 0
+  Icon: {fileID: -8926527711334875634, guid: c0ac8ad2e0aa9b147b702052610a2d67, type: 3}
+  Details: More effective at close range
   Upgrade:
     rid: 7086342059839717493
   references:

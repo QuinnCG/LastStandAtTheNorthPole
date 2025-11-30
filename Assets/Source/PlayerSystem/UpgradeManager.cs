@@ -1,8 +1,7 @@
 ﻿using Quinn.UI;
 using Quinn.WaveSystem;
 using Sirenix.OdinInspector;
-using System;
-using System.Threading.Tasks;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,6 +19,9 @@ namespace Quinn.PlayerSystem
 		public bool InUpgradeSequence { get; private set; }
 
 		private bool _upgradeSelected;
+		private readonly Dictionary<UpgradeSO, int> _appearanceCount = new();
+
+		private readonly HashSet<UpgradeSO> _availableUpgrades = new();
 
 		private void Awake()
 		{
@@ -27,6 +29,7 @@ namespace Quinn.PlayerSystem
 			InUpgradeSequence = true;
 
 			SceneManager.sceneLoaded += OnSceneLoaded;
+			_availableUpgrades.AddRange(AllUpgrades);
 		}
 
         private void OnDestroy()
@@ -55,15 +58,27 @@ namespace Quinn.PlayerSystem
 			// First wave.
 			if (WaveManager.Instance.WaveNumber <= 1)
 			{
-				u1 = StartingUpgrades[0];
-				u2 = StartingUpgrades[1];
-				u3 = StartingUpgrades[2];
+				var indices = new HashSet<int>() { 0, 1, 2 };
+
+				// HACK
+
+				int index = indices.GetRandom();
+				u1 = StartingUpgrades[index];
+				indices.Remove(index);
+
+				index = indices.GetRandom();
+				u2 = StartingUpgrades[index];
+				indices.Remove(index);
+
+				index = indices.GetRandom();
+				u3 = StartingUpgrades[index];
+				indices.Remove(index);
 			}
 			else
 			{
-				u1 = AllUpgrades.GetRandom();
-				u2 = AllUpgrades.GetRandom();
-				u3 = AllUpgrades.GetRandom();
+				u1 = GetRandomUpgrade();
+				u2 = GetRandomUpgrade();
+				u3 = GetRandomUpgrade();
 			}
 
 			_upgradeSelected = false;
@@ -73,6 +88,42 @@ namespace Quinn.PlayerSystem
 			_upgradeSelected = false;
 
 			InUpgradeSequence = false;
+		}
+
+		private UpgradeSO GetRandomUpgrade()
+		{
+			int attempts = 0;
+
+			while (true)
+			{
+				var upgrade = _availableUpgrades.GetRandom();
+
+				if (attempts > 500)
+				{
+					Log.Warning("Failed after 500 attempts! Using fallback upgrade!");
+					return upgrade;
+				}
+
+				if (_appearanceCount.TryGetValue(upgrade, out int count))
+				{
+					if (count > upgrade.MaxAppearanceCount)
+					{
+						attempts++;
+						_appearanceCount.Remove(upgrade);
+						continue;
+					}
+					else
+					{
+						_appearanceCount[upgrade] = count + 1;
+						return upgrade;
+					}
+				}
+				else
+				{
+					_appearanceCount.Add(upgrade, 1);
+					return upgrade;
+				}
+			}
 		}
 	}
 }
