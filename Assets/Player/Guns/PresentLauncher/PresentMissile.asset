@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72743b5e6fa2f20499654dd39777e36c, type: 3}
+  m_Name: PresentMissile
+  m_EditorClassIdentifier: Assembly-CSharp::Quinn.MissileSystem.MissileData
+  CustomBehaviors:
+  - rid: 7086342129546166272
+  Sprite: {fileID: 0}
+  RandomSprites:
+  - {fileID: 2498504678900080175, guid: ed582cd4129a58d44980288ae33e8d20, type: 3}
+  - {fileID: -8887458046703748376, guid: ed582cd4129a58d44980288ae33e8d20, type: 3}
+  - {fileID: 7991770013243844865, guid: ed582cd4129a58d44980288ae33e8d20, type: 3}
+  CollisionRadius: 0.7
+  TrailSpawnRate: 64
+  HasLight: 1
+  LightRadius: 3
+  LightIntensity: 0.5
+  LightColor: {r: 1, g: 0.6107609, b: 0, a: 1}
+  TrailVFX: {fileID: 8915051073612879842, guid: f8e771a88bd6a304a9ed23e4d7c3269b, type: 3}
+  TrailLifePostDetach: 3
+  DeathVFX: {fileID: 5201920735538608020, guid: 1aae36497222b014abc5502815ecc106, type: 3}
+  DeathSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  HitSound:
+    Guid:
+      Data1: 1927378085
+      Data2: 1198940941
+      Data3: -1261600322
+      Data4: -1329785071
+    Path: event:/Player/Guns/PresentHit
+  LoopSound:
+    Guid:
+      Data1: -1025753814
+      Data2: 1175264974
+      Data3: 82457220
+      Data4: -590821483
+    Path: event:/Player/Guns/PresentLoop
+  Team: 0
+  Damage: 25
+  Knockback: 0
+  StatusEffects: []
+  RotateToVelocity: 0
+  DestoryOnCharacterHit: 1
+  DestoryOnObstacleHit: 1
+  Behavior:
+    Speed: 8
+    DoesOscillation: 1
+    OscillationAmplitude: 0.2
+    OscillationFrequency: 5
+    DoesHoming: 0
+    MaxHomingDistance: 0
+    HomingNearTurnRate: 0
+    HomingFarmTurnRate: 0
+    AdditionalTurnRate: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 7086342129546166272
+      type: {class: RainbowLight, ns: Quinn.MissileSystem.CustomBehaviors, asm: Assembly-CSharp}
+      data:
+        Gradient:
+          serializedVersion: 2
+          key0: {r: 1, g: 0.41084307, b: 0, a: 1}
+          key1: {r: 0.48235294, g: 0.06771058, b: 0, a: 1}
+          key2: {r: 0.52156866, g: 0, b: 0.29430258, a: 0}
+          key3: {r: 1, g: 0.34996116, b: 0, a: 0}
+          key4: {r: 0, g: 0, b: 0, a: 0}
+          key5: {r: 0, g: 0, b: 0, a: 0}
+          key6: {r: 0, g: 0, b: 0, a: 0}
+          key7: {r: 0, g: 0, b: 0, a: 0}
+          ctime0: 0
+          ctime1: 21203
+          ctime2: 47417
+          ctime3: 65535
+          ctime4: 0
+          ctime5: 0
+          ctime6: 0
+          ctime7: 0
+          atime0: 0
+          atime1: 65535
+          atime2: 0
+          atime3: 0
+          atime4: 0
+          atime5: 0
+          atime6: 0
+          atime7: 0
+          m_Mode: 2
+          m_ColorSpace: 0
+          m_NumColorKeys: 4
+          m_NumAlphaKeys: 2
+        Speed: 5

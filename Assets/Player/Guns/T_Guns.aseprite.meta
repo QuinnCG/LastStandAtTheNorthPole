@@ -136,7 +136,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 4
+      y: 19
       width: 11
       height: 3
     spriteID: 124c3b26ec64de14f949741c6abfeb50
@@ -147,7 +147,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
+    uvTransform: {x: 4, y: 19}
   - name: DummyGun
     originalName: 
     pivot: {x: 0.42857146, y: 0.5}
@@ -156,8 +156,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
-      y: 15
+      x: 17
+      y: 30
       width: 7
       height: 4
     spriteID: 8aa64369568231140a9654cfde2665fc
@@ -168,7 +168,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 15}
+    uvTransform: {x: 17, y: 30}
   - name: Ammo_DummyGun
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -177,8 +177,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
-      y: 27
+      x: 32
+      y: 30
       width: 4
       height: 4
     spriteID: cb4b2bf069d462e4e85d7bf44491ada2
@@ -189,7 +189,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 27}
+    uvTransform: {x: 32, y: 30}
   - name: Ammo_CandyCaneLauncher
     originalName: 
     pivot: {x: 0.33333334, y: 0.5}
@@ -198,8 +198,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
-      y: 52
+      x: 25
+      y: 44
       width: 3
       height: 2
     spriteID: ef6895f68bf3b0c48bd558914c3cfa7c
@@ -210,7 +210,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 52}
+    uvTransform: {x: 25, y: 44}
   - name: Candle
     originalName: 
     pivot: {x: 0, y: 0.6}
@@ -219,8 +219,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
-      y: 39
+      x: 15
+      y: 44
       width: 2
       height: 5
     spriteID: ec057918885729849871f7c5ae5247a8
@@ -231,7 +231,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 39}
+    uvTransform: {x: 15, y: 44}
   - name: Ammo_Candle
     originalName: 
     pivot: {x: 0.33333334, y: 0.6666667}
@@ -240,8 +240,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 23
-      y: 4
+      x: 4
+      y: 56
       width: 3
       height: 3
     spriteID: 3fce3056d9d81d04db7902e0a17b3dd0
@@ -252,7 +252,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 23, y: 4}
+    uvTransform: {x: 4, y: 56}
   - name: OrnamentLauncher
     originalName: 
     pivot: {x: 0.25, y: 0.33333334}
@@ -261,7 +261,7 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
+      x: 21
       y: 4
       width: 8
       height: 6
@@ -273,7 +273,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
+    uvTransform: {x: 21, y: 4}
   - name: Ornament_01
     originalName: 
     pivot: {x: 0.33333334, y: 0.25}
@@ -282,8 +282,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
-      y: 41
+      x: 44
+      y: 30
       width: 3
       height: 4
     spriteID: 48bd6ad61b2686d4b9197af9d4441876
@@ -294,7 +294,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 41}
+    uvTransform: {x: 44, y: 30}
   - name: Ornament_02
     originalName: 
     pivot: {x: 0.33333334, y: 0.25}
@@ -303,8 +303,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
-      y: 53
+      x: 55
+      y: 30
       width: 3
       height: 4
     spriteID: c7caff0ea47ddd143a40f0f5e5261164
@@ -315,7 +315,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 53}
+    uvTransform: {x: 55, y: 30}
   - name: Ornament_03
     originalName: 
     pivot: {x: 0.33333334, y: 0.25}
@@ -324,8 +324,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 23
-      y: 18
+      x: 4
+      y: 44
       width: 3
       height: 4
     spriteID: 908884f88595a72478287ce2d2d64d4b
@@ -336,7 +336,91 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 23, y: 18}
+    uvTransform: {x: 4, y: 44}
+  - name: PresentLauncher
+    originalName: 
+    pivot: {x: 0.44444445, y: 0.42857146}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 9
+      height: 7
+    spriteID: 81c9cfa88d74e9c46a23cdd0ee348615
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Present_01
+    originalName: 
+    pivot: {x: 0.4, y: 0.33333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 30
+      width: 5
+      height: 6
+    spriteID: 29280590db8818a42bd859750b5d3ceb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 30}
+  - name: Present_02
+    originalName: 
+    pivot: {x: 0.4, y: 0.2857143}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 37
+      y: 4
+      width: 5
+      height: 7
+    spriteID: 0f44ff4bdbd38bf46a0b53513df2f5df
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 37, y: 4}
+  - name: Present_03
+    originalName: 
+    pivot: {x: 0.4, y: 0.2857143}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 50
+      y: 4
+      width: 5
+      height: 7
+    spriteID: 879c085e9db8ccb4a8a8a56782b20e0c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 50, y: 4}
   spriteSheetImportData: []
   tileSetImportData: []
   asepriteLayers:
@@ -590,6 +674,106 @@ ScriptedImporter:
     tileCells: []
     tileSetIndex: 0
     parentIndex: -1
+  - layerIndex: 13
+    uuid:
+      value0: 500439581
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: PresentLauncher
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: PresentLauncher
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 4
+        y: 5
+        width: 9
+        height: 7
+      spriteId: 81c9cfa88d74e9c46a23cdd0ee348615
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 10
+    uuid:
+      value0: 4175624005
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Present_01
+    layerFlags: 2
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Present_01
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 6
+        width: 5
+        height: 6
+      spriteId: 29280590db8818a42bd859750b5d3ceb
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 11
+    uuid:
+      value0: 283941236
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Present_02
+    layerFlags: 2
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Present_02
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 6
+        width: 5
+        height: 7
+      spriteId: 0f44ff4bdbd38bf46a0b53513df2f5df
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 12
+    uuid:
+      value0: 3012824591
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Present_03
+    layerFlags: 2
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Present_03
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 6
+        width: 5
+        height: 7
+      spriteId: 879c085e9db8ccb4a8a8a56782b20e0c
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
   tileSets: []
   platformSettings:
   - name: DefaultTexturePlatform
@@ -620,4 +804,4 @@ ScriptedImporter:
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 16, y: 16}
-  previousTextureSize: {x: 32, y: 64}
+  previousTextureSize: {x: 64, y: 64}

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b4d82db8544ca946bbea7884090ebdb, type: 3}
+  m_Name: PresentLauncher
+  m_EditorClassIdentifier: Assembly-CSharp::Quinn.UI.UpgradeSO
+  MaxAppearanceCount: 0
+  Icon: {fileID: -6142462325359683771, guid: c0ac8ad2e0aa9b147b702052610a2d67, type: 3}
+  Details: Big surprises come in little packages
+  Upgrade:
+    rid: 7086342126418526328
+  references:
+    version: 2
+    RefIds:
+    - rid: 7086342126418526328
+      type: {class: WeaponUpgrade, ns: Quinn.PlayerSystem.Upgrades, asm: Assembly-CSharp}
+      data:
+        SelfSO: {fileID: 11400000}
+        GunPrefab: {fileID: 8661133703519739103, guid: 4e71414baf5c80341bb0f66e1d6a961e, type: 3}

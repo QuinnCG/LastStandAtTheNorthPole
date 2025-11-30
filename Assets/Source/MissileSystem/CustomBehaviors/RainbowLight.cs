@@ -19,6 +19,9 @@ namespace Quinn.MissileSystem.CustomBehaviors
 
         public override void OnUpdate()
         {
+            if (_light == null || Gradient == null)
+                return;
+
             _light!.color = Gradient.Evaluate(Time.time * Speed);
         }
 	}

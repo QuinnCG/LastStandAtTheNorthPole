@@ -1,3 +1,5 @@
+using FMOD.Studio;
+using FMODUnity;
 using Quinn.DamageSystem;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -27,6 +29,8 @@ namespace Quinn.MissileSystem
 		private Vector2 _lastPhysicsPos;
 		private Transform? _trail;
 
+		private EventInstance _loopSound;
+
 		private void OnDestroy()
 		{
 			OnDeath?.Invoke();
@@ -34,6 +38,14 @@ namespace Quinn.MissileSystem
 
         private void LateUpdate()
         {
+			if (this != null && gameObject != null)
+			{
+				foreach (var behavior in Data!.CustomBehaviors)
+				{
+					behavior.OnUpdate();
+				}
+			}
+
 			if (Data!.RotateToVelocity)
 			{
 				Vector2 deltaPos = (Vector2)transform.position - _lastPhysicsPos;
@@ -42,15 +54,16 @@ namespace Quinn.MissileSystem
 
 				transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 			}
-
-			foreach (var behavior in Data!.CustomBehaviors)
-			{
-				behavior.OnUpdate();
-			}
 		}
 
         public void Init(Vector2 dir, MissileData data)
 		{
+			if (data == null)
+			{
+				Log.Error($"Missile has been given null data!");
+				return;
+			}
+
 			_startPos = transform.position;
 
 			Data = data;
@@ -99,6 +112,13 @@ namespace Quinn.MissileSystem
 			foreach (var behavior in Data.CustomBehaviors)
 			{
 				behavior.OnSpawn(this);
+			}
+
+			if (!data!.LoopSound.IsNull)
+			{
+				_loopSound = Audio.Create(data!.LoopSound);
+				RuntimeManager.AttachInstanceToGameObject(_loopSound, gameObject, true);
+				_loopSound.start();
 			}
 		}
 
@@ -183,6 +203,12 @@ namespace Quinn.MissileSystem
 
 		public void Kill()
 		{
+			if (_loopSound.isValid())
+			{
+				_loopSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+				_loopSound.release();
+			}
+
 			foreach (var behavior in Data!.CustomBehaviors)
 			{
 				behavior.OnDestroy();

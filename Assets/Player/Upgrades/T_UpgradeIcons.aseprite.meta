@@ -274,6 +274,48 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 84, y: 4}
+  - name: OrnamentLauncher
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 84
+      y: 44
+      width: 32
+      height: 32
+    spriteID: bb01f1b4798b90a4b99bf2fbfeb505ad
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 84, y: 44}
+  - name: PresentLauncher
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 84
+      y: 84
+      width: 32
+      height: 32
+    spriteID: ca3f1514986503647a56b4015029164b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 84, y: 84}
   spriteSheetImportData: []
   tileSetImportData: []
   asepriteLayers:
@@ -448,6 +490,56 @@ ScriptedImporter:
         width: 32
         height: 32
       spriteId: 115fb28f461ba824c8919699dc503e67
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 7
+    uuid:
+      value0: 4280061650
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: OrnamentLauncher
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: OrnamentLauncher
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      spriteId: bb01f1b4798b90a4b99bf2fbfeb505ad
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  - layerIndex: 8
+    uuid:
+      value0: 500439581
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: PresentLauncher
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: PresentLauncher
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      spriteId: ca3f1514986503647a56b4015029164b
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
