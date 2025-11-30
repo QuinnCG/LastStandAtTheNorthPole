@@ -233,7 +233,7 @@ MonoBehaviour:
   StartingUpgrades:
   - {fileID: 11400000, guid: 4c63400085de72648a217a1e1563b622, type: 2}
   - {fileID: 11400000, guid: 99cc9b4f080fcb54480e74cfe61db4c4, type: 2}
-  - {fileID: 11400000, guid: f21c7d216625cf9449a194530aafe1be, type: 2}
+  - {fileID: 11400000, guid: 52ee36b49cdbd5d4a87ccb738d5ccedc, type: 2}
   AllUpgrades:
   - {fileID: 11400000, guid: 61f314007c7ee0d42a28b009680e8238, type: 2}
   - {fileID: 11400000, guid: 52ee36b49cdbd5d4a87ccb738d5ccedc, type: 2}
@@ -687,7 +687,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'v0.2b
+  m_text: 'v0.3b
 
     u6000.2.14f1'
   m_isRightToLeft: 0

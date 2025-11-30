@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72743b5e6fa2f20499654dd39777e36c, type: 3}
   m_Name: CandyCaneMissile
   m_EditorClassIdentifier: Assembly-CSharp::Quinn.MissileSystem.MissileData
+  CustomBehaviors: []
   Sprite: {fileID: -5047638687557803358, guid: ed582cd4129a58d44980288ae33e8d20, type: 3}
+  RandomSprites: []
   CollisionRadius: 0.3
   TrailSpawnRate: 0
   HasLight: 0
@@ -36,8 +38,15 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
+  LoopSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   Team: 0
-  Damage: 3
+  Damage: 6
   Knockback: 3
   StatusEffects: []
   RotateToVelocity: 1
@@ -53,3 +62,6 @@ MonoBehaviour:
     HomingNearTurnRate: 0
     HomingFarmTurnRate: 0
     AdditionalTurnRate: 0
+  references:
+    version: 2
+    RefIds: []

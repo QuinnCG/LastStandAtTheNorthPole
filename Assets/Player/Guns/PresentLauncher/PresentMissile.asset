@@ -51,7 +51,7 @@ MonoBehaviour:
     Path: event:/Player/Guns/PresentLoop
   Team: 0
   Damage: 25
-  Knockback: 0
+  Knockback: 15
   StatusEffects: []
   RotateToVelocity: 0
   DestoryOnCharacterHit: 1

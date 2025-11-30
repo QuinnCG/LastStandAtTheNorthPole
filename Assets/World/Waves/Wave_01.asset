@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wave_01
   m_EditorClassIdentifier: Assembly-CSharp::Quinn.WaveProfile
   SpawnInterval: {x: 20, y: 30}
-  SubWaveCount: {x: 2, y: 2}
+  SubWaveCount: {x: 2, y: 4}
   SpawnDefinitions:
   - Prefab: {fileID: 566252250096027466, guid: 51488fcf85f64c24aadacfc68628fb6f, type: 3}
     BaseSpawnCount: {x: 1, y: 3}

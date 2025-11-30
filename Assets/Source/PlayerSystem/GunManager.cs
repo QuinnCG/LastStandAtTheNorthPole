@@ -104,6 +104,7 @@ namespace Quinn.PlayerSystem
 			EquippedGunUpgradeSO = gunUpgradeSO;
 
 			Equipped = gun!.GunPrefab!.gameObject.Clone<Gun>(GunHandle);
+			Magazine = 0;
 			ReplenishMagazine();
 
 			EquippedMultiplier = CurrentWaveStatMultiplier;

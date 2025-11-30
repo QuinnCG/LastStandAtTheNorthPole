@@ -590,9 +590,9 @@ MonoBehaviour:
   LargeSnowball:
     Missile: {fileID: 11400000, guid: 94c739b54c6b2794b8103032efd546b6, type: 2}
     Pattern:
-      Count: 3
+      Count: 8
       IsRandom: 0
-      SpreadType: 0
+      SpreadType: 1
       ArcSpread: 45
   LargeSnowballFireVFX: {fileID: 6326410000449809821}
   LargeSnowballFireSound:

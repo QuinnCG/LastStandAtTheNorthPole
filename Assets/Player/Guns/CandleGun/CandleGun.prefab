@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -920180030026477806, guid: 41d9a782396302d459c2c88e8a6de2fc, type: 3}
+      propertyPath: AmmoUI
+      value: 
+      objectReference: {fileID: 8704944872483882689, guid: ed582cd4129a58d44980288ae33e8d20, type: 3}
+    - target: {fileID: -920180030026477806, guid: 41d9a782396302d459c2c88e8a6de2fc, type: 3}
       propertyPath: FireInterval
       value: 0.02
       objectReference: {fileID: 0}

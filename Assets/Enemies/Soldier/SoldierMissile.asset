@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72743b5e6fa2f20499654dd39777e36c, type: 3}
+  m_Name: SoldierMissile
+  m_EditorClassIdentifier: Assembly-CSharp::Quinn.MissileSystem.MissileData
+  CustomBehaviors: []
+  Sprite: {fileID: -3081494980050754980, guid: e5d479d54ef61d54ca524e8b36f765f3, type: 3}
+  RandomSprites: []
+  CollisionRadius: 0.2
+  TrailSpawnRate: 12
+  HasLight: 1
+  LightRadius: 5
+  LightIntensity: 0.3
+  LightColor: {r: 1, g: 0.5170327, b: 0, a: 1}
+  TrailVFX: {fileID: 4497154037664662337, guid: 37b76c8b61b789840a8064b7cc075003, type: 3}
+  TrailLifePostDetach: 3
+  DeathVFX: {fileID: 4497154037664662337, guid: 4d654b8cf1594d8498ef56a60886eae9, type: 3}
+  DeathSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  HitSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  LoopSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  Team: 1
+  Damage: 1
+  Knockback: 12
+  StatusEffects: []
+  RotateToVelocity: 0
+  DestoryOnCharacterHit: 1
+  DestoryOnObstacleHit: 1
+  Behavior:
+    Speed: 8
+    DoesOscillation: 0
+    OscillationAmplitude: 0
+    OscillationFrequency: 0
+    DoesHoming: 0
+    MaxHomingDistance: 0
+    HomingNearTurnRate: 0
+    HomingFarmTurnRate: 0
+    AdditionalTurnRate: 0
+  references:
+    version: 2
+    RefIds: []
