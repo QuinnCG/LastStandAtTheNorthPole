@@ -27,6 +27,11 @@ namespace Quinn.PlayerSystem
 		public Bounds Hitbox => _hitbox.bounds;
 		public Vector2 Velocity => _movement.Velocity;
 
+		[SerializeField, Required]
+		private Transform CamTarget;
+		[SerializeField]
+		private float CamTargetLerpT = 0.1f;
+
 		[SerializeField]
 		private float DashSpeed = 12f, DashDistance = 3f, DashCooldown = 0.5f;
 		[SerializeField]
@@ -102,6 +107,9 @@ namespace Quinn.PlayerSystem
 			}
 
 			SnowVFX.SetFloat("BaseSpawnRate", Mathf.Min(WaveManager.Instance.WaveNumber * SnowSpawnRatePerWaveFactor, MaxSnowSpawnRate));
+
+			// Camera target.
+			CamTarget.position = Vector2.Lerp(_hitbox.bounds.center, CrosshairManager.Position, CamTargetLerpT);
 		}
 
 		private void OnDestroy()

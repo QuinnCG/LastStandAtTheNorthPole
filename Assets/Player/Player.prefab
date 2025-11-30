@@ -141,6 +141,7 @@ Transform:
   - {fileID: 5533730925510843009}
   - {fileID: 1175534567620988422}
   - {fileID: 3928610540182445215}
+  - {fileID: 4990964536098265508}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3472399652548140284
@@ -299,6 +300,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 925807db3f501234a97ca806c2326541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Quinn.Player
+  CamTarget: {fileID: 4990964536098265508}
+  CamTargetLerpT: 0.1
   DashSpeed: 14
   DashDistance: 3
   DashCooldown: 0.8
@@ -437,14 +440,23 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 0
+      time: 1
+      value: 0.5
       inSlope: 0.2
-      outSlope: 0.5004926
+      outSlope: 0.14188363
       tangentMode: 1
       weightedMode: 3
       inWeight: 0
-      outWeight: 0.20706913
+      outWeight: 1
+    - serializedVersion: 3
+      time: 2
+      value: 1
+      inSlope: 0.35228983
+      outSlope: 0.65167767
+      tangentMode: 1
+      weightedMode: 3
+      inWeight: 0.33233127
+      outWeight: 0.1335567
     - serializedVersion: 3
       time: 15
       value: 3
@@ -452,7 +464,7 @@ MonoBehaviour:
       outSlope: 0.2
       tangentMode: 1
       weightedMode: 3
-      inWeight: 0.52342457
+      inWeight: 0.51716596
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -997,6 +1009,37 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!1 &5406791030953812620
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4990964536098265508}
+  m_Layer: 7
+  m_Name: CamTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4990964536098265508
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5406791030953812620}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 97828287179417443}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6229348745742956152
 GameObject:
   m_ObjectHideFlags: 0
