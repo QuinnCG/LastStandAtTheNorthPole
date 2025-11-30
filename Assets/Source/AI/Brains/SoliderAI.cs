@@ -1,4 +1,5 @@
 using FMODUnity;
+using Quinn.DamageSystem;
 using Quinn.MissileSystem;
 using System.Collections;
 using UnityEngine;
@@ -19,6 +20,8 @@ namespace Quinn.AI.Brains
 
 		[SerializeField]
 		private EventReference FootstepSound, AimSound, FireSound;
+		[SerializeField]
+		private StudioEventEmitter AmbienceEmitter;
 
         protected override void OnRegisterSequences()
         {
@@ -74,5 +77,11 @@ namespace Quinn.AI.Brains
 		{
 			Audio.Play(FootstepSound, transform.position);
 		}
+
+        protected override void OnDeath(DamageInstance instance)
+        {
+			AmbienceEmitter.gameObject.Destroy();
+            base.OnDeath(instance);
+        }
 	}
 }

@@ -626,3 +626,4 @@ MonoBehaviour:
       Data3: 1465656743
       Data4: 325063527
     Path: event:/Enemies/Soldier/Fire
+  AmbienceEmitter: {fileID: 2507680200586339473}

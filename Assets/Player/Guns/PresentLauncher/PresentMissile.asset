@@ -50,7 +50,7 @@ MonoBehaviour:
       Data4: -590821483
     Path: event:/Player/Guns/PresentLoop
   Team: 0
-  Damage: 25
+  Damage: 45
   Knockback: 15
   StatusEffects: []
   RotateToVelocity: 0

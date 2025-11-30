@@ -335,8 +335,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b314092d5ca4ead44bfacce6460442b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Quinn.MovementSystem.CharacterMovement
-  DefaultMoveSpeed: 4
-  KnockbackDecayRate: 64
+  DefaultMoveSpeed: 3
+  KnockbackDecayRate: 128
 --- !u!114 &3315685873996508411
 MonoBehaviour:
   m_ObjectHideFlags: 0

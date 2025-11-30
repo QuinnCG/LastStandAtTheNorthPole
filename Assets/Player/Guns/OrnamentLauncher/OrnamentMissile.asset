@@ -50,7 +50,7 @@ MonoBehaviour:
       Data4: 0
     Path: 
   Team: 0
-  Damage: 4
+  Damage: 5
   Knockback: 4
   StatusEffects: []
   RotateToVelocity: 0
