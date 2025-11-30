@@ -1,7 +1,10 @@
 ﻿using Quinn.UI;
 using Quinn.WaveSystem;
 using Sirenix.OdinInspector;
+using System;
+using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Quinn.PlayerSystem
 {
@@ -22,14 +25,22 @@ namespace Quinn.PlayerSystem
 		{
 			Instance = this;
 			InUpgradeSequence = true;
+
+			SceneManager.sceneLoaded += OnSceneLoaded;
 		}
 
-		private void Start()
-		{
+        private void OnDestroy()
+        {
+			SceneManager.sceneLoaded -= OnSceneLoaded;
+		}
+
+        private async void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+			await Wait.Until(() => UpgradeUI.Instance != null);
 			UpgradeUI.Instance.OnUpgradeSelected += OnUpgradeSelected;
 		}
 
-		private void OnUpgradeSelected(UpgradeSO upgrade)
+        private void OnUpgradeSelected(UpgradeSO upgrade)
 		{
 			_upgradeSelected = true;
 			upgrade.Upgrade.ApplyUpgrade();

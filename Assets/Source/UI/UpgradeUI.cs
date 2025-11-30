@@ -43,6 +43,8 @@ namespace Quinn.UI
 
 		private void OnDestroy()
 		{
+			Instance = null;
+
 			if (InputManager.Instance != null)
 			{
 				InputManager.Instance.UnblockInput(this);

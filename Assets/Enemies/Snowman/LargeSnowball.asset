@@ -37,9 +37,10 @@ MonoBehaviour:
       Data4: -676785511
     Path: event:/Enemies/Snowman/SnowballHit
   Team: 1
-  Damage: 1
+  Damage: 2
   Knockback: 16
   StatusEffects: []
+  RotateToVelocity: 0
   DestoryOnCharacterHit: 1
   DestoryOnObstacleHit: 1
   Behavior:

@@ -1,4 +1,5 @@
 using DG.Tweening;
+using NUnit.Framework.Constraints;
 using QFSW.QC;
 using Quinn.MissileSystem;
 using Quinn.MovementSystem;
@@ -15,7 +16,7 @@ namespace Quinn.PlayerSystem
 		public static GunManager Instance { get; private set; }
 
 		[SerializeField]
-		private float StatMultiplierDivisor = 10f;
+		private AnimationCurve WaveToStatGraph = new();
 
 		[Space]
 
@@ -43,9 +44,8 @@ namespace Quinn.PlayerSystem
 		{
 			get
 			{
-				int wave = WaveManager.Instance.WaveNumber;
-				float index = (wave - 1) / StatMultiplierDivisor;
-				return Mathf.Pow(wave, index);
+				float t = WaveManager.Instance.WaveNumber;
+				return WaveToStatGraph.Evaluate(t);
 			}
 		}
 		/// <summary>

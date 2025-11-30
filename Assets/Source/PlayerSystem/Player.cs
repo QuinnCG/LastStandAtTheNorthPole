@@ -41,6 +41,8 @@ namespace Quinn.PlayerSystem
 		private Light2D[] AuraLights;
 		[SerializeField, Required]
 		private VisualEffect SnowVFX;
+		[SerializeField]
+		private float SnowSpawnRatePerWaveFactor = 16f, MaxSnowSpawnRate = 300f;
 
 		public bool IsDashing { get; private set; }
 
@@ -98,6 +100,8 @@ namespace Quinn.PlayerSystem
 				var dir = GetAimDir();
 				_movement.SetFacingDirection(dir.x);
 			}
+
+			SnowVFX.SetFloat("BaseSpawnRate", Mathf.Min(WaveManager.Instance.WaveNumber * SnowSpawnRatePerWaveFactor, MaxSnowSpawnRate));
 		}
 
 		private void OnDestroy()

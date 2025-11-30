@@ -318,6 +318,8 @@ MonoBehaviour:
   - {fileID: 8825763127507662464}
   - {fileID: 1020942878725070031}
   SnowVFX: {fileID: 8127779749230753032}
+  SnowSpawnRatePerWaveFactor: 16
+  MaxSnowSpawnRate: 300
 --- !u!114 &5531591138259948478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -431,7 +433,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bda69fdcd2761924aacc99c795301c87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Quinn.PlayerSystem.GunManager
-  StatMultiplierDivisor: 10
+  WaveToStatGraph:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.2
+      outSlope: 0.5004926
+      tangentMode: 1
+      weightedMode: 3
+      inWeight: 0
+      outWeight: 0.20706913
+    - serializedVersion: 3
+      time: 15
+      value: 3
+      inSlope: 0.0010353153
+      outSlope: 0.2
+      tangentMode: 1
+      weightedMode: 3
+      inWeight: 0.52342457
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   MuzzleFlashFadeTime: 0.1
   MuzzleFlashEase: 3
   GunHandle: {fileID: 2469417757760871553}
