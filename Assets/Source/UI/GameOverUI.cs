@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Quinn.WaveSystem;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -15,6 +16,8 @@ namespace Quinn.UI
 		private Image Spacer;
 		[SerializeField, Required]
 		private Image RetryButton, QuitButton;
+		[SerializeField]
+		private TextMeshProUGUI WavesSurvived;
 
 		public void Start()
 		{

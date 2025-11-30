@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Quinn.WaveSystem;
+using TMPro;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Quinn.UI
@@ -7,11 +9,15 @@ namespace Quinn.UI
 	{
 		[SerializeField]
 		private float FadeInTime = 1f, FadeOutTime = 1f;
+		[SerializeField]
+		private TextMeshProUGUI WavesSurvived;
 
 		private bool _buttonPressed;
 
 		private async void Awake()
 		{
+			WavesSurvived.text = $"Waves Survived: {WaveManager.Instance.LastWaveNumber}!";
+
 			InputManager.Instance.RegisterShowCursor(this);
 			await TransitionManager.Instance.FadeFromBlackAsync(FadeInTime);
 		}

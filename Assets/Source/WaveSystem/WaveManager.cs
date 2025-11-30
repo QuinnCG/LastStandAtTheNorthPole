@@ -56,6 +56,8 @@ namespace Quinn.WaveSystem
 			}
 		}
 
+		public int LastWaveNumber { get; private set;  }
+
 		private readonly HashSet<Collider2D> _aliveEnemies = new();
 		private bool _forceStartNextSubWave;
 
@@ -71,6 +73,7 @@ namespace Quinn.WaveSystem
 
 			WaveDifficultyFactor += WaveDifficultyDelta;
 			WaveNumber++;
+			LastWaveNumber = WaveNumber;
 
 			await UpgradeManager.Instance.BeginUpgradeSequenceAsync();
 			await Wait.Duration(WaveStartDelay);
@@ -140,6 +143,9 @@ namespace Quinn.WaveSystem
 		{
 			for (int i = 0; i < count; i++)
 			{
+				if (Player.Instance == null)
+					return;
+
 				var dir = Quaternion.AngleAxis(Random.Range(0f, 360f), Vector3.forward) * Vector2.up;
 				var pos = Player.Instance.transform.position + (dir * PlayerNoSpawnRadius);
 
