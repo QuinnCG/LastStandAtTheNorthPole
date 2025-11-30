@@ -199,7 +199,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 39
+      y: 52
       width: 3
       height: 2
     spriteID: ef6895f68bf3b0c48bd558914c3cfa7c
@@ -210,7 +210,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 39}
+    uvTransform: {x: 4, y: 52}
   - name: Candle
     originalName: 
     pivot: {x: 0, y: 0.6}
@@ -220,8 +220,8 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 49
-      width: 1
+      y: 39
+      width: 2
       height: 5
     spriteID: ec057918885729849871f7c5ae5247a8
     spriteBone: []
@@ -231,7 +231,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 49}
+    uvTransform: {x: 4, y: 39}
   - name: Ammo_Candle
     originalName: 
     pivot: {x: 0.33333334, y: 0.6666667}
@@ -374,7 +374,7 @@ ScriptedImporter:
       cellRect:
         x: 8
         y: 5
-        width: 1
+        width: 2
         height: 5
       spriteId: ec057918885729849871f7c5ae5247a8
     linkedCells: []
