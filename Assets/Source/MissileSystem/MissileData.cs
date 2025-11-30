@@ -8,8 +8,12 @@ namespace Quinn.MissileSystem
 	[CreateAssetMenu]
 	public class MissileData : ScriptableObject
 	{
+		[Header("Custom Behaviors"), SerializeReference, InlineProperty, HideLabel]
+		public CustomMissileBehavior[] CustomBehaviors = System.Array.Empty<CustomMissileBehavior>();
+
 		[Header("Visuals")]
 		public Sprite Sprite;
+		public Sprite[] RandomSprites;
 		public float CollisionRadius = 0.3f;
 		public float TrailSpawnRate = 8f;
 

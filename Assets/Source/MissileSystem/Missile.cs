@@ -42,6 +42,11 @@ namespace Quinn.MissileSystem
 
 				transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 			}
+
+			foreach (var behavior in Data!.CustomBehaviors)
+			{
+				behavior.OnUpdate();
+			}
 		}
 
         public void Init(Vector2 dir, MissileData data)
@@ -51,9 +56,20 @@ namespace Quinn.MissileSystem
 			Data = data;
 			Direction = dir.normalized;
 
+			Sprite sprite;
+
+			if (data.RandomSprites != null && data.RandomSprites.Length > 0)
+			{
+				sprite = data.RandomSprites.GetRandom();
+			}
+			else
+			{
+				sprite = data.Sprite;
+			}
+
 			var renderer = GetComponent<SpriteRenderer>();
-			renderer.enabled = data.Sprite != null;
-			renderer.sprite = data.Sprite;
+			renderer.enabled = sprite != null;
+			renderer.sprite = sprite;
 
 			_lastPhysicsPos = transform.position;
 
@@ -79,9 +95,14 @@ namespace Quinn.MissileSystem
 			{
 				Light.Destroy();
 			}
+
+			foreach (var behavior in Data.CustomBehaviors)
+			{
+				behavior.OnSpawn(this);
+			}
 		}
 
-		public void PhysicsUpdate()
+        public void PhysicsUpdate()
 		{
 			Vector2 deltaPos = (Vector2)transform.position - _lastPhysicsPos;
 			var hit = Physics2D.CircleCast(_lastPhysicsPos, Data!.CollisionRadius, deltaPos.normalized, deltaPos.magnitude, CompositeMask);
@@ -122,6 +143,11 @@ namespace Quinn.MissileSystem
 					if (hitObstacle)
 					{
 						Audio.Play(Data!.HitSound, transform.position);
+
+						foreach (var behavior in Data!.CustomBehaviors)
+						{
+							behavior.OnHit(hit.collider.gameObject);
+						}
 					}
 
 					Kill();
@@ -157,6 +183,11 @@ namespace Quinn.MissileSystem
 
 		public void Kill()
 		{
+			foreach (var behavior in Data!.CustomBehaviors)
+			{
+				behavior.OnDestroy();
+			}
+
 			Audio.Play(Data!.DeathSound, transform.position);
 
 			MissileManager.Instance.DestroyMissile(this);

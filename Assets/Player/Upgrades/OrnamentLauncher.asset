@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b4d82db8544ca946bbea7884090ebdb, type: 3}
+  m_Name: OrnamentLauncher
+  m_EditorClassIdentifier: Assembly-CSharp::Quinn.UI.UpgradeSO
+  MaxAppearanceCount: 0
+  Icon: {fileID: -5735065315443987552, guid: c0ac8ad2e0aa9b147b702052610a2d67, type: 3}
+  Details: Festivities for EVERYONE!
+  Upgrade:
+    rid: 7086342126418526328
+  references:
+    version: 2
+    RefIds:
+    - rid: 7086342126418526328
+      type: {class: WeaponUpgrade, ns: Quinn.PlayerSystem.Upgrades, asm: Assembly-CSharp}
+      data:
+        SelfSO: {fileID: 11400000}
+        GunPrefab: {fileID: 7548422567117801207, guid: a5876742772123845ae68559cb918cff, type: 3}

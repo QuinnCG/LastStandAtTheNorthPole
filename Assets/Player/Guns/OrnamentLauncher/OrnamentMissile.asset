@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72743b5e6fa2f20499654dd39777e36c, type: 3}
+  m_Name: OrnamentMissile
+  m_EditorClassIdentifier: Assembly-CSharp::Quinn.MissileSystem.MissileData
+  CustomBehaviors:
+  - rid: 7086342129080074331
+  Sprite: {fileID: 0}
+  RandomSprites:
+  - {fileID: -4986218665473176990, guid: ed582cd4129a58d44980288ae33e8d20, type: 3}
+  - {fileID: -8603017795222310571, guid: ed582cd4129a58d44980288ae33e8d20, type: 3}
+  - {fileID: 8760724271964051523, guid: ed582cd4129a58d44980288ae33e8d20, type: 3}
+  CollisionRadius: 0.3
+  TrailSpawnRate: 8
+  HasLight: 1
+  LightRadius: 3
+  LightIntensity: 0.1
+  LightColor: {r: 1, g: 0.7709688, b: 0, a: 1}
+  TrailVFX: {fileID: 8915051073612879842, guid: 6ed409e4d64562a48bf5f284eb6acc92, type: 3}
+  TrailLifePostDetach: 3
+  DeathVFX: {fileID: 5201920735538608020, guid: ce217a0dfeed2aa4b9ea446c5c41d9ee, type: 3}
+  DeathSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  HitSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  Team: 0
+  Damage: 4
+  Knockback: 7
+  StatusEffects: []
+  RotateToVelocity: 0
+  DestoryOnCharacterHit: 1
+  DestoryOnObstacleHit: 1
+  Behavior:
+    Speed: 5
+    DoesOscillation: 0
+    OscillationAmplitude: 0
+    OscillationFrequency: 0
+    DoesHoming: 0
+    MaxHomingDistance: 0
+    HomingNearTurnRate: 0
+    HomingFarmTurnRate: 0
+    AdditionalTurnRate: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 7086342129080074331
+      type: {class: RainbowLight, ns: Quinn.MissileSystem.CustomBehaviors, asm: Assembly-CSharp}
+      data:
+        Gradient:
+          serializedVersion: 2
+          key0: {r: 1, g: 0, b: 0, a: 1}
+          key1: {r: 1, g: 0, b: 0.9197426, a: 1}
+          key2: {r: 0.11502838, g: 0, b: 1, a: 0}
+          key3: {r: 0, g: 1, b: 0.81185055, a: 0}
+          key4: {r: 0.0249331, g: 1, b: 0, a: 0}
+          key5: {r: 0, g: 0, b: 0, a: 0}
+          key6: {r: 0, g: 0, b: 0, a: 0}
+          key7: {r: 0, g: 0, b: 0, a: 0}
+          ctime0: 0
+          ctime1: 18735
+          ctime2: 35852
+          ctime3: 52814
+          ctime4: 65535
+          ctime5: 0
+          ctime6: 0
+          ctime7: 0
+          atime0: 0
+          atime1: 65535
+          atime2: 0
+          atime3: 0
+          atime4: 0
+          atime5: 0
+          atime6: 0
+          atime7: 0
+          m_Mode: 2
+          m_ColorSpace: 0
+          m_NumColorKeys: 5
+          m_NumAlphaKeys: 2
+        Speed: 5
