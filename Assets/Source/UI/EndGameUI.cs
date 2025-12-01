@@ -16,7 +16,7 @@ namespace Quinn.UI
 
 		private async void Awake()
 		{
-			WavesSurvived.text = $"Waves Survived: {WaveManager.Instance.LastWaveNumber}!";
+			WavesSurvived.text = $"You Made it to Wave {WaveManager.Instance.LastWaveNumber}!";
 
 			InputManager.Instance.RegisterShowCursor(this);
 			await TransitionManager.Instance.FadeFromBlackAsync(FadeInTime);

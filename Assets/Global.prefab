@@ -268,6 +268,8 @@ MonoBehaviour:
     Profile: {fileID: 11400000, guid: 9385783d1d0277f40b7fae6581894aa2, type: 2}
   - MinimumWaveNumber: 10
     Profile: {fileID: 11400000, guid: 7c97624fa2196f34b9335a5a4fd3abd7, type: 2}
+  - MinimumWaveNumber: 15
+    Profile: {fileID: 11400000, guid: 47ebe23a8fa11e3449d8235ce19b9fb4, type: 2}
   StormChangeTime: 2
   WaveStartDelay: 2
 --- !u!114 &4189724061992870740
@@ -687,7 +689,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'v0.3b
+  m_text: 'v1.0
 
     u6000.2.14f1'
   m_isRightToLeft: 0

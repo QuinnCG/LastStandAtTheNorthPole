@@ -81,6 +81,8 @@ namespace Quinn.AI.Brains
         protected override void OnDeath(DamageInstance instance)
         {
 			AmbienceEmitter.gameObject.Destroy();
+			SmokeVFX.Stop();
+
             base.OnDeath(instance);
         }
 	}

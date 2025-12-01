@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -920180030026477806, guid: 41d9a782396302d459c2c88e8a6de2fc, type: 3}
       propertyPath: Missile.Pattern.Count
-      value: 12
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -920180030026477806, guid: 41d9a782396302d459c2c88e8a6de2fc, type: 3}
       propertyPath: ReloadSound.Guid.Data1
@@ -106,7 +106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -920180030026477806, guid: 41d9a782396302d459c2c88e8a6de2fc, type: 3}
       propertyPath: Missile.Pattern.ArcSpread
-      value: 45
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 483453760377956481, guid: 41d9a782396302d459c2c88e8a6de2fc, type: 3}
       propertyPath: m_Name
