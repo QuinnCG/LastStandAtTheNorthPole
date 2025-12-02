@@ -3,6 +3,7 @@ using System.Text;
 using QFSW.QC;
 using QFSW.QC.Suggestors.Tags;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Quinn
 {
@@ -22,7 +23,17 @@ namespace Quinn
 			Console.OnDeactivate += OnClose;
 		}
 
-		private void OnOpen()
+        private void Update()
+        {
+            if (Keyboard.current.f12Key.wasPressedThisFrame)
+			{
+				string path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop) + $"/{System.Guid.NewGuid()}";
+				Log.Info($"Screenshot saved to '{path}'");
+				ScreenCapture.CaptureScreenshot(path);
+			}
+        }
+
+        private void OnOpen()
 		{
 			InputManager.Instance.RegisterShowCursor(this);
 			InputManager.Instance.BlockInput(this);
